@@ -108,7 +108,7 @@ main {
 .login_container > button:hover {
     cursor: pointer;
     background-color: #333;
-    outline: 1px solid var(--clr_primary);
+    outline: 1px solid var--clr_primary;
     color: var(--clr_primary);
     transform: scale(1.125);
 }
