@@ -147,6 +147,7 @@ function makeSignUpPage() {
   const userInput = document.createElement("input");
   userInput.type = "text";
   userInput.placeholder = "username";
+  userInput.name = "username";
   userInput.required = true;
 
   const gradeLabel = document.createElement("label");
@@ -155,6 +156,7 @@ function makeSignUpPage() {
   const gradeInput = document.createElement("input");
   gradeInput.type = "text";
   gradeInput.placeholder = "12";
+  gradeInput.name = "grade";
   gradeInput.required = true;
 
   let td1 = document.createElement("td");
@@ -260,6 +262,7 @@ function makeSignUpPage() {
 
   const fieldInput = document.createElement("input");
   fieldInput.type = "text";
+  fieldInput.name = "field";
   fieldInput.placeholder = "computer sciences";
   fieldInput.required = true;
 
