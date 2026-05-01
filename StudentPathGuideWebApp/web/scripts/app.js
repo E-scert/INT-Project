@@ -54,6 +54,9 @@ function makeLogin() {
     elInput.type = "text";
     btnSubmit.type = "submit";
     
+    //TO get the username to the servlet
+    elInput.name = "username";
+    
     elSignUp.innerHTML = "Don't have an accout? <span class='hightlight'>Sign Up</span>";
     
     divBottom.append(elLabel);
