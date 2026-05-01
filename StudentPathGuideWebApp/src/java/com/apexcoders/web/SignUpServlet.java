@@ -78,7 +78,7 @@ public class SignUpServlet extends HttpServlet {
         sfl.create(stud);
 
         // Forward to next page
-        RequestDispatcher disp = request.getRequestDispatcher("success.jsp");
+        RequestDispatcher disp = request.getRequestDispatcher("dashboard.jsp");
         disp.forward(request, response);
         }catch(InvalidMarksException e){
             
