@@ -27,11 +27,11 @@ public class SignUpServlet extends HttpServlet {
 
     @EJB StudentFacadeLocal sfl;
 
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         try{
+            
         Integer grade = Integer.valueOf(request.getParameter("grade"));
         String username = request.getParameter("username");
         String field = request.getParameter("field");
@@ -76,7 +76,7 @@ public class SignUpServlet extends HttpServlet {
 
         //PERSIST TO DATABASE
         sfl.create(stud);
-
+ 
         // Forward to next page
         RequestDispatcher disp = request.getRequestDispatcher("success.jsp");
         disp.forward(request, response);
@@ -94,6 +94,8 @@ public class SignUpServlet extends HttpServlet {
             RequestDispatcher disp = request.getRequestDispatcher("error.jsp");
             disp.forward(request, response);
         }
+        
+          request.getRequestDispatcher("dashboard.jsp").forward(request, response);
     
 
     }

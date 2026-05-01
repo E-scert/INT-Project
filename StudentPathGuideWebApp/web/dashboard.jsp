@@ -12,18 +12,24 @@
         <title>dashboard Page</title>
     </head>
     <body>
-        
-        <form>
-            <div id="dashboard_container">
-            <div id="dashboard_name">
+
+            <div id="name_container">
                 <table>
                     <tr>
-                        <td>name</td>
-                        <td>grade</td>
+                        <td>${student.name}</td>
+                        <td>${student.grade}</td>
                     </tr>
                 </table>
             </div>
-           
+                    
+                    <div>
+                         <table>
+                       <tr>
+                        <td><a href="/">Update Date</a></td>
+                        <td><a href="/">Jarvis</a></td>
+                      </tr>
+                </table>
+                    </div>
                 <table>
                     <tr>
                         <td><a href="/">Update Date</a></td>
@@ -35,8 +41,8 @@
                 
                 
             </div>
-        </div>
-        </form>
+      
+        
         
     </body>
 </html>

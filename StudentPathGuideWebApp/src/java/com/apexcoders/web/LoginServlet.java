@@ -24,22 +24,6 @@ public class LoginServlet extends HttpServlet {
     @EJB
     private StudentFacadeLocal studentFacade;
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
 
 
     @Override
@@ -51,8 +35,15 @@ public class LoginServlet extends HttpServlet {
         Student student = studentFacade.findByUsername(username);
         
         if(student != null){
-            //the user is found in database        
+            //the user is found in database   
+            
+            
+            
+            
+            
             request.setAttribute("student", student);
+            
+            
             RequestDispatcher rsdisp = request.getRequestDispatcher("dashboard.jsp");
             rsdisp.forward(request, response);
         }else{
@@ -65,9 +56,6 @@ public class LoginServlet extends HttpServlet {
     }
 
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+  
 
 }
