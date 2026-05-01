@@ -62,6 +62,7 @@ function makeLogin() {
     
     // insert class, id, etc
     loginForm.classList.add("main_container");
+    loginForm.setAttribute("method", "post");
    // loginForm.classList.add("hidden");
     loginForm.action = loginInfo.servlet;
     divTop.classList.add("Welcome_container");
@@ -83,12 +84,8 @@ function makeLogin() {
     elLabel.innerText = "Enter Username";
     elInput.type = "text";
     btnSubmit.type = "submit";
-    
-    //TO get the username to the servlet
     elInput.name = "username";
-    
-    //TO get the username to the servlet
-    elInput.name = "username";
+ 
     
     elSignUp.innerHTML = "Don't have an accout? <span class='hightlight' id='toggleSignUp'>Sign Up</span>";
     
@@ -123,6 +120,7 @@ function makeSignUpPage() {
   // CLASSES / ATTRIBUTES
   signUpForm.classList.add("main_container");
   signUpForm.classList.add("info");
+  signUpForm.setAttribute("method", "post");
   //signUpForm.classList.add("hidden");
 
   divTop.classList.add("Welcome_container");
