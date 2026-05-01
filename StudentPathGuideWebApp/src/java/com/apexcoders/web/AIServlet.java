@@ -74,7 +74,7 @@ public class AIServlet extends HttpServlet {
         
         // Send raw response to JSP
         request.setAttribute("aiResponse", result.toString());
-        RequestDispatcher disp = request.getRequestDispatcher("result.jsp");
+        RequestDispatcher disp = request.getRequestDispatcher("chat.jsp");
         disp.forward(request, response);
         
     }

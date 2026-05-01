@@ -18,7 +18,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     /* font */
     --fn_xs: 0.85rem;
     --fn_s: 1.125rem;
-    --fn_m: 1.75rem
+    --fn_m: 1.75rem;
     --fn_l: 2.125rem;
     --fn_xl: 2.87rem;
     
@@ -54,6 +54,7 @@ main {
    background: linear-gradient(191deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 28%, rgba(0, 212, 255, 1) 67%);
 
 }
+
 
 .main_container {
     min-height: 450px;
@@ -164,4 +165,87 @@ main {
 
 .hidden {
     display: none;
+}
+
+
+/* This is styling for the chat page */
+
+#chat_screen {
+     
+    background: linear-gradient(191deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 28%, rgba(0, 212, 255, 1) 67%);
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    padding-bottom: 100px;
+
+
+
+        p {
+            background-color: #6b55bf;
+            color: white;
+            font-size: 1.25rem;
+            padding: 15px;
+            border-radius: 16px;
+            width: min-content;
+            text-wrap: nowrap;
+        }
+        div {
+            margin: 20px 0;
+            padding: 0 15px;
+        }
+        .user_text_container {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+
+
+
+
+
+    .chat {
+        position: fixed;
+        bottom:  10px;
+        width:100%;
+        height: 64px;
+        display: flex;
+        margin: auto;
+        justify-content: center;
+        gap: 15px;
+        
+
+        input {
+            width: 80%;
+            height: 52px;
+            border-radius: 26px;
+            padding-left: 15px;
+            border: none;
+            outline: none;
+            font-size: 1.25rem;
+            color: rgb(119, 115, 115);
+        }
+
+        button {
+            height: 52px;
+            width: 52px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            transition: 0.2s ease-in-out;
+        }
+
+        button:hover {
+            transform: scale(1.125);
+
+        }
+
+        i {
+            font-size: 25px;
+        }
+    }
+
 }

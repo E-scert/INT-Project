@@ -27,7 +27,7 @@
                 <table>
                     <tr>
                         <td><a href="/">Update Date</a></td>
-                        <td><a href="/">Jarvis</a></td>
+                        <td><a href="chat.jsp">Jarvis</a></td>
                     </tr>
                 </table>
 
