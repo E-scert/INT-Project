@@ -6,6 +6,7 @@
 package com.apexcoders.web;
 
 import com.apexcoders.entities.Student;
+import com.apexcoders.exception.InvalidMarksException;
 import com.apexcoders.model.bl.StudentFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -30,7 +31,7 @@ public class SignUpServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
-        
+        try{
         Integer grade = Integer.valueOf(request.getParameter("grade"));
         String username = request.getParameter("username");
         String field = request.getParameter("field");
@@ -41,14 +42,17 @@ public class SignUpServlet extends HttpServlet {
         String subject4 = request.getParameter("subject4");
         String subject5 = request.getParameter("subject5");
         String subject6 = request.getParameter("subject6");
-
+        
         Integer perc1 = Integer.valueOf(request.getParameter("perc1"));
         Integer perc2 = Integer.valueOf(request.getParameter("perc2"));
         Integer perc3 = Integer.valueOf(request.getParameter("perc3"));
         Integer perc4 = Integer.valueOf(request.getParameter("perc4"));
         Integer perc5 = Integer.valueOf(request.getParameter("perc5"));
         Integer perc6 = Integer.valueOf(request.getParameter("perc6"));
-
+        
+        // VALIDATE HERE
+        validateMarks(perc1, perc2, perc3, perc4, perc5, perc6);
+        
         // Create student
         Student stud = new Student();
         stud.setUsername(username);
@@ -76,6 +80,20 @@ public class SignUpServlet extends HttpServlet {
         // Forward to next page
         RequestDispatcher disp = request.getRequestDispatcher("success.jsp");
         disp.forward(request, response);
+        }catch(InvalidMarksException e){
+            
+            // Handle your custom exception
+            request.setAttribute("error", e.getMessage());
+            RequestDispatcher disp = request.getRequestDispatcher("error.jsp");
+            disp.forward(request, response);
+
+        } catch (NumberFormatException e) {
+
+            //Handles non-numeric input like "abc"
+            request.setAttribute("error", "Please enter valid numeric marks.");
+            RequestDispatcher disp = request.getRequestDispatcher("error.jsp");
+            disp.forward(request, response);
+        }
     
 
     }
@@ -95,7 +113,14 @@ public class SignUpServlet extends HttpServlet {
 
         return total;
     }
-
+    
+    private void validateMarks(int... marks) {
+    for (int m : marks) {
+        if (m < 0 || m > 100) {
+            throw new InvalidMarksException("Marks must be between 0 and 100. Invalid value: " + m);
+        }
+    }
+}
     
 
 }

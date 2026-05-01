@@ -33,7 +33,7 @@ public class StudentFacade extends AbstractFacade<Student> implements StudentFac
     @Override
     public Student findByUsername(String username) {
         
-        Query query = em.createQuery("SELCT s FROM Student s WHERE s.username = :uname");
+        Query query = em.createQuery("SELECT s FROM Student s WHERE s.username = :uname");
         
         query.setParameter("uname", username);
         //using a try block to check that the studemt really does exist.
