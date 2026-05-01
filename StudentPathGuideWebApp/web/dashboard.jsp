@@ -12,7 +12,9 @@
         <title>dashboard Page</title>
     </head>
     <body>
-        <div id="dashboard_container">
+        
+        <form>
+            <div id="dashboard_container">
             <div id="dashboard_name">
                 <table>
                     <tr>
@@ -21,18 +23,20 @@
                     </tr>
                 </table>
             </div>
-            <form>
+           
                 <table>
                     <tr>
                         <td><a href="/">Update Date</a></td>
                         <td><a href="/">Jarvis</a></td>
                     </tr>
                 </table>
-            </form>
+
             <div id="dashboard_analysis">
                 
                 
             </div>
         </div>
+        </form>
+        
     </body>
 </html>

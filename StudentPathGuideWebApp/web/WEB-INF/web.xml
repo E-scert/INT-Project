@@ -1,45 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.1"
-         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-
-    <!-- SignUp Servlet -->
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
+
         <servlet-name>SignUpServlet</servlet-name>
         <servlet-class>com.apexcoders.web.SignUpServlet</servlet-class>
     </servlet>
-
-    <servlet-mapping>
-        <servlet-name>SignUpServlet</servlet-name>
-        <url-pattern>/SignUpServlet.do</url-pattern>
-    </servlet-mapping>
-
-    <!-- AI Servlet -->
     <servlet>
         <servlet-name>AIServlet</servlet-name>
         <servlet-class>com.apexcoders.web.AIServlet</servlet-class>
     </servlet>
-
-    <servlet-mapping>
-        <servlet-name>AIServlet</servlet-name>
-        <url-pattern>/AIServlet.do</url-pattern>
-    </servlet-mapping>
-
-    <!-- Optional Login Servlet (only keep if you use it) -->
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>com.apexcoders.web.LoginServlet</servlet-class>
     </servlet>
-
+    
+    <servlet-mapping>
+        <servlet-name>SignUpServlet</servlet-name>
+        <url-pattern>/SignUpServlet.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>AIServlet</servlet-name>
+        <url-pattern>/AIServlet.do</url-pattern>
+    </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet.do</url-pattern>
+
     </servlet-mapping>
-
     <session-config>
-        <session-timeout>30</session-timeout>
+        <session-timeout>
+            30
+        </session-timeout>
     </session-config>
-
 </web-app>
