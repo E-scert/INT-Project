@@ -53,7 +53,7 @@ public class LoginServlet extends HttpServlet {
         if(student != null){
             //the user is found in database        
             request.setAttribute("student", student);
-            RequestDispatcher rsdisp = request.getRequestDispatcher("");
+            RequestDispatcher rsdisp = request.getRequestDispatcher("dashboard.jsp");
             rsdisp.forward(request, response);
         }else{
             //user is not found/doesnt exist        
