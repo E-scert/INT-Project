@@ -56,8 +56,8 @@ main {
 }
 
 .main_container {
-    height: 450px;
-    width: 400px;
+    min-height: 450px;
+    min-width: 400px;
     display: flex;
     gap: 20px;
     flex-direction: column;
@@ -99,16 +99,16 @@ main {
 }
 
 .login_container > input {
-    height: 40px;
+    height: 30px;
     border: none;
     outline: none;
-    border-radius: 20px;
-    padding-left: 15px;
+    border-radius: 15px;
+    padding-left: 10px;
     font-size: var(--fn_s);
 }
 .login_container > input::placeholder {
     font-size: var(--fn_s);
-    padding-left: 15px;
+
 }
 
 .login_container > button {
@@ -142,4 +142,26 @@ main {
 
 .login_container > p .hightlight:hover {
     cursor: pointer;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp_xs);
+    
+    input, select {
+        height: 30px;
+        font-size: var(--fn_s);
+        border: none;
+        outline: none;
+        margin-bottom: 5px;
+        padding-left: 10px;
+        border-radius: 15px;
+    }
+
+  
+
+}
+
+.hidden {
+    display: none;
 }

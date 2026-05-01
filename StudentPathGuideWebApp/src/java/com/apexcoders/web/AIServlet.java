@@ -32,8 +32,9 @@ public class AIServlet extends HttpServlet {
             throws ServletException, IOException {
         
         String userInput = request.getParameter("prompt");
+        String prompt = "Acting as a seasoned career guide. " + userInput;
 
-        String apiKey = "YOUR_GOOGLE_API_KEY";
+        String apiKey = "AIzaSyDLEGO89XRsxZDdknsyPt1ZgcooRihZ_ZU";
 
         URL url = new URL("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey);
         
@@ -46,7 +47,7 @@ public class AIServlet extends HttpServlet {
         // JSON body for Gemini
         String jsonInput = "{"
                 + "\"contents\": [{"
-                + "\"parts\": [{\"text\": \"" + userInput + "\"}]"
+                + "\"parts\": [{\"text\": \"" + prompt + "\"}]"
                 + "}]"
                 + "}";
         
