@@ -120,6 +120,7 @@ function makeSignUpPage() {
   // CLASSES / ATTRIBUTES
   signUpForm.classList.add("main_container");
   signUpForm.classList.add("info");
+  signUpForm.action="SignUpServlet.do";
   signUpForm.setAttribute("method", "post");
   //signUpForm.classList.add("hidden");
 
@@ -229,7 +230,7 @@ function makeSignUpPage() {
 
     const input = document.createElement("input");
     input.type = "number";
-    input.name = "percentage" + num;
+    input.name = "perc" + num;
     input.min = 0;
     input.max = 100;
     input.placeholder = "0 - 100";
