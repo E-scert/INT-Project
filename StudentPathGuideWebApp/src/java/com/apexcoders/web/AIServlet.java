@@ -68,16 +68,18 @@ public class AIServlet extends HttpServlet {
 
         int count = 1;
         while ((line = br.readLine()) != null) {
-            if(count == 7){
+           // if(count == 7){
             result.append(line);
-            }
-            count++;
+           /// }
+           // count++;
         }
         
         br.close();
         
         String output =  result.toString();
-        output = output.substring(8, output.length() - 2);
+        
+        //output = output.substring(8, output.length() - 2);
+        
         // Send raw response to JSP
         request.setAttribute("aiResponse", output);
         RequestDispatcher disp = request.getRequestDispatcher("chat.jsp");
