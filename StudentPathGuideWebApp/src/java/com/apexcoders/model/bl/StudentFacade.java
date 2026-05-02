@@ -9,6 +9,7 @@ import com.apexcoders.entities.Student;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +28,28 @@ public class StudentFacade extends AbstractFacade<Student> implements StudentFac
 
     public StudentFacade() {
         super(Student.class);
+    }
+
+    @Override
+    public Student findByUsername(String username) {
+        
+        Query query = em.createQuery("SELECT s FROM Student s WHERE s.username = :uname");
+        
+        query.setParameter("uname", username);
+        //using a try block to check that the studemt really does exist.
+        //Student student = (Student)query.getSingleResult();
+        
+        Student student = null;
+                
+        try {
+            student = (Student) query.getSingleResult();
+            
+        } catch (Exception e) {
+            student = null;
+        }
+        
+        return student;
+
     }
     
 }
