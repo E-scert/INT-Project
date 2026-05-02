@@ -32,7 +32,7 @@
     <table border="2">
         <tr>
             <td><a href="/">UPDATE DATA</a></td>
-            <td><a href="/">EXPLORE</a></td>
+            <td><a href="explore_page.jsp">EXPLORE</a></td>
             <td><a href="chat.jsp">JARVIS</a></td>
   
         </tr>
