@@ -6,9 +6,11 @@
 package com.apexcoders.model.bl;
 
 import com.apexcoders.entities.UniversityCourses;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +29,17 @@ public class UniversityCoursesFacade extends AbstractFacade<UniversityCourses> i
 
     public UniversityCoursesFacade() {
         super(UniversityCourses.class);
+    }
+
+    @Override
+    public List<UniversityCourses> findByUniversity(Long universityId) {
+   
+        Query qu = em.createQuery("SELECT uc FROM UniversityCourses uc "
+                + "WHERE uc.university.id = :id");
+        
+        qu.setParameter("id", universityId);
+        
+        return qu.getResultList();
     }
     
 }
