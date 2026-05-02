@@ -56,7 +56,7 @@ public class AIServlet extends HttpServlet {
         
         
         BufferedReader br;
-
+    
         if (conn.getResponseCode() == 200) {
             br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         } else {
