@@ -30,11 +30,11 @@ public class AIServlet extends HttpServlet {
             throws ServletException, IOException {
         
         String userInput = request.getParameter("prompt");
-        String prompt = "Acting as a seasoned career guide. " + userInput;
+        String prompt = "Acting as a seasoned career guide. Your response should be concise and straing to the point" + userInput;
 
         String apiKey = "AIzaSyDLEGO89XRsxZDdknsyPt1ZgcooRihZ_ZU";
 
-        URL url = new URL("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + apiKey);
+        URL url = new URL("https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=AIzaSyCXffo0jQxzuiN9vsoHbaC4IlXeFUXnbGg");
         
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
@@ -56,7 +56,7 @@ public class AIServlet extends HttpServlet {
         
         
         BufferedReader br;
-
+    
         if (conn.getResponseCode() == 200) {
             br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         } else {
@@ -66,14 +66,20 @@ public class AIServlet extends HttpServlet {
         String line;
         StringBuilder result = new StringBuilder();
 
+        int count = 1;
         while ((line = br.readLine()) != null) {
+            if(count == 7){
             result.append(line);
+            }
+            count++;
         }
-
+        
         br.close();
         
+        String output =  result.toString();
+        output = output.substring(8, output.length() - 2);
         // Send raw response to JSP
-        request.setAttribute("aiResponse", result.toString());
+        request.setAttribute("aiResponse", output);
         RequestDispatcher disp = request.getRequestDispatcher("chat.jsp");
         disp.forward(request, response);
         

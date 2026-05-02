@@ -7,12 +7,19 @@
     <title>Chat with Javis</title>
 </head>
 <body>
+    
+    <%
+        String aiResponse = (String) request.getAttribute("aiResponse");
+    %>
     <div id="chat_screen">
 
         <div class="chat_container">
         
-          
-
+           <div class="gemini_reponse_contaier">
+               <p>
+                   <%= aiResponse%>
+               </p>
+           </div>
         </div>
 
 

@@ -1,124 +1,111 @@
-/* 
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
 window.addEventListener("load", () => {
-    const main = document.getElementById("main");
-    
-    const loginPage = makeLogin();
-    const signUpPage = makeSignUpPage();
-    
-    console.log(loginPage);
-    main.appendChild(loginPage);
+  const main = document.getElementById("main");
 
-    
-    signUpPage.classList.add("hidden");
-    main.appendChild(signUpPage);
+  const loginPage = makeLogin();
+  const signUpPage = makeSignUpPage();
 
-    
-    const toggleLogin = document.getElementById("toggleLogin"); 
-    const toggleSignUp = document.getElementById("toggleSignUp"); 
+  console.log(loginPage);
+  main.appendChild(loginPage);
 
-    
+  signUpPage.classList.add("hidden");
+  main.appendChild(signUpPage);
 
-    toggleSignUp.addEventListener("click", () => {
-        if(signUpPage.classList.contains("hidden")) {
+  const toggleLogin = document.getElementById("toggleLogin");
+  const toggleSignUp = document.getElementById("toggleSignUp");
 
-            loginPage.classList.add("hidden");
-            signUpPage.classList.remove("hidden");   
-        }
-    });
-    toggleLogin.addEventListener("click", () => {
-        if(loginPage.classList.contains("hidden")) {
+  toggleSignUp.addEventListener("click", () => {
+    if (signUpPage.classList.contains("hidden")) {
+      loginPage.classList.add("hidden");
+      signUpPage.classList.remove("hidden");
+    }
+  });
+  toggleLogin.addEventListener("click", () => {
+    if (loginPage.classList.contains("hidden")) {
+      loginPage.classList.remove("hidden");
+      signUpPage.classList.add("hidden");
+    }
+  });
 
-            loginPage.classList.remove("hidden");
-            signUpPage.classList.add("hidden");   
-        }
-    });
-
-    document.getElementById("chat").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const prompt = document.getElementById("prompt");
+  document.getElementById("chat").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const prompt = document.getElementById("prompt");
 
     const promptContainer = document.createElement("div");
     promptContainer.classList.add("user_text_container");
     const text = document.createElement("p");
 
     text.innerText = prompt.value;
-    
+    console.log(text.innerText);
     promptContainer.appendChild(text);
 
-    document.querySelector("chat_container").appendChild(promptContainer)
-    });
-
-    
+    document.querySelector("chat_container").appendChild(promptContainer);
+  });
 });
 
 // login info
 const loginInfo = {
-    servlet : "LoginServlet.do",
-    welcomeText : "Welcome back",
-    imgUrl : "https://th.bing.com/th/id/R.fbf39144bff5c02898fdc8fd583f84b6?rik=qLhp7D3LhK%2fQgA&pid=ImgRaw&r=0"
-    
+  servlet: "LoginServlet.do",
+  welcomeText: "Welcome back",
+  imgUrl:
+    "https://th.bing.com/th/id/R.fbf39144bff5c02898fdc8fd583f84b6?rik=qLhp7D3LhK%2fQgA&pid=ImgRaw&r=0",
 };
 function makeLogin() {
-    // create screen elements
-    const loginForm = document.createElement("form");
-    const divTop = document.createElement("div");
-    const divBottom = document.createElement("div");
-    const elWelcomeText = document.createElement("h1");
-    const elLabel = document.createElement("label");
-    const elInput = document.createElement("input");
-    const btnSubmit = document.createElement("button");
-    const elSignUp = document.createElement("p");
-    const elImg = document.createElement("img");
-    const imgCont = document.createElement("div");
-    
-    
-    // insert class, id, etc
-    loginForm.classList.add("main_container");
-    loginForm.setAttribute("method", "post");
-   // loginForm.classList.add("hidden");
-    loginForm.action = loginInfo.servlet;
-    divTop.classList.add("Welcome_container");
-    divBottom.classList.add("login_container");
-    elWelcomeText.classList.add("welcome");
-    elImg.classList.add("login_img");
-    elImg.src = loginInfo.imgUrl;
-    imgCont.classList.add("login_img_container");
-    elWelcomeText.innerText = loginInfo.welcomeText;
-    elInput.placeholder = "username";
-    btnSubmit.textContent = "Login";
-    
-    
-    // combine
-    imgCont.append(elImg);
-    divTop.append(imgCont);
-    divTop.append(elWelcomeText);
-    
-    elLabel.innerText = "Enter Username";
-    elInput.type = "text";
-    btnSubmit.type = "submit";
-    elInput.name = "username";
- 
-    
-    elSignUp.innerHTML = "Don't have an accout? <span class='hightlight' id='toggleSignUp'>Sign Up</span>";
-    
-    divBottom.append(elLabel);
-    divBottom.append(elInput);
-    divBottom.append(btnSubmit);
-    divBottom.append(elSignUp);
-    
-    loginForm.append(divTop);
-    loginForm.append(divBottom);
-    
-    return loginForm;
-    
+  // create screen elements
+  const loginForm = document.createElement("form");
+  const divTop = document.createElement("div");
+  const divBottom = document.createElement("div");
+  const elWelcomeText = document.createElement("h1");
+  const elLabel = document.createElement("label");
+  const elInput = document.createElement("input");
+  const btnSubmit = document.createElement("button");
+  const elSignUp = document.createElement("p");
+  const elImg = document.createElement("img");
+  const imgCont = document.createElement("div");
+
+  // insert class, id, etc
+  loginForm.classList.add("main_container");
+  loginForm.setAttribute("method", "post");
+  // loginForm.classList.add("hidden");
+  loginForm.action = loginInfo.servlet;
+  divTop.classList.add("Welcome_container");
+  divBottom.classList.add("login_container");
+  elWelcomeText.classList.add("welcome");
+  elImg.classList.add("login_img");
+  elImg.src = loginInfo.imgUrl;
+  imgCont.classList.add("login_img_container");
+  elWelcomeText.innerText = loginInfo.welcomeText;
+  elInput.placeholder = "username";
+  btnSubmit.textContent = "Login";
+
+  // combine
+  imgCont.append(elImg);
+  divTop.append(imgCont);
+  divTop.append(elWelcomeText);
+
+  elLabel.innerText = "Enter Username";
+  elInput.type = "text";
+  btnSubmit.type = "submit";
+  elInput.name = "username";
+
+  elSignUp.innerHTML =
+    "Don't have an accout? <span class='hightlight' id='toggleSignUp'>Sign Up</span>";
+
+  divBottom.append(elLabel);
+  divBottom.append(elInput);
+  divBottom.append(btnSubmit);
+  divBottom.append(elSignUp);
+
+  loginForm.append(divTop);
+  loginForm.append(divBottom);
+
+  return loginForm;
 }
 
-
 function makeSignUpPage() {
-
   // MAIN ELEMENTS
   const signUpForm = document.createElement("form");
   const divTop = document.createElement("div");
@@ -135,7 +122,7 @@ function makeSignUpPage() {
   // CLASSES / ATTRIBUTES
   signUpForm.classList.add("main_container");
   signUpForm.classList.add("info");
-  signUpForm.action="SignUpServlet.do";
+  signUpForm.action = "SignUpServlet.do";
   signUpForm.setAttribute("method", "post");
   //signUpForm.classList.add("hidden");
 
@@ -149,7 +136,8 @@ function makeSignUpPage() {
   btnSubmit.textContent = "Sign Up";
   btnSubmit.type = "submit";
 
-  elLogin.innerHTML = "Have an account? <span class='hightlight' id='toggleLogin' >Login</span>";
+  elLogin.innerHTML =
+    "Have an account? <span class='hightlight' id='toggleLogin' >Login</span>";
 
   // -------------------
   // USER INFO TABLE
@@ -234,11 +222,10 @@ function makeSignUpPage() {
       "Computer Applications Technology CAT",
       "Engineering Graphics And Design EGD",
       "Agricultural Sciences",
-      "Consumer Studies"
-      
+      "Consumer Studies",
     ];
 
-    subjects.forEach(sub => {
+    subjects.forEach((sub) => {
       const option = document.createElement("option");
       option.value = sub.toLowerCase().replace(" ", "_");
       option.textContent = sub;
