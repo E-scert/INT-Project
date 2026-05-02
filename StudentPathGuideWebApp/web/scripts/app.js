@@ -45,7 +45,7 @@ window.addEventListener("load", () => {
     const text = document.createElement("p");
 
     text.innerText = prompt.value;
-    
+    console.log(text.innerText);
     promptContainer.appendChild(text);
 
     document.querySelector("chat_container").appendChild(promptContainer)

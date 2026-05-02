@@ -186,8 +186,10 @@ main {
             font-size: 1.25rem;
             padding: 15px;
             border-radius: 16px;
-            width: min-content;
-            text-wrap: nowrap;
+            max-width: 800px;
+            min-width: min-content;
+            
+            
         }
         div {
             margin: 20px 0;
