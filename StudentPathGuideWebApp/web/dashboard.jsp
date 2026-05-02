@@ -2,7 +2,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
     <title>Dashboard Page</title>
@@ -34,7 +33,7 @@
         <tr>
             <td><a href="/">UPDATE DATA</a></td>
             <td><a href="/">EXPLORE</a></td>
-            <td><a href="/">JARVIS</a></td>
+            <td><a href="chat.jsp">JARVIS</a></td>
   
         </tr>
        
