@@ -5,12 +5,17 @@
  */
 package com.apexcoders.web;
 
+import com.apexcoders.entities.Course;
 import com.apexcoders.entities.Student;
+import com.apexcoders.entities.UniversityCourses;
 import com.apexcoders.exception.InvalidMarksException;
 import com.apexcoders.model.bl.StudentFacadeLocal;
+import com.apexcoders.model.bl.UniversityCoursesFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -26,6 +31,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SignUpServlet extends HttpServlet {
 
     @EJB StudentFacadeLocal sfl;
+    @EJB UniversityCoursesFacadeLocal ucf;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -76,6 +82,17 @@ public class SignUpServlet extends HttpServlet {
 
         //PERSIST TO DATABASE
         sfl.create(stud);
+        request.setAttribute("name",username);
+        request.setAttribute("grade",grade);
+        request.setAttribute("aps",aps);
+        request.setAttribute("field",field);
+        
+       //get university course
+        List<UniversityCourses> course = ucf.findAll();
+        List<UniversityCourses> filteredCourses = filterCoursesByAPS(course, aps);
+        request.setAttribute("course",filteredCourses);
+
+       
  
         // Forward to next page
         RequestDispatcher disp = request.getRequestDispatcher("dashboard.jsp");
@@ -95,8 +112,7 @@ public class SignUpServlet extends HttpServlet {
             disp.forward(request, response);
         }
         
-          request.getRequestDispatcher("dashboard.jsp").forward(request, response);
-    
+         
 
     }
 
@@ -124,5 +140,28 @@ public class SignUpServlet extends HttpServlet {
     }
 }
     
+ 
+ private List<UniversityCourses> filterCoursesByAPS(List<UniversityCourses> allCourses, int studentAps) {
+    List<UniversityCourses> filtered = new ArrayList<>();
 
+    
+    allCourses.forEach((uc) -> {
+        Course c = uc.getCourse();
+        Integer minAps = c.getCourseMinAps();
+
+        // If no APS requirement, include it
+        if (minAps == null) {
+            filtered.add(uc);
+        } else {
+            // If student's APS is >= requirement, include it
+            if (studentAps >= minAps) {
+                filtered.add(uc);
+            }
+        }
+        });
+
+    return filtered;
 }
+ 
+}
+ 
