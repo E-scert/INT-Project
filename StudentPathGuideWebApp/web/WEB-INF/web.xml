@@ -36,10 +36,17 @@
         <servlet-name>ExploreVarsityServlet</servlet-name>
         <url-pattern>/ExploreVarsityServlet.do</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
     <servlet-mapping>
         <servlet-name>DashboardDataRetrievalServlet</servlet-name>
         <url-pattern>/DashboardDataRetrievalServlet.do</url-pattern>
     </servlet-mapping>
+=======
+    <context-param>
+        <param-name>api</param-name>
+        <param-value>AIzaSyAKc7jcgEyHpQkpq49RwsBSDezbGwLbg1w</param-value>
+    </context-param>
+>>>>>>> ef24db8fcc7fc844bc2545b85ceaf33b460bd393
     <session-config>
         <session-timeout>
             30
