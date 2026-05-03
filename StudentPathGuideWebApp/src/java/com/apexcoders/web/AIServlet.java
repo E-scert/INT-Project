@@ -120,7 +120,7 @@ public class AIServlet extends HttpServlet {
             userInput = "Give general career advice for a high school student.";
         }
 
-<<<<<<< HEAD
+
         // 2. Improved prompt
         String prompt = "You are an experienced career guidance counselor helping high school students. "
                 + "Give clear, concise, and practical advice. Avoid jargon.\n\n"
@@ -132,12 +132,7 @@ public class AIServlet extends HttpServlet {
         String apiKey = getServletContext().getInitParameter("api");
 
         URL url = new URL("https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=" + apiKey);
-=======
-        String apiKey = "";
 
-        URL url = new URL("https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=");
-        
->>>>>>> 84e04a347b7e76abf1acf8f0b9460391fad1ce14
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
         conn.setRequestMethod("POST");
