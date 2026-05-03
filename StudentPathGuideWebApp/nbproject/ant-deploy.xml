@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-=======
+
 <!--
 
     Licensed to the Apache Software Foundation (ASF) under one
@@ -21,7 +20,7 @@
     under the License.
 
 -->
->>>>>>> 37c74538a08a5d3eba540e4ca1f9efbc91965421
+
 <project default="-deploy-ant" basedir=".">
     <target name="-init-cl-deployment-env" if="deploy.ant.enabled">
         <property file="${deploy.ant.properties.file}" />
