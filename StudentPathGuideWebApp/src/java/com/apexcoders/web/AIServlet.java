@@ -32,9 +32,9 @@ public class AIServlet extends HttpServlet {
         String userInput = request.getParameter("prompt");
         String prompt = "Acting as a seasoned career guide. Your response should be concise and straing to the point" + userInput;
 
-        String apiKey = "AIzaSyDLEGO89XRsxZDdknsyPt1ZgcooRihZ_ZU";
+        String apiKey = "";
 
-        URL url = new URL("https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=AIzaSyCXffo0jQxzuiN9vsoHbaC4IlXeFUXnbGg");
+        URL url = new URL("https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=");
         
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
