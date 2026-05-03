@@ -187,8 +187,8 @@ main {
     font-size: 1.25rem;
     padding: 15px;
     border-radius: 16px;
-    max-width: 800px;
     min-width: min-content;
+    max-width: 800px;
   }
   div {
     margin: 20px 0;
@@ -242,3 +242,84 @@ main {
     }
   }
 }
+
+.dashboard_container {
+  padding: 10px;
+  background: linear-gradient(
+    191deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 28%,
+    rgba(0, 212, 255, 1) 67%
+  );
+  color: #fff;
+  font-size: 1.25rem;
+  .student_details_container > table {
+      margin-bottom: 30px ;
+
+    tr {
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+
+      td {
+        background-color: rgb(127, 175, 247);
+        padding: 5px;
+        border-radius: 8px;
+        margin-bottom: 2px;
+        color: #000;
+        b {
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+
+  .nav > table {
+    margin:30px 0;
+    tr {
+
+      display: flex;
+      justify-content: space-between;
+      gap: 1.25rem;
+    
+      td {
+        
+        font-weight: 500;
+        
+        background-color: #6b55bf;
+        padding: 10px;
+        border-radius: 8px;
+        transition: 0.2s ease-in-out;
+      }
+
+      td:hover {
+        transform: scale(1.125);
+      }
+
+      td > a {
+        color:aliceblue;
+        text-decoration: none;
+      }
+    }
+
+
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: black;
+  }
+}
+
+
+ .info_table, .info_table td, .info_table th{
+  color: #000;
+  border: 2px solid #000000;
+  border-collapse: collapse;
+  padding: 10px;
+  background: rgba(0, 212, 255, 1);
+  /* backdrop-filter: blur(10px); */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+

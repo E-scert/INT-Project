@@ -4,48 +4,50 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Dashboard Page</title>
+    <link rel="stylesheet" href="style/style.css">
 </head>
-<body>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>dashboard Page</title>
-    </head>
+<body class="dashboard_container">
+    
+        
+        
+    
    
     <!--displays name and grade and aps score-->
-<div id="name_container">
-    <table border="3" colour="red">
+<div id="name_container" class="student_details_container">
+    <table >
         <tr>
-            <td>Username:${name}</td>
-            <td>GRADE:${grade}</td>
-            <td>APS SCORE:${aps}</td>
-            <td>Field Of Interest: ${field}</td>
+            <td>Username: <b> ${name} </b> </td>
+            <td>GRADE: <b> ${grade} </b></td>
+            <td>APS SCORE: <b> ${aps} </b></td>
+            <td>Field Of Interest: <b> ${field} </b></td>
             
         </tr>
     </table>
 </div>
         
-        <h3>Courses that you qualify for</h3>
 
 <!--       holds the links to -->
-<div id="button_holder">
-    <table border="2">
+<div id="button_holder"class="nav">
+    <table >
         <tr>
             <td><a href="/">UPDATE DATA</a></td>
             <td><a href="explore_page.jsp">EXPLORE</a></td>
             <td><a href="chat.jsp">JARVIS</a></td>
-  
+            
         </tr>
-       
+        
     </table>
     
 </div>
 
+<h3>Courses that you qualify for:</h3>
         
 <!--dashboard data display--> 
 <div id="dashboard_analysis">
     <div id="data_description" style="max-height:500px; overflow-y:auto;">
-        <table border="1">
+        <table class="info_table">
             
             <tr>
                 

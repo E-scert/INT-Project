@@ -9,7 +9,9 @@
 <body>
     
     <%
-        String aiResponse = (String) request.getAttribute("aiResponse");
+        String[] aiResponse = (String[]) request.getAttribute("aiResponse");
+        
+           
     %>
     <div id="chat_screen">
 
@@ -17,7 +19,19 @@
         
            <div class="gemini_reponse_contaier">
                <p>
-                   <%= aiResponse%>
+                <%
+                  if (aiResponse != null) {
+                    for(String s : aiResponse) {
+                %>
+                        <span><%= s %></span><br/>
+                <%
+                    }
+                } else {
+                %>
+                    <span>No response yet. Ask something!</span>
+                <%
+                }
+                %>
                </p>
            </div>
         </div>
