@@ -19,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -28,12 +29,15 @@ public class LoginServlet extends HttpServlet {
 
     @EJB
     private StudentFacadeLocal studentFacade;
-   @EJB private UniversityCoursesFacadeLocal ucf;
+     @EJB private UniversityCoursesFacadeLocal ucf;
+  
 
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //create a session 
+        HttpSession session = request.getSession(true);
         
         String username = request.getParameter("username");
         
@@ -44,22 +48,24 @@ public class LoginServlet extends HttpServlet {
         if(student != null){
             //the user is found in database   
 
-            request.setAttribute("student", student);
-            String name = student.getUsername();
+            session.setAttribute("student", student);
+       
+             String name = student.getUsername();
             Integer grade = student.getGrade();
             Integer aps = student.getAps();
             String field = student.getFieldOfInterest();
             
-            request.setAttribute("name", name);
-            request.setAttribute("grade", grade);
-            request.setAttribute("aps", aps);
-            request.setAttribute("field", field);
+            session.setAttribute("name", name);
+            session.setAttribute("grade", grade);
+            session.setAttribute("aps", aps);
+            session.setAttribute("field", field);
             
             //gets the list of all course and information
-            List<UniversityCourses> course = ucf.findAll();
-            List<UniversityCourses> filteredCourses = filterCoursesByAPS(course, student.getAps());
+
+            List<UniversityCourses> filteredCourses = ucf.filterByFieldAndAps(student.getFieldOfInterest(),student.getAps());
  
-            request.setAttribute("course",filteredCourses);
+            session.setAttribute("course",filteredCourses);
+            
             
             RequestDispatcher rsdisp = request.getRequestDispatcher("dashboard.jsp");
             rsdisp.forward(request, response);
@@ -72,27 +78,7 @@ public class LoginServlet extends HttpServlet {
 
     }
 
-    private List<UniversityCourses> filterCoursesByAPS(List<UniversityCourses> allCourses, int studentAps) {
-    List<UniversityCourses> filtered = new ArrayList<>();
-
-    
-    for (UniversityCourses uc : allCourses) {
-        Course c = uc.getCourse();
-        Integer minAps = c.getCourseMinAps();
-
-        // If no APS requirement, include it
-        if (minAps == null) {
-            filtered.add(uc);
-        } else {
-            // If student's APS is >= requirement, include it
-            if (studentAps >= minAps) {
-                filtered.add(uc);
-            }
-        }
-    }
-
-    return filtered;
-}
+     
 
   
 

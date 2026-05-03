@@ -32,4 +32,6 @@ public interface UniversityCoursesFacadeLocal {
 
     int count();
     
+    List<UniversityCourses> filterByFieldAndAps(String field,int aps);
+    
 }

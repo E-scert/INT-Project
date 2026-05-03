@@ -16,6 +16,10 @@
         <servlet-name>ExploreVarsityServlet</servlet-name>
         <servlet-class>com.apexcoders.web.ExploreVarsityServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DashboardDataRetrievalServlet</servlet-name>
+        <servlet-class>com.apexcoders.web.DashboardDataRetrievalServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet.do</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>ExploreVarsityServlet</servlet-name>
         <url-pattern>/ExploreVarsityServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashboardDataRetrievalServlet</servlet-name>
+        <url-pattern>/DashboardDataRetrievalServlet.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

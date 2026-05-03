@@ -88,8 +88,7 @@ public class SignUpServlet extends HttpServlet {
         request.setAttribute("field",field);
         
        //get university course
-        List<UniversityCourses> course = ucf.findAll();
-        List<UniversityCourses> filteredCourses = filterCoursesByAPS(course, aps);
+         List<UniversityCourses> filteredCourses = ucf.filterByFieldAndAps(field,aps);
         request.setAttribute("course",filteredCourses);
 
        
@@ -141,27 +140,7 @@ public class SignUpServlet extends HttpServlet {
 }
     
  
- private List<UniversityCourses> filterCoursesByAPS(List<UniversityCourses> allCourses, int studentAps) {
-    List<UniversityCourses> filtered = new ArrayList<>();
-
-    
-    allCourses.forEach((uc) -> {
-        Course c = uc.getCourse();
-        Integer minAps = c.getCourseMinAps();
-
-        // If no APS requirement, include it
-        if (minAps == null) {
-            filtered.add(uc);
-        } else {
-            // If student's APS is >= requirement, include it
-            if (studentAps >= minAps) {
-                filtered.add(uc);
-            }
-        }
-        });
-
-    return filtered;
-}
+ 
  
 }
  

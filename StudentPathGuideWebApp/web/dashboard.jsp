@@ -52,6 +52,7 @@
                 <th>Faculty</th>
                 <th>Course</th>
                 <th>Course Description</th>
+                <th>Course Field</th>
                 <th>Course required Subjects</th>
                 <th>APS</th>
                 <th>University</th>
@@ -63,6 +64,7 @@
                     <td>${f.facultyName}</td>
                     <td>${f.course.courseName}</td>
                     <td>${f.course.courseDescription}</td>
+                    <td>${f.course.courseField}</td>
                     <td>${f.course.courseRequiredSubjects}</td>
                     <td>${f.course.courseMinAps}</td>
                     <td>${f.university.universityName}</td>
