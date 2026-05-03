@@ -23,6 +23,8 @@ public interface UniversityFacadeLocal {
     void remove(University university);
 
     University find(Object id);
+    
+    University findByNameOrAbbreviation(String input);
 
     List<University> findAll();
 

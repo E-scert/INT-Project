@@ -9,6 +9,7 @@ import com.apexcoders.entities.University;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +28,26 @@ public class UniversityFacade extends AbstractFacade<University> implements Univ
 
     public UniversityFacade() {
         super(University.class);
+    }
+
+    @Override
+    public University findByNameOrAbbreviation(String input) {
+       
+        Query qu = em.createQuery("SELECT u FROM University u " +
+                "WHERE u.universityName = :input " +
+                "OR u.universityAbbreviation = :input");
+        
+        qu.setParameter("input", input);
+        
+        University university = null;
+        
+        try {
+            university = (University)qu.getSingleResult();
+        } catch (Exception e) {
+            university = null;
+        }
+        
+        return university;
     }
     
 }

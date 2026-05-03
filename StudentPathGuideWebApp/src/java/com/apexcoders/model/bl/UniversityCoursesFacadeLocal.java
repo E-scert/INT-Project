@@ -27,6 +27,8 @@ public interface UniversityCoursesFacadeLocal {
     List<UniversityCourses> findAll();
 
     List<UniversityCourses> findRange(int[] range);
+    
+    List<UniversityCourses> findByUniversity(Long universityId);
 
     int count();
     

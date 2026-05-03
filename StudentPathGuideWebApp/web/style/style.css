@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap");
 /*
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
@@ -8,246 +8,237 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Author     : benht
 */
 :root {
-    /* color scheme */
-    --clr_main: #f4f3fa;
-    --clr_font: #07050e;
-    --clr_primary: #6b55bf;
-    --clr_sec: #d896a4;
-    --clr_hightlight: #cd937b;
-    
-    /* font */
-    --fn_xs: 0.85rem;
-    --fn_s: 1.125rem;
-    --fn_m: 1.75rem;
-    --fn_l: 2.125rem;
-    --fn_xl: 2.87rem;
-    
-    --fm: "Google Sans", sans-serif;
-    
-    /* spacing */
-    --sp_xs: 0.85em;
-    --sp_s: 1.125em;
-    --sp_m: 1.75em;
-    --sp_l: 2.125em;
-    --sp_xl: 2.87em;
+  /* color scheme */
+  --clr_main: #f4f3fa;
+  --clr_font: #07050e;
+  --clr_primary: #6b55bf;
+  --clr_sec: #d896a4;
+  --clr_hightlight: #cd937b;
+
+  /* font */
+  --fn_xs: 0.85rem;
+  --fn_s: 1.125rem;
+  --fn_m: 1.75rem;
+  --fn_l: 2.125rem;
+  --fn_xl: 2.87rem;
+
+  --fm: "Google Sans", sans-serif;
+
+  /* spacing */
+  --sp_xs: 0.85em;
+  --sp_s: 1.125em;
+  --sp_m: 1.75em;
+  --sp_l: 2.125em;
+  --sp_xl: 2.87em;
 }
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
-    width: 100%;
-    background-color: var(--clr_main);
-    font-family: var(--fm);
-    color: var(--clr_font);
+  height: 100vh;
+  width: 100%;
+  background-color: var(--clr_main);
+  font-family: var(--fm);
+  color: var(--clr_font);
 }
 
 main {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   background: linear-gradient(191deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 28%, rgba(0, 212, 255, 1) 67%);
-
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    191deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 28%,
+    rgba(0, 212, 255, 1) 67%
+  );
 }
-
 
 .main_container {
-    min-height: 450px;
-    min-width: 400px;
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-    border-radius: 32px;
-    padding: var(--sp_l);
-    background: rgba(255, 255, 255, 0.15); 
-    backdrop-filter: blur(10px); 
-    border: 1px solid rgba(255, 255, 255, 0.3); 
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
-    color: white;
+  min-height: 450px;
+  min-width: 400px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  border-radius: 32px;
+  padding: var(--sp_l);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: white;
 }
 .welcome {
-    font-size: var(--fn_xl);
-    text-align: center;
-    font-weight: 700;
-    margin-bottom: 1em;
+  font-size: var(--fn_xl);
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 1em;
 }
 .login_img_container {
-    background-color: white;
-    width: max-content;
-    margin: auto;
-    border-radius: 3em;
-    height: 75px;
+  background-color: white;
+  width: max-content;
+  margin: auto;
+  border-radius: 3em;
+  height: 75px;
 }
 
 .login_img {
-    height: 100%;
-    aspect-ratio: 1;
+  height: 100%;
+  aspect-ratio: 1;
 }
 
 .login_container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.125em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.125em;
 }
 
 .login_container > label {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 .login_container > input {
-    height: 30px;
-    border: none;
-    outline: none;
-    border-radius: 15px;
-    padding-left: 10px;
-    font-size: var(--fn_s);
+  height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  padding-left: 10px;
+  font-size: var(--fn_s);
 }
 .login_container > input::placeholder {
-    font-size: var(--fn_s);
-
+  font-size: var(--fn_s);
 }
 
 .login_container > button {
-    width: max-content;
-    margin: auto;
-    font-size: 1.25rem;
-    padding: 0.5em 0.85em;
-    border: none;
-    outline: none;
-    border-radius: 36px;
-    transition: 0.25s ease-in-out;
-    background-color: var(--clr_primary);
-    color: white;
+  width: max-content;
+  margin: auto;
+  font-size: 1.25rem;
+  padding: 0.5em 0.85em;
+  border: none;
+  outline: none;
+  border-radius: 36px;
+  transition: 0.25s ease-in-out;
+  background-color: var(--clr_primary);
+  color: white;
 }
 .login_container > button:hover {
-    cursor: pointer;
-    background-color: transparent;
-    outline: 2px solid var(--clr_primary);
-    color: white;
-    transform: scale(1.1);
+  cursor: pointer;
+  background-color: transparent;
+  outline: 2px solid var(--clr_primary);
+  color: white;
+  transform: scale(1.1);
 }
 
 .login_container > p {
-    text-align: center;
-    font-size: var(--fn_s);
+  text-align: center;
+  font-size: var(--fn_s);
 }
 
 .login_container > p .hightlight {
-    color: var(--clr_hightlight);
+  color: var(--clr_hightlight);
 }
 
 .login_container > p .hightlight:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 .info {
-    display: flex;
-    flex-direction: column;
-    gap: var(--sp_xs);
-    
-    input, select {
-        height: 30px;
-        font-size: var(--fn_s);
-        border: none;
-        outline: none;
-        margin-bottom: 5px;
-        padding-left: 10px;
-        border-radius: 15px;
-    }
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp_xs);
 
-  
-
+  input,
+  select {
+    height: 30px;
+    font-size: var(--fn_s);
+    border: none;
+    outline: none;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    border-radius: 15px;
+  }
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
-
 
 /* This is styling for the chat page */
 
 #chat_screen {
-     
-    background: linear-gradient(191deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 28%, rgba(0, 212, 255, 1) 67%);
-    min-height: 100vh;
+  background: linear-gradient(
+    191deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 28%,
+    rgba(0, 212, 255, 1) 67%
+  );
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  padding-bottom: 100px;
+
+  p {
+    background-color: #6b55bf;
+    color: white;
+    font-size: 1.25rem;
+    padding: 15px;
+    border-radius: 16px;
+    max-width: 800px;
+    min-width: min-content;
+  }
+  div {
+    margin: 20px 0;
+    padding: 0 15px;
+  }
+  .user_text_container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .chat {
+    position: fixed;
+    bottom: 10px;
     width: 100%;
-    position: relative;
-    padding-bottom: 100px;
+    height: 64px;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    gap: 15px;
 
-
-
-        p {
-            background-color: #6b55bf;
-            color: white;
-            font-size: 1.25rem;
-            padding: 15px;
-            border-radius: 16px;
-            max-width: 800px;
-            min-width: min-content;
-            
-            
-        }
-        div {
-            margin: 20px 0;
-            padding: 0 15px;
-        }
-        .user_text_container {
-            display: flex;
-            justify-content: flex-end;
-        }
-        
-
-
-
-
-
-    .chat {
-        position: fixed;
-        bottom:  10px;
-        width:100%;
-        height: 64px;
-        display: flex;
-        margin: auto;
-        justify-content: center;
-        gap: 15px;
-        
-
-        input {
-            width: 80%;
-            height: 52px;
-            border-radius: 26px;
-            padding-left: 15px;
-            border: none;
-            outline: none;
-            font-size: 1.25rem;
-            color: rgb(119, 115, 115);
-        }
-
-        button {
-            height: 52px;
-            width: 52px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            border: none;
-            outline: none;
-            transition: 0.2s ease-in-out;
-        }
-
-        button:hover {
-            transform: scale(1.125);
-
-        }
-
-        i {
-            font-size: 25px;
-        }
+    input {
+      width: 80%;
+      height: 52px;
+      border-radius: 26px;
+      padding-left: 15px;
+      border: none;
+      outline: none;
+      font-size: 1.25rem;
+      color: rgb(119, 115, 115);
     }
 
+    button {
+      height: 52px;
+      width: 52px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: 0.2s ease-in-out;
+    }
+
+    button:hover {
+      transform: scale(1.125);
+    }
+
+    i {
+      font-size: 25px;
+    }
+  }
 }
