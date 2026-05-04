@@ -16,15 +16,22 @@
    
     <!--displays name and grade and aps score-->
 <div id="name_container" class="student_details_container">
-    <table >
-        <tr>
-            <td>Username: <b> ${name} </b> </td>
-            <td>GRADE: <b> ${grade} </b></td>
-            <td>APS SCORE: <b> ${aps} </b></td>
-            <td>Field Of Interest: <b> ${field} </b></td>
-            
-        </tr>
-    </table>
+  
+            <div class="dashboard_nav section">
+                <div class="logo">Student Path Guide</div>
+
+                 <div class="student_name">
+                    ${name} 
+                 (Grade ${grade}) 
+                 </div>
+            </div>
+
+            <div class="student_details">
+                
+                <span>APS SCORE: ${aps}</span> 
+                <span>Field Of Interest:  ${field} </span>
+            </div>
+        
 </div>
         
 
@@ -46,8 +53,8 @@
         
 <!--dashboard data display--> 
 <div id="dashboard_analysis">
-    <div id="data_description" style="max-height:500px; overflow-y:auto;">
-        <table class="info_table">
+    <div id="data_description" >
+        <table class="dashboard_table center">
             
             <tr>
                 
