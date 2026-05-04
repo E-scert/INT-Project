@@ -68,19 +68,23 @@ function makeLogin() {
   const imgCont = document.createElement("div");
 
   // insert class, id, etc
-  loginForm.classList.add("main_container");
+  loginForm.classList.add("card");
   loginForm.setAttribute("method", "post");
   // loginForm.classList.add("hidden");
   loginForm.action = loginInfo.servlet;
-  divTop.classList.add("Welcome_container");
-  divBottom.classList.add("login_container");
-  elWelcomeText.classList.add("welcome");
+  divTop.classList.add("card");
+  divTop.classList.add("card_spacing");
+  divBottom.classList.add("card");
+  elWelcomeText.classList.add("header");
+  elWelcomeText.classList.add("text_center");
   elImg.classList.add("login_img");
   elImg.src = loginInfo.imgUrl;
   imgCont.classList.add("login_img_container");
   elWelcomeText.innerText = loginInfo.welcomeText;
   elInput.placeholder = "username";
+  elInput.classList.add("input_field")
   btnSubmit.textContent = "Login";
+  btnSubmit.classList.add("button_primary");
 
   // combine
   imgCont.append(elImg);
@@ -88,13 +92,16 @@ function makeLogin() {
   divTop.append(elWelcomeText);
 
   elLabel.innerText = "Enter Username";
+  elLabel.classList.add("lbl_text");
   elInput.type = "text";
   btnSubmit.type = "submit";
   elInput.name = "username";
 
+  elSignUp.classList.add("text_center")
   elSignUp.innerHTML =
-    "Don't have an accout? <span class='hightlight' id='toggleSignUp'>Sign Up</span>";
+    "Don't have an accout? <span class='highlight' id='toggleSignUp'>Sign Up</span>";
 
+  divBottom.classList.add("df_column");
   divBottom.append(elLabel);
   divBottom.append(elInput);
   divBottom.append(btnSubmit);
@@ -121,14 +128,16 @@ function makeSignUpPage() {
   const elLogin = document.createElement("p");
 
   // CLASSES / ATTRIBUTES
-  signUpForm.classList.add("main_container");
-  signUpForm.classList.add("info");
+  signUpForm.classList.add("card");
+ 
+  // signUpForm.classList.add("info");
   signUpForm.action = "SignUpServlet.do";
   signUpForm.setAttribute("method", "post");
   //signUpForm.classList.add("hidden");
 
-  divTop.classList.add("Welcome_container");
-  divBottom.classList.add("login_container");
+  divTop.classList.add("card");
+  divTop.classList.add("card_spacing");
+  divBottom.classList.add("card");
 
   elTitle.innerText = "Sign Up";
 
@@ -136,9 +145,12 @@ function makeSignUpPage() {
 
   btnSubmit.textContent = "Sign Up";
   btnSubmit.type = "submit";
+  btnSubmit.classList.add("button_primary");
+  btnSubmit.classList.add("max-wid");
 
+  elLogin.classList.add("text_center");
   elLogin.innerHTML =
-    "Have an account? <span class='hightlight' id='toggleLogin' >Login</span>";
+    "Have an account? <span class='highlight' id='toggleLogin' >Login</span>";
 
   // -------------------
   // USER INFO TABLE
@@ -153,6 +165,7 @@ function makeSignUpPage() {
   userInput.type = "text";
   userInput.placeholder = "username";
   userInput.name = "username";
+  userInput.classList.add("input_field");
   userInput.required = true;
 
   const gradeLabel = document.createElement("label");
@@ -162,6 +175,7 @@ function makeSignUpPage() {
   gradeInput.type = "text";
   gradeInput.placeholder = "12";
   gradeInput.name = "grade";
+  gradeInput.classList.add("input_field");
   gradeInput.required = true;
 
   let td1 = document.createElement("td");
@@ -206,6 +220,7 @@ function makeSignUpPage() {
     const tdPerc = document.createElement("td");
 
     const select = document.createElement("select");
+    select.classList.add("input_field");
     select.name = "subject" + num;
 
     const subjects = [
@@ -234,6 +249,7 @@ function makeSignUpPage() {
     });
 
     const input = document.createElement("input");
+    input.classList.add("input_field");
     input.type = "number";
     input.name = "perc" + num;
     input.min = 0;
@@ -262,9 +278,11 @@ function makeSignUpPage() {
   const fieldRow = document.createElement("tr");
 
   const fieldLabel = document.createElement("label");
-  fieldLabel.innerText = "Field";
+  fieldLabel.innerText = "Field of Interest";
+  
 
   const fieldInput = document.createElement("input");
+  fieldInput.classList.add("input_field");
   fieldInput.type = "text";
   fieldInput.name = "field";
   fieldInput.placeholder = "computer sciences";
@@ -285,6 +303,7 @@ function makeSignUpPage() {
 
   divTop.append(elTitle);
 
+  divBottom.classList.add("df_column");
   divBottom.append(tableUser);
   divBottom.append(tableSubjects);
   divBottom.append(tableField);
