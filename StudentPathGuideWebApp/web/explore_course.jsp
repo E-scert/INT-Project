@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="style/style.css">
        <title>Explore Course Page</title>
 </head>
 <body>
