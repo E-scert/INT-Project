@@ -24,7 +24,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "University_courses")
 @NamedQueries({
-  @NamedQuery(name="filtereByField",query="Select a from UniversityCourses a where lower(a.course.courseName) like concat('%',:field,'%') and a.course.courseMinAps <= :aps"),
+  @NamedQuery(name="filtereByField",query="Select a from UniversityCourses a where (lower(a.course.courseName) like concat('%',:field,'%') OR LOWER(a.course.courseName) like concat('%',:field,'%') OR LOWER(a.course.courseField) like concat('%',:field,'%')) and a.course.courseMinAps <= :aps"),
 })
 public class UniversityCourses implements Serializable {
 

@@ -34,8 +34,8 @@ public class UniversityFacade extends AbstractFacade<University> implements Univ
     public University findByNameOrAbbreviation(String input) {
        
         Query qu = em.createQuery("SELECT u FROM University u " +
-                "WHERE u.universityName = :input " +
-                "OR u.universityAbbreviation = :input");
+                "WHERE LOWER(u.universityName) = :input " +
+                "OR LOWER(u.universityAbbreviation) = :input");
         
         qu.setParameter("input", input);
         
