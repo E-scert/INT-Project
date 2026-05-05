@@ -6,9 +6,11 @@
 package com.apexcoders.model.bl;
 
 import com.apexcoders.entities.Course;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +29,15 @@ public class CourseFacade extends AbstractFacade<Course> implements CourseFacade
 
     public CourseFacade() {
         super(Course.class);
+    }
+
+    @Override
+    public List<String> suggestionCourse(String term) {
+        
+        Query q = em.createNamedQuery("suggestionCourse");
+        q.setParameter("term",term.toLowerCase());
+        q.setMaxResults(10);
+        return q.getResultList();
     }
     
 }

@@ -20,6 +20,10 @@
         <servlet-name>DashboardDataRetrievalServlet</servlet-name>
         <servlet-class>com.apexcoders.web.DashboardDataRetrievalServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CourseSuggestionServlet</servlet-name>
+        <servlet-class>com.apexcoders.web.CourseSuggestionServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet.do</url-pattern>
@@ -36,17 +40,18 @@
         <servlet-name>ExploreVarsityServlet</servlet-name>
         <url-pattern>/ExploreVarsityServlet.do</url-pattern>
     </servlet-mapping>
-
     <servlet-mapping>
         <servlet-name>DashboardDataRetrievalServlet</servlet-name>
         <url-pattern>/DashboardDataRetrievalServlet.do</url-pattern>
     </servlet-mapping>
-
     <context-param>
         <param-name>api</param-name>
         <param-value>AIzaSyAKc7jcgEyHpQkpq49RwsBSDezbGwLbg1w</param-value>
     </context-param>
-
+    <servlet-mapping>
+        <servlet-name>CourseSuggestionServlet</servlet-name>
+        <url-pattern>/CourseSuggestionServlet.do</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

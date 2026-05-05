@@ -15,21 +15,65 @@
     <h2>Explore Course</h2>
     
     <form action="ExploreCourseServlet.do" method="post">
-        
-        <table border="1" cellpadding="10">
-            <tr>
-                <td>Enter Course Name:</td>
-                <td><input type="text" name="courseName" required=""></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Explore Course"></td>
-            </tr>
-        </table>
-    </form>
+    <table border="1" cellpadding="10">
+        <tr>
+            <td>Enter Course Name:</td>
+            <td style="position:relative;">
+                <input type="text" id="courseName" name="term" required="">
+                <div id="suggestions"
+                     style="border:1px solid #ccc;
+                            display:none;
+                            position:absolute;
+                            top:100%;
+                            left:0;
+                            background:white;
+                            width:100%;
+                            z-index:1000;">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Explore Course"></td>
+        </tr>
+    </table>
+</form>
+
+    
+    <script>
+document.getElementById("courseName").addEventListener("keyup", function() {
+    let query = this.value;
+    if (query.length < 2) {
+        document.getElementById("suggestions").style.display = "none";
+        return;
+    }
+    fetch("CourseSuggestionServlet.do?term=" + encodeURIComponent(query))
+        .then(response => response.json())
+        .then(data => {
+            let suggestionsBox = document.getElementById("suggestions");
+            suggestionsBox.innerHTML = "";
+            if (data.length > 0) {
+                data.forEach(item => {
+                    let div = document.createElement("div");
+                    div.textContent = item;
+                    div.style.cursor = "pointer";
+                    div.onclick = () => {
+                        document.getElementById("courseName").value = item;
+                        suggestionsBox.style.display = "none";
+                    };
+                    suggestionsBox.appendChild(div);
+                });
+                suggestionsBox.style.display = "block";
+            } else {
+                suggestionsBox.style.display = "none";
+            }
+        });
+});
+</script>
     
     <ul>
         <li><a href="explore_page.jsp">Back</a></li>
     </ul>
+    
 </body>
 </html>
