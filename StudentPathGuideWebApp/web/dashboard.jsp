@@ -23,6 +23,9 @@
                  <div class="student_name">
                     ${name} 
                  (Grade ${grade}) 
+                 <span>
+                    <a style="color:rgb(133, 133, 133);font-size:1.125rem" href="#">Login out</a>
+                 </span>
                  </div>
             </div>
 
@@ -35,21 +38,16 @@
 </div>
         
 
+<h3 class="section">Courses you qualify for:</h3>
 <!--       holds the links to -->
-<div id="button_holder"class="nav">
-    <table >
-        <tr>
-            <td><a href="/">UPDATE DATA</a></td>
-            <td><a href="explore_page.jsp">EXPLORE</a></td>
-            <td><a href="chat.jsp">JARVIS</a></td>
-            
-        </tr>
-        
-    </table>
+<div id="button_holder"class="nav button">
+
+            <a class="button_primary" href="/">UPDATE DATA</a>
+            <a class="button_primary" href="explore_page.jsp">EXPLORE Courses</a>
+            <a class="button_primary" href="chat.jsp">Chat With JARVIS(AI bot)</a>
     
 </div>
 
-<h3>Courses that you qualify for:</h3>
         
 <!--dashboard data display--> 
 <div id="dashboard_analysis">

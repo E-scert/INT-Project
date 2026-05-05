@@ -13,7 +13,7 @@
         
            
     %>
-    <div id="chat_screen">
+    <div id="chat_screen" class="chat_screen">
 
         <div class="chat_container">
         

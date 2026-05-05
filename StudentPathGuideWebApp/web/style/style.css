@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
   /* color scheme */
-  --clr-primary: #2D3A8C;
-  --clr-primary-light: #4A6CF7;
-  --clr-accent: #F5A623;
-  --clr-background: #F4F6FB;
-  --clr-card-bg: #FFFFFF;
-  --clr-txt-primary: #1A1A2E;
-  --clr-txt-secondary: #6B7280;
-  --clr-success: #22C55E;
-  --clr-tbl-alt: #EEF2FF;
-  --clr-border: #E5E7EB;
+  --clr-primary: #2d3a8c;
+  --clr-primary-light: #4a6cf7;
+  --clr-accent: #f5a623;
+  --clr-background: #f4f6fb;
+  --clr-card-bg: #ffffff;
+  --clr-txt-primary: #1a1a2e;
+  --clr-txt-secondary: #6b7280;
+  --clr-success: #22c55e;
+  --clr-tbl-alt: #eef2ff;
+  --clr-border: #e5e7eb;
 
   /* font */
   --f_btn: 0.875rem;
@@ -49,7 +49,8 @@ button {
   cursor: pointer;
 }
 
-ol, ul {
+ol,
+ul {
   list-style-type: none;
 }
 
@@ -96,8 +97,7 @@ body {
   border: 1.5px solid var(--clr-border);
   border-radius: var(--s_xs);
   padding: var(--s_xs) var(--f_sm);
-  font: Inter 14px  var(--clr-txt-primary);
-
+  font: Inter 14px var(--clr-txt-primary);
 }
 
 .input_field:focus {
@@ -106,7 +106,7 @@ body {
 }
 
 .input_field::placeholder {
-  color: #9CA3AF;
+  color: #9ca3af;
 }
 
 .hidden {
@@ -132,7 +132,7 @@ body {
   font-size: var(--f_btn);
 }
 .lbl_text {
-  font-size: var(--f_sm)
+  font-size: var(--f_sm);
 }
 
 .text_center {
@@ -169,14 +169,13 @@ body {
 }
 
 .dashboard_table {
-  border: 1px solid lime;
   max-height: 500px;
   overflow-y: auto;
   th {
     background-color: var(--clr-primary);
     font-weight: 600;
     padding: 12px 16px;
-    color: #FFF;
+    color: #fff;
   }
 
   tr {
@@ -192,7 +191,7 @@ body {
   }
 
   tr:hover {
-    background-color: #DBEAFE;
+    background-color: #dbeafe;
   }
 }
 
@@ -201,16 +200,34 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 18px 24px;
-  color: #FFF;
+  color: #fff;
 }
 .student_details {
   margin: 20px 0;
   background-color: var(--clr-card-bg);
   font-size: var(--f_lg);
-  padding:3rem;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
   width: max-content;
   border-radius: 8px;
-  box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.15);
+  box-shadow: 0 0 3px rgba(57, 60, 70, 0.15);
+  justify-self: end;
+}
+
+.nav {
+  margin: 20px 0;
+}
+
+.chat_screen {
+  position: relative;
+  height: 100vh;
+
+  .chat {
+    position: absolute;
+    bottom: 0;
+    width: 75%;
+    height: 65px;
+    border: 1px solid lime;
+  }
 }
