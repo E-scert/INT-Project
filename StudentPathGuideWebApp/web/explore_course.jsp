@@ -4,6 +4,7 @@
     Author     : Rebaona
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +15,7 @@
 <body>
     <h2>Explore Course</h2>
     
-    <form action="ExploreCourseServlet.do" method="post">
+    <form action="ExploreCourseServlet.do" method="GET">
     <table border="1" cellpadding="10">
         <tr>
             <td>Enter Course Name:</td>
@@ -38,6 +39,26 @@
         </tr>
     </table>
 </form>
+    <ul>
+        <li><a href="explore_page.jsp">Back</a></li>
+    </ul>
+    
+    <!--output-->
+    
+<c:if test ="${not empty courses}">
+    <h3>Search results:</h3>
+    <p>Name:${course.courseName}</p>
+    <p>Field:${course.courseName}</p>
+    <p>APS:${course.courseName}</p>
+    <p>Description:${course.courseName}</p>
+    <p>Required Subjects:${course.courseName}</p>
+</c:if>
+    
+<c:if test="${empty courses}">
+    <p>No courses found for your search</p>
+
+</c:if>
+    
 
     
     <script>
@@ -71,9 +92,7 @@ document.getElementById("courseName").addEventListener("keyup", function() {
 });
 </script>
     
-    <ul>
-        <li><a href="explore_page.jsp">Back</a></li>
-    </ul>
+    
     
 </body>
 </html>

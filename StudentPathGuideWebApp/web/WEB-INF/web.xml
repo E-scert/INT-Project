@@ -24,6 +24,10 @@
         <servlet-name>CourseSuggestionServlet</servlet-name>
         <servlet-class>com.apexcoders.web.CourseSuggestionServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExploreCourseServlet</servlet-name>
+        <servlet-class>com.apexcoders.web.ExploreCourseServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet.do</url-pattern>
@@ -51,6 +55,10 @@
     <servlet-mapping>
         <servlet-name>CourseSuggestionServlet</servlet-name>
         <url-pattern>/CourseSuggestionServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExploreCourseServlet</servlet-name>
+        <url-pattern>/ExploreCourseServlet.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

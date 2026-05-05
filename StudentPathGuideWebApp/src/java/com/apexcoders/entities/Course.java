@@ -27,7 +27,13 @@ import javax.persistence.Table;
         name = "suggestionCourse",
         query = "SELECT c.courseName FROM Course c " +
                 "WHERE LOWER(c.courseName) LIKE CONCAT('%', :term, '%')"
+    ),
+       
+    @NamedQuery(    
+        name = "Course.findByName",
+        query = "SELECT c FROM Course c WHERE LOWER(c.courseName) = :term "
     )
+ 
 })
 
 @Table(name="Course")

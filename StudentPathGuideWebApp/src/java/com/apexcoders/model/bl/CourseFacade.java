@@ -39,5 +39,17 @@ public class CourseFacade extends AbstractFacade<Course> implements CourseFacade
         q.setMaxResults(10);
         return q.getResultList();
     }
+
+    
+    @Override
+    public Course findCoursesByName(String term) {
+        Query q = em.createNamedQuery("Course.findByName", Course.class);
+   
+           q.setParameter("term", term.toLowerCase());
+            Course c = (Course)q.getSingleResult();
+             
+             return c;
+      }
+
     
 }

@@ -31,5 +31,6 @@ public interface CourseFacadeLocal {
     int count();
     
     List<String> suggestionCourse(String term);
+    Course findCoursesByName(String courseName);
     
 }
