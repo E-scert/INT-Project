@@ -6,6 +6,7 @@
 window.addEventListener("load", () => {
   const main = document.getElementById("main");
 
+ 
   const loginPage = makeLogin();
   const signUpPage = makeSignUpPage();
 
@@ -62,10 +63,12 @@ function makeLogin() {
   const elWelcomeText = document.createElement("h1");
   const elLabel = document.createElement("label");
   const elInput = document.createElement("input");
+  const elPassword = document.createElement("input");
   const btnSubmit = document.createElement("button");
   const elSignUp = document.createElement("p");
   const elImg = document.createElement("img");
   const imgCont = document.createElement("div");
+  const passwordLabel = document.createElement("Label");
 
   // insert class, id, etc
   loginForm.classList.add("card");
@@ -86,6 +89,13 @@ function makeLogin() {
   btnSubmit.textContent = "Login";
   btnSubmit.classList.add("button_primary");
 
+
+
+  passwordLabel.innerText = "Enter Password";
+  elPassword.classList.add("input_field");
+  elPassword.type = "password"
+  elPassword.placeholder = "password"
+
   // combine
   imgCont.append(elImg);
   divTop.append(imgCont);
@@ -103,7 +113,9 @@ function makeLogin() {
 
   divBottom.classList.add("df_column");
   divBottom.append(elLabel);
-  divBottom.append(elInput);
+  divBottom.append(elInput); 
+  divBottom.append(passwordLabel); 
+  divBottom.append(elPassword);
   divBottom.append(btnSubmit);
   divBottom.append(elSignUp);
 
@@ -126,6 +138,26 @@ function makeSignUpPage() {
 
   const btnSubmit = document.createElement("button");
   const elLogin = document.createElement("p");
+
+  const password = document.createElement("input");
+  const passwordConfirm = document.createElement("input");
+
+  const passwordLabel = document.createElement("label");
+  const passwordLabelConfirm = document.createElement("label");
+
+  passwordLabel.innerText = "Create Password";
+  passwordLabelConfirm.innerText = "Confirm Password";
+  password.type = "password";
+  passwordConfirm.type = "password";
+  password.placeholder = "Create Password"
+  passwordConfirm.placeholder = "Confirm Password"
+  password.classList.add("input_field");
+  passwordConfirm.classList.add("input_field");
+  password.required = true;
+  passwordConfirm.required = true;
+
+  //confirm is passwords match
+
 
   // CLASSES / ATTRIBUTES
   signUpForm.classList.add("card");
@@ -157,6 +189,8 @@ function makeSignUpPage() {
   // -------------------
   const row1 = document.createElement("tr");
   const row2 = document.createElement("tr");
+  const row3 = document.createElement("tr");
+  const row4 = document.createElement("tr");
 
   const userLabel = document.createElement("label");
   userLabel.innerText = "Username";
@@ -188,11 +222,25 @@ function makeSignUpPage() {
   td1 = document.createElement("td");
   td2 = document.createElement("td");
 
-  td1.append(gradeLabel);
-  td2.append(gradeInput);
+  td1.append(passwordLabel);
+  td2.append(password);
   row2.append(td1, td2);
 
-  tableUser.append(row1, row2);
+  td1 = document.createElement("td");
+  td2 = document.createElement("td");
+
+  td1.append(passwordLabelConfirm);
+  td2.append(passwordConfirm);
+  row3.append(td1, td2);
+
+  td1 = document.createElement("td");
+  td2 = document.createElement("td");
+
+  td1.append(gradeLabel);
+  td2.append(gradeInput);
+  row4.append(td1, td2);
+
+  tableUser.append(row1, row2, row3, row4);
 
   // -------------------
   // SUBJECT TABLE
@@ -314,4 +362,12 @@ function makeSignUpPage() {
   signUpForm.append(divBottom);
 
   return signUpForm;
+}
+
+
+function checkPassword(password, passwordConfirm) {
+
+  let passLen = password.length;
+
+
 }
