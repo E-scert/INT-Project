@@ -16,7 +16,7 @@ href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wg
         <link rel="stylesheet" href="style/style.css">
          <title>Explore Varsity Page</title>
 </head>
-<body>
+<body id="bg">
     <div class="head section">
         <h2>Explore Varsity</h2>
     </div>

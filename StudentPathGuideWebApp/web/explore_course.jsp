@@ -9,20 +9,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new" />
+    <link rel="stylesheet"
+href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new,search" />
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/style.css">
        <title>Explore Course Page</title>
 </head>
 <body>
-    <h2>Explore Course</h2>
-    
+    <div class="head section">
+        <h2>Explore Course</h2>
+    </div>
+    <ul>
+        <li><a href="explore_page.jsp"><span class="material-symbols-outlined">
+arrow_back_ios_new
+</span></a></li>
+    </ul>
+    <div class="course_search">  
     <form action="ExploreCourseServlet.do" method="GET">
-    <table border="1" cellpadding="10">
-        <tr>
-            <td>Enter Course Name:</td>
-            <td style="position:relative;">
-                <input type="text" id="courseName" name="term" required="">
+    
+            
+            <div style="position:relative;">
+                <input type="text" id="courseName" placeholder="Enter name of course" name="term" required="">
                 <div id="suggestions"
                      style="border:1px solid #ccc;
                             display:none;
@@ -33,19 +40,16 @@
                             width:100%;
                             z-index:1000;">
                 </div>
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td><input type="submit" value="Explore Course"></td>
-        </tr>
-    </table>
+            </div>
+        
+            <button type=submit>
+                <span class="material-symbols-outlined button_primary">
+search
+</span>
+            </button>
+        
 </form>
-    <ul>
-        <li><a href="explore_page.jsp"><span class="material-symbols-outlined">
-arrow_back_ios_new
-</span></a></li>
-    </ul>
+    </div>
     
     <!--output-->
     
