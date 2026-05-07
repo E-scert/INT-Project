@@ -18,6 +18,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -36,7 +37,7 @@ public class ExploreVarsityServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        HttpSession session = request.getSession(true);
         String input = request.getParameter("varsityName").trim().toLowerCase();
         
         //Find the university
@@ -68,9 +69,9 @@ public class ExploreVarsityServlet extends HttpServlet {
             }
         }
         //SEND TO JSP
-        request.setAttribute("university", university);
-        request.setAttribute("faculties", faculties);
-        request.setAttribute("courses", unicourses);
+        session.setAttribute("university", university);
+        session.setAttribute("faculties", faculties);
+        session.setAttribute("courses", unicourses);
         
         RequestDispatcher rsdisp = request.getRequestDispatcher("explore_varsity_outcome.jsp");
         rsdisp.forward(request, response);

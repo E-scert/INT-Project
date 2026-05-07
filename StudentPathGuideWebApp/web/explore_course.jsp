@@ -47,12 +47,28 @@
     
 <c:if test ="${not empty courses}">
     <h3>Search results:</h3>
-    <p>Name:${course.courseName}</p>
-    <p>Field:${course.courseName}</p>
-    <p>APS:${course.courseName}</p>
-    <p>Description:${course.courseName}</p>
-    <p>Required Subjects:${course.courseName}</p>
+    <p>Name: ${courses.courseName}</p>
+    <p>Field: ${courses.courseField}</p>
+    <p>APS: ${courses.courseMinAps}</p>
+    <p>Description: ${courses.courseDescription}</p>
+    <p>Required Subjects: ${courses.courseRequiredSubjects}</p>
+    <h3>Universities offering this course</h3>
+    <c:if test="${not empty unies}">
+        
+        <ul>
+            <c:forEach var="u" items="${unies}">
+                
+                <li>
+                    ${u.university.universityName}- Under the faculty of -<b style="color: darkslategrey">${u.facultyName}</b> 
+                </li>
+                
+            </c:forEach>
+        </ul>
+        
+    </c:if>
 </c:if>
+    
+   
     
 <c:if test="${empty courses}">
     <p>No courses found for your search</p>

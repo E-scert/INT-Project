@@ -43,7 +43,7 @@
 <div id="button_holder"class="nav button">
 
             <a class="button_primary" href="/">UPDATE DATA</a>
-            <a class="button_primary" href="explore_page.jsp">EXPLORE Courses</a>
+            <a class="button_primary" href="explore_page.jsp">EXPLORE</a>
             <a class="button_primary" href="chat.jsp">Chat With JARVIS(AI bot)</a>
     
 </div>
