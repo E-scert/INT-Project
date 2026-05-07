@@ -67,7 +67,9 @@
             </tr>
 
 
-           <!-- if statement when list empty return a proper message -->
+           <c:if test="${empty course}">
+            <div>Course not found. Please check the course name and try again.</div>
+           </c:if>
 
            
             <c:if test="${not empty course}">
