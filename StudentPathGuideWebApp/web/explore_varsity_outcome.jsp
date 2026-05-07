@@ -19,9 +19,9 @@
         <h2>Explore University Outcome</h2>
 
         <%
-            University uni = (University) request.getAttribute("university");
-            List<String> faculties = (List<String>) request.getAttribute("faculties");
-            List<UniversityCourses> courses = (List<UniversityCourses>) request.getAttribute("courses");
+            University uni = (University) session.getAttribute("university");
+            List<String> faculties = (List<String>) session.getAttribute("faculties");
+            List<UniversityCourses> courses = (List<UniversityCourses>) session.getAttribute("courses");
 
         %>
 

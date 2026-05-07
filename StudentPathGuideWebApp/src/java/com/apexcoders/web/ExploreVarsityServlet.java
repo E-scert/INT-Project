@@ -43,13 +43,15 @@ public class ExploreVarsityServlet extends HttpServlet {
         //Find the university
         University university = universityFacade.findByNameOrAbbreviation(input);
         
-        if(university == null){
+        if(university == null ){
         
             request.setAttribute("error", "University Not found, try again.");
             RequestDispatcher rsdisp = request.getRequestDispatcher("uni_error.jsp");
             rsdisp.forward(request, response);
             return;
         }
+        
+         session.setAttribute("varsityName", input);
         
         //GET COURSES AND FALCULATIES
         
@@ -79,9 +81,5 @@ public class ExploreVarsityServlet extends HttpServlet {
         
     }
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

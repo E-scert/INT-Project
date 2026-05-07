@@ -32,4 +32,6 @@ public interface UniversityFacadeLocal {
 
     int count();
     
+    List<String> suggestedUniversity(String term);
+    
 }
