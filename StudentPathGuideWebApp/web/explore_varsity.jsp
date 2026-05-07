@@ -32,5 +32,7 @@
     <ul>
         <li><a href="explore_page.jsp">Back</a></li>
     </ul>
+    
+    
 </body>
 </html>
