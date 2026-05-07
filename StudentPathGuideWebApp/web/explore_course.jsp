@@ -9,6 +9,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new" />
+    <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/style.css">
        <title>Explore Course Page</title>
 </head>
@@ -40,7 +42,9 @@
     </table>
 </form>
     <ul>
-        <li><a href="explore_page.jsp">Back</a></li>
+        <li><a href="explore_page.jsp"><span class="material-symbols-outlined">
+arrow_back_ios_new
+</span></a></li>
     </ul>
     
     <!--output-->

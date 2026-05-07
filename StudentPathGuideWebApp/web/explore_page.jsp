@@ -10,27 +10,32 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Explore Page</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new" />
+        <link rel="stylesheet" href="style/style.css">
     </head>
     <body>
-        <h2>Explore</h2>
-        
-        <p>
-            Please choose what you want to explore below. 
-        </p>
-        
-        <p>
-            You can search by entering the name later on the selected page.
-        </p>
-        
-         <ol>
-        <li><a href="explore_varsity.jsp">Explore Varsity</a></li>
-        <li><a href="explore_course.jsp">Explore Course</a></li>
-        </ol>
-        
+        <div class="head section">
+            <h2>Explore</h2>
+        </div>
         <ul>
 
-        <li><a href="dashboard.jsp">Go Back</a></li>
-        </ul>       
+        <li><a href="dashboard.jsp"><span class="material-symbols-outlined">
+arrow_back_ios_new
+</span></a></li>
+        </ul>  
+        <div class="hero">
+        <p class="hero_text">
+            Choose what you want to explore. 
+        </p>
+        <p>Curiousity start here</p>
+       
+        
+         <ol>
+        <li><a class="button_primary" href="explore_varsity.jsp">Explore Varsity</a></li>
+        <li><a class="button_primary" href="explore_course.jsp">Explore Course</a></li>
+        </ol>
+        
+        </div>  
         
         
     </body>
