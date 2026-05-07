@@ -66,7 +66,14 @@
                 
             </tr>
 
-            <c:forEach var="f" items="${course}">
+
+           <!-- if statement when list empty return a proper message -->
+
+           
+            <c:if test="${not empty course}">
+                
+                <c:forEach var="f" items="${course}">
+                
                 <tr>
                     <td>${f.facultyName}</td>
                     <td>${f.course.courseName}</td>
@@ -78,6 +85,9 @@
                    
                 </tr>
             </c:forEach>
+                
+            </c:if>
+            
         </table>
     </div>
 </div>

@@ -18,6 +18,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapKeyColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
@@ -44,6 +46,11 @@ public class Student implements Serializable {
     @Column(name = "APS", nullable = false)
     private Integer aps;
     
+    @NotBlank(message ="Password is required")
+    @Size(min = 8, max = 14,message = "Password must be between 8 and 14 characters")
+    @Column(name ="password", nullable= false , length=14)
+    private String password;
+    
     // JPA will create a join table for this map
     @ElementCollection
     @CollectionTable(
@@ -57,13 +64,23 @@ public class Student implements Serializable {
     public Student() {
     }
 
-    public Student(String username, Integer grade, String fieldOfInterest, Integer aps) {
+    public Student(String username, Integer grade, String fieldOfInterest, Integer aps,String password) {
         this.username = username;
         this.grade = grade;
         this.fieldOfInterest = fieldOfInterest;
         this.aps = aps;
+        this.password = password;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+     
     public String getUsername() {
         return username;
     }

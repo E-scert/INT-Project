@@ -13,10 +13,12 @@
     <head>
         <link rel="stylesheet" href="style/style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new" />
+        <link rel="stylesheet" href="style/style.css">
         <title>Explore Varsity Outcome</title>
     </head>
     <body>
-        <h2>Explore University Outcome</h2>
+        <h2>List of Course Offered by this University</h2>
 
         <%
             University uni = (University) session.getAttribute("university");
@@ -28,7 +30,7 @@
         <h3>University: <%= uni.getUniversityName()%> , <%=uni.getUniversityAbbreviation()%></h3>
         <p>Province: <%= uni.getUniversityProvince()%></p>
 
-        <hr><!---break to occur--->
+        <hr ><!---break to occur--->
         <%
             for (int x = 0; x < faculties.size(); x++) {
 
@@ -63,7 +65,10 @@
         %>
 
 
-        <p>Click <a href="dashboard.jsp">here</a> to go to the dashboard</p>
+         <ul>
+        <li><a href="explore_varsity_outcome.jsp">Back</a></li>
+    </ul>
+    
 
 
     </body>

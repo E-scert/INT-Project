@@ -8,41 +8,38 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new,search" />
+        <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
         <link rel="stylesheet" href="style/style.css">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Explore Varsity Page</title>
     </head>
     <body>
-        <h2>Explore Varsity</h2>
+        <div class="head section">
+            <h2>Explore Varsity</h2>
+        </div>
 
-        <form action="ExploreVarsityServlet.do" method="post">
+        <h2>LIst of Universities</h2>
 
-            <table border="1" cellpadding="10">
-                <tr>
-                    <td>Enter Varsity Name:</td>
-                    <td style="position: relative;">
-                        <input type="text" id="varsityName" name="varsityName" required="">
-                        <div id="suggestions" style="border: 1px solid #ccc;
-                             display: none;
-                             position: absolute;
-                             top: 100%;
-                             left:0;
-                             background:white;
-                             width:100%;
-                             left:0;
-                             background: white;
-                             width: 100%;
-                             z-index: 1000;" >                        
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="Explore Varsity"></td>
-                </tr>
-            </table>
-        </form>
 
+        <ul>
+            <li><a href="explore_page.jsp"><span class="material-symbols-outlined">
+                        arrow_back_ios_new
+                    </span></a></li>
+        </ul>
+        <div class="hero">
+            <form action="ExploreVarsityServlet.do" method="post" class="explore_container">
+
+
+                <div class="input_container">
+                    <label for="varsityName">Enter Varsity Name</label>
+                    <input type="text" name="varsityName" required="" class="input" placeholder="Tshwane University of Technology">
+                </div>
+
+                <button type="submit"><span class="material-symbols-outlined button_primary">search</span></button>
+
+            </form>
+        </div>
         <ul>
             <li><a href="explore_page.jsp">Back</a></li>
         </ul>
