@@ -27,11 +27,9 @@
         <li><a href="explore_course.jsp">Explore Course</a></li>
         </ol>
         
-        <ul>
-
-        <li><a href="dashboard.jsp">Go Back</a></li>
-        </ul>       
-        
+       <ul>
+        <li><a href="explore_page.jsp">Back</a></li>
+    </ul>
         
     </body>
 </html>

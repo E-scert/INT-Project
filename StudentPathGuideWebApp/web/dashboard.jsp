@@ -66,7 +66,12 @@
                 
             </tr>
 
-            <c:forEach var="f" items="${course}">
+           //if statement for when the data is not found 
+           
+            <c:if test="${not empty course}">
+                
+                <c:forEach var="f" items="${course}">
+                
                 <tr>
                     <td>${f.facultyName}</td>
                     <td>${f.course.courseName}</td>
@@ -78,6 +83,9 @@
                    
                 </tr>
             </c:forEach>
+                
+            </c:if>
+            
         </table>
     </div>
 </div>
