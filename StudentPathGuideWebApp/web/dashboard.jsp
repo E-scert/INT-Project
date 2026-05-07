@@ -24,7 +24,7 @@
                     ${name} 
                  (Grade ${grade}) 
                  <span>
-                    <a style="color:rgb(133, 133, 133);font-size:1.125rem" href="LogoutServlet.do">Login out</a>
+                    <a style="color:rgb(133, 133, 133);font-size:1.125rem" href="LogoutServlet.do">Logout</a>
                  </span>
                  </div>
             </div>

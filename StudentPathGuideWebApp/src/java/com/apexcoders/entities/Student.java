@@ -47,8 +47,7 @@ public class Student implements Serializable {
     private Integer aps;
     
     @NotBlank(message ="Password is required")
-    @Size(min = 8, max = 14,message = "Password must be between 8 and 14 characters")
-    @Column(name ="password", nullable= false , length=14)
+    @Column(name ="password", nullable= false )
     private String password;
     
     // JPA will create a join table for this map

@@ -7,11 +7,11 @@ window.addEventListener("load", () => {
   const main = document.getElementById("main");
 
   
-  console.log(alphabetUpper);
+  
   const loginPage = makeLogin();
   const signUpPage = makeSignUpPage();
 
-  console.log(loginPage);
+
   main.appendChild(loginPage);
 
   signUpPage.classList.add("hidden");
@@ -96,6 +96,7 @@ function makeLogin() {
   elPassword.classList.add("input_field");
   elPassword.type = "password"
   elPassword.placeholder = "password"
+  elPassword.name = "password";
 
   // combine
   imgCont.append(elImg);
@@ -149,6 +150,7 @@ function makeSignUpPage() {
   passwordLabel.innerText = "Create Password";
   passwordLabelConfirm.innerText = "Confirm Password";
   password.type = "password";
+  password.name = "password";
   passwordConfirm.type = "password";
   password.placeholder = "Create Password"
   passwordConfirm.placeholder = "Confirm Password"
@@ -241,14 +243,9 @@ function makeSignUpPage() {
   td2.append(gradeInput);
   row4.append(td1, td2);
 
-let cp = checkPassword(password, passwordConfirm);
+//let cp = checkPassword(password, passwordConfirm);
 
-if(!cp) {
-  password.value = "";
-  passwordConfirm.value = "";
 
-  password.style.borderColor = "red";
-  passwordConfirm.style.borderColor = "red";
 
   tableUser.append(row1, row2, row3, row4);
 
@@ -374,7 +371,7 @@ if(!cp) {
   return signUpForm;
 }
 
-}
+
 
 function checkPassword(password, passwordConfirm) {
 
