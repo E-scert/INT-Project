@@ -6,7 +6,8 @@
 window.addEventListener("load", () => {
   const main = document.getElementById("main");
 
- 
+  
+  console.log(alphabetUpper);
   const loginPage = makeLogin();
   const signUpPage = makeSignUpPage();
 
@@ -240,6 +241,15 @@ function makeSignUpPage() {
   td2.append(gradeInput);
   row4.append(td1, td2);
 
+let cp = checkPassword(password, passwordConfirm);
+
+if(!cp) {
+  password.value = "";
+  passwordConfirm.value = "";
+
+  password.style.borderColor = "red";
+  passwordConfirm.style.borderColor = "red";
+
   tableUser.append(row1, row2, row3, row4);
 
   // -------------------
@@ -364,10 +374,62 @@ function makeSignUpPage() {
   return signUpForm;
 }
 
+}
 
 function checkPassword(password, passwordConfirm) {
 
-  let passLen = password.length;
+  if(password.value.isEmpty() || passwordConfirm.value.isEmpty()){
+    window.alert("Password Field Empty");
+    password.style.borderColor = "red";
+    passwordConfirm.style.borderColor = "red";
+    return false;
+  }
 
+  const passLen = password.length;
+  const conLen = passwordConfirm.length;
+
+  if(passLen < 8 && conLen < 8) {
+    window.alert("Password too short");
+    return false;
+  }
+
+  const pass = password.value;
+  const con = passwordConfirm.value;
+
+  if(pass != con) {
+    window.alert("Passwords Don't Match!");
+    return false;
+  } 
+  
+  const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+  const upper = lowerCase.toUpperCase();
+  const number = [1,2,3,4,5,6,7,8,9,0];
+  const char = "!@#$%^&*()_-+";
+
+  const containsLower = false;
+  const containsUpper = false;
+  const containsNumber = false;
+  const containsChar = false;
+
+  for(let i = 0; i < pass.length; i++) {
+
+    if(lowerCase.includes(pass[i])) {
+      containsLower = true;
+
+    } else if (upper.includes(pass[i])) {
+      containsUpper = true;
+    } else if(number.includes(pass[i])) {
+      containsNumber = true;
+    } else if (char.includes(pass[i])){
+      containsChar = true;
+    }
+
+  }
+
+  if(!(containsChar && containsLower && containsNumber && containsUpper)) {
+    return false;
+  }
+
+  return true;
 
 }
