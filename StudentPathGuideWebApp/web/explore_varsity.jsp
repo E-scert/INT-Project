@@ -29,6 +29,9 @@
         </table>
     </form>
     
+    <h2>LIst of Universities</h2>
+   
+    
     <ul>
         <li><a href="explore_page.jsp">Back</a></li>
     </ul>

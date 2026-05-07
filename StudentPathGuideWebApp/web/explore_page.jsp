@@ -28,7 +28,7 @@
         </ol>
         
        <ul>
-        <li><a href="explore_page.jsp">Back</a></li>
+        <li><a href="dashboard.jsp">Back</a></li>
     </ul>
         
     </body>

@@ -66,7 +66,7 @@
                 
             </tr>
 
-           //if statement for when the data is not found 
+<!--           //if statement for when the data is not found -->
            
             <c:if test="${not empty course}">
                 

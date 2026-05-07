@@ -37,7 +37,8 @@ public class ExploreVarsityServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(true);
+        
+        HttpSession session = request.getSession();
         String input = request.getParameter("varsityName").trim().toLowerCase();
         
         //Find the university
@@ -45,7 +46,7 @@ public class ExploreVarsityServlet extends HttpServlet {
         
         if(university == null){
         
-            request.setAttribute("error", "University Not found, try again.");
+            session.setAttribute("error", "University Not found, try again.");
             RequestDispatcher rsdisp = request.getRequestDispatcher("uni_error.jsp");
             rsdisp.forward(request, response);
             return;
@@ -68,20 +69,19 @@ public class ExploreVarsityServlet extends HttpServlet {
                 faculties.add(faculty);
             }
         }
+        
         //SEND TO JSP
         session.setAttribute("university", university);
         session.setAttribute("faculties", faculties);
         session.setAttribute("courses", unicourses);
         
-        RequestDispatcher rsdisp = request.getRequestDispatcher("explore_varsity_outcome.jsp");
-        rsdisp.forward(request, response);
+        System.out.println(faculties.size());
+        System.out.println(input);
+        
+        request.getRequestDispatcher("explore_varsity_outcome.jsp").forward(request, response);
         
         
     }
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+  
 }

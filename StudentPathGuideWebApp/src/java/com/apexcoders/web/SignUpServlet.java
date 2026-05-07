@@ -5,6 +5,7 @@
  */
 package com.apexcoders.web;
 
+import com.apex.password.crypt.PasswordUtil;
 import com.apexcoders.entities.Course;
 import com.apexcoders.entities.Student;
 import com.apexcoders.entities.UniversityCourses;
@@ -13,16 +14,20 @@ import com.apexcoders.model.bl.StudentFacadeLocal;
 import com.apexcoders.model.bl.UniversityCoursesFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -36,11 +41,13 @@ public class SignUpServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
+        HttpSession session = request.getSession();
         try{
             
         Integer grade = Integer.valueOf(request.getParameter("grade"));
         String username = request.getParameter("username");
         String field = request.getParameter("field");
+        String password = request.getParameter("password");
 
         String subject1 = request.getParameter("subject1");
         String subject2 = request.getParameter("subject2");
@@ -64,6 +71,10 @@ public class SignUpServlet extends HttpServlet {
         stud.setUsername(username);
         stud.setGrade(grade);
         stud.setFieldOfInterest(field);
+       
+        //hash the password
+        String hashed = PasswordUtil.hashPassword(stud.getPassword());
+        stud.setPassword(hashed);
 
         // Add subjects to Map
         Map<String, Integer> marks = new HashMap<>();
@@ -82,10 +93,13 @@ public class SignUpServlet extends HttpServlet {
 
         //PERSIST TO DATABASE
         sfl.create(stud);
-        request.setAttribute("name",username);
-        request.setAttribute("grade",grade);
-        request.setAttribute("aps",aps);
-        request.setAttribute("field",field);
+        
+        session.setAttribute("name",username);
+        session.setAttribute("grade",grade);
+        session.setAttribute("aps",aps);
+        session.setAttribute("field",field);
+        session.setAttribute("password",password);
+        
         
        //get university course
          List<UniversityCourses> filteredCourses = ucf.filterByFieldAndAps(field,aps);
@@ -99,16 +113,18 @@ public class SignUpServlet extends HttpServlet {
         }catch(InvalidMarksException e){
             
             // Handle your custom exception
-            request.setAttribute("error", e.getMessage());
+            session.setAttribute("error", e.getMessage());
             RequestDispatcher disp = request.getRequestDispatcher("error.jsp");
             disp.forward(request, response);
 
         } catch (NumberFormatException e) {
 
             //Handles non-numeric input like "abc"
-            request.setAttribute("error", "Please enter valid numeric marks.");
+            session.setAttribute("error", "Please enter valid numeric marks.");
             RequestDispatcher disp = request.getRequestDispatcher("error.jsp");
             disp.forward(request, response);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(SignUpServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         
          
