@@ -291,13 +291,22 @@ body {
     gap: 1.2em;
   }
   label {
-    font-size: 
+    font-size: 1.35rem;
   }
+  
   .input {
     height: 52px;
     width: 400px;
     font-size: 1.8rem;
     padding: 10px;
+
+  }
+  button {
+    color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    justify-self: end;
   }
 
 

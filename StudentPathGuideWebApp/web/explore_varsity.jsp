@@ -10,8 +10,9 @@
     <head>
         <link rel="stylesheet" href="style/style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search" />
+        <link rel="stylesheet"
+href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new,search" />
+        <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
         <link rel="stylesheet" href="style/style.css">
          <title>Explore Varsity Page</title>
 </head>
@@ -34,7 +35,7 @@ arrow_back_ios_new
                  <input type="text" name="varsityName" required="" class="input" placeholder="Tshwane University of Technology">
                </div>
             
-                <button type="submit"><span class="material-symbols-outlined">
+                <button type="submit"><span class="material-symbols-outlined button_primary">
 search
 </span></button>
            

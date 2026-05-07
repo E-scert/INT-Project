@@ -78,7 +78,7 @@ arrow_back_ios_new
     <p>No courses found for your search</p>
 
 </c:if>
-    
+   
 
     
     <script>
