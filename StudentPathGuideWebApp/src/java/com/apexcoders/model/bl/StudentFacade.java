@@ -36,8 +36,11 @@ public class StudentFacade extends AbstractFacade<Student> implements StudentFac
         Query query = em.createQuery("SELECT s FROM Student s WHERE s.username = :uname");
         
         query.setParameter("uname", username);
+        
+      
         //using a try block to check that the studemt really does exist.
         //Student student = (Student)query.getSingleResult();
+        
         
         Student student = null;
                 

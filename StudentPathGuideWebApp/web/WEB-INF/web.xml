@@ -32,6 +32,10 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>com.apexcoders.web.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VarsitySuggestionServlet</servlet-name>
+        <servlet-class>com.apexcoders.web.VarsitySuggestionServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet.do</url-pattern>
@@ -67,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VarsitySuggestionServlet</servlet-name>
+        <url-pattern>/VarsitySuggestionServlet.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -21,22 +21,21 @@
 
         <li><a href="dashboard.jsp"><span class="material-symbols-outlined">
 arrow_back_ios_new
-</span></a></li>
-        </ul>  
-        <div class="hero">
-        <p class="hero_text">
-            Choose what you want to explore. 
-        </p>
-        <p>Curiousity start here</p>
-       
+        </span></a></li>
+            </ul>
         
-         <ol>
-        <li><a class="button_primary" href="explore_varsity.jsp">Explore Varsity</a></li>
-        <li><a class="button_primary" href="explore_course.jsp">Explore Course</a></li>
-        </ol>
+           <div class="hero">
+                <p class="hero_text">Choose what you want to explore. </p>
+                <p>Curiousity start here</p>
+
+
+                <ol>
+                    <li><a class="button_primary" href="explore_varsity.jsp">Explore Varsity</a></li>
+                    <li><a class="button_primary" href="explore_course.jsp">Explore Course</a></li>
+                </ol>
         
-        </div>  
-        
-        
+
+           </div>  
+
     </body>
 </html>

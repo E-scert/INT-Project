@@ -6,6 +6,7 @@
 package com.apexcoders.model.bl;
 
 import com.apexcoders.entities.University;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -32,22 +33,33 @@ public class UniversityFacade extends AbstractFacade<University> implements Univ
 
     @Override
     public University findByNameOrAbbreviation(String input) {
-       
-        Query qu = em.createQuery("SELECT u FROM University u " +
-                "WHERE LOWER(u.universityName) = :input " +
-                "OR LOWER(u.universityAbbreviation) = :input");
-        
+
+        Query qu = em.createQuery("SELECT u FROM University u "
+                + "WHERE LOWER(u.universityName) = :input "
+                + "OR LOWER(u.universityAbbreviation) = :input");
+
         qu.setParameter("input", input);
-        
+
         University university = null;
-        
+
         try {
-            university = (University)qu.getSingleResult();
+            university = (University) qu.getSingleResult();
         } catch (Exception e) {
             university = null;
         }
-        
+
         return university;
     }
-    
+
+    @Override
+    public List<String> suggestedUniversity(String term) {
+
+        Query q = em.createQuery("SELECT u.universityName FROM University u "
+                + "WHERE LOWER(u.universityName) "
+                + "LIKE CONCAT('%', :term, '%')");
+        q.setParameter("term", term.toLowerCase());
+        q.setMaxResults(10);
+        return q.getResultList();
+    }
+
 }
