@@ -24,7 +24,7 @@
                     ${name} 
                  (Grade ${grade}) 
                  <span>
-                    <a style="color:rgb(133, 133, 133);font-size:1.125rem" href="#">Login out</a>
+                    <a style="color:rgb(133, 133, 133);font-size:1.125rem" href="LogoutServlet.do">Login out</a>
                  </span>
                  </div>
             </div>
@@ -42,7 +42,7 @@
 <!--       holds the links to -->
 <div id="button_holder"class="nav button">
 
-            <a class="button_primary" href="/">UPDATE DATA</a>
+            <a class="button_primary" href="#">UPDATE DATA</a>
             <a class="button_primary" href="explore_page.jsp">EXPLORE</a>
             <a class="button_primary" href="chat.jsp">Chat With JARVIS(AI bot)</a>
     
