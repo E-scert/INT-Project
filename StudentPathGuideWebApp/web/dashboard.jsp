@@ -77,7 +77,7 @@
 
 
            <c:if test="${empty course}">
-            <div>Course not found. Please check the course name and try again.</div>
+            <div>You do not qualify for any course. try upgrading your APS</div>
            </c:if>
 
            
