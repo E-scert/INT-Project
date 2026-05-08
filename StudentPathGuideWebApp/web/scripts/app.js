@@ -6,11 +6,8 @@
 window.addEventListener("load", () => {
   const main = document.getElementById("main");
 
-  
-  
   const loginPage = makeLogin();
   const signUpPage = makeSignUpPage();
-
 
   main.appendChild(loginPage);
 
@@ -86,16 +83,14 @@ function makeLogin() {
   imgCont.classList.add("login_img_container");
   elWelcomeText.innerText = loginInfo.welcomeText;
   elInput.placeholder = "username";
-  elInput.classList.add("input_field")
+  elInput.classList.add("input_field");
   btnSubmit.textContent = "Login";
   btnSubmit.classList.add("button_primary");
 
-
-
   passwordLabel.innerText = "Enter Password";
   elPassword.classList.add("input_field");
-  elPassword.type = "password"
-  elPassword.placeholder = "password"
+  elPassword.type = "password";
+  elPassword.placeholder = "password";
   elPassword.name = "password";
 
   // combine
@@ -109,14 +104,14 @@ function makeLogin() {
   btnSubmit.type = "submit";
   elInput.name = "username";
 
-  elSignUp.classList.add("text_center")
+  elSignUp.classList.add("text_center");
   elSignUp.innerHTML =
     "Don't have an accout? <span class='highlight' id='toggleSignUp'>Sign Up</span>";
 
   divBottom.classList.add("df_column");
   divBottom.append(elLabel);
-  divBottom.append(elInput); 
-  divBottom.append(passwordLabel); 
+  divBottom.append(elInput);
+  divBottom.append(passwordLabel);
   divBottom.append(elPassword);
   divBottom.append(btnSubmit);
   divBottom.append(elSignUp);
@@ -152,8 +147,8 @@ function makeSignUpPage() {
   password.type = "password";
   password.name = "password";
   passwordConfirm.type = "password";
-  password.placeholder = "Create Password"
-  passwordConfirm.placeholder = "Confirm Password"
+  password.placeholder = "Create Password";
+  passwordConfirm.placeholder = "Confirm Password";
   password.classList.add("input_field");
   passwordConfirm.classList.add("input_field");
   password.required = true;
@@ -161,10 +156,9 @@ function makeSignUpPage() {
 
   //confirm is passwords match
 
-
   // CLASSES / ATTRIBUTES
   signUpForm.classList.add("card");
- 
+
   // signUpForm.classList.add("info");
   signUpForm.action = "SignUpServlet.do";
   signUpForm.setAttribute("method", "post");
@@ -243,10 +237,12 @@ function makeSignUpPage() {
   td2.append(gradeInput);
   row4.append(td1, td2);
 
-//let cp = checkPassword(password, passwordConfirm);
-
-
-
+  // Error message element (shows inline, no alerts)
+  const errorMsg = document.createElement("p");
+  errorMsg.classList.add("text_center");
+  errorMsg.style.color = "red";
+  errorMsg.style.fontSize = "0.875rem";
+  errorMsg.style.marginTop = "4px";
   tableUser.append(row1, row2, row3, row4);
 
   // -------------------
@@ -334,7 +330,6 @@ function makeSignUpPage() {
 
   const fieldLabel = document.createElement("label");
   fieldLabel.innerText = "Field of Interest";
-  
 
   const fieldInput = document.createElement("input");
   fieldInput.classList.add("input_field");
@@ -358,8 +353,28 @@ function makeSignUpPage() {
 
   divTop.append(elTitle);
 
+  signUpForm.addEventListener("submit", (e) => {
+    const error = checkPassword(password, passwordConfirm);
+
+    if (error) {
+      e.preventDefault(); // block submission
+
+      // highlight the fields
+      password.style.borderColor = "red";
+      passwordConfirm.style.borderColor = "red";
+
+      // show the message
+      errorMsg.textContent = error;
+    } else {
+      // clear any previous error state
+      password.style.borderColor = "";
+      passwordConfirm.style.borderColor = "";
+      errorMsg.textContent = "";
+    }
+  });
   divBottom.classList.add("df_column");
   divBottom.append(tableUser);
+  divBottom.append(errorMsg);
   divBottom.append(tableSubjects);
   divBottom.append(tableField);
   divBottom.append(btnSubmit);
@@ -371,62 +386,65 @@ function makeSignUpPage() {
   return signUpForm;
 }
 
-
-
 function checkPassword(password, passwordConfirm) {
-
-  if(password.value.isEmpty() || passwordConfirm.value.isEmpty()){
-    window.alert("Password Field Empty");
+  if (password.value.trim() === "" || passwordConfirm.value.trim() === "") {
     password.style.borderColor = "red";
     passwordConfirm.style.borderColor = "red";
-    return false;
+
+    return "Password field cannot be empty";
   }
 
-  const passLen = password.length;
-  const conLen = passwordConfirm.length;
+  const passLen = password.value.length;
+  const conLen = passwordConfirm.value.length;
 
-  if(passLen < 8 && conLen < 8) {
-    window.alert("Password too short");
-    return false;
+  if (passLen < 8 || conLen < 8) {
+    return "Password must be at least 8 characters";
   }
 
   const pass = password.value;
   const con = passwordConfirm.value;
 
-  if(pass != con) {
-    window.alert("Passwords Don't Match!");
-    return false;
-  } 
-  
+  if (pass !== con) {
+    return "Passwords don't match";
+  }
+
   const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-  const upper = lowerCase.toUpperCase();
-  const number = [1,2,3,4,5,6,7,8,9,0];
-  const char = "!@#$%^&*()_-+";
+  const upperCase = lowerCase.toUpperCase();
+  const digits = "0123456789";
+  const chars = "!@#$%^&*()-_+";
 
-  const containsLower = false;
-  const containsUpper = false;
-  const containsNumber = false;
-  const containsChar = false;
+  let containsLower = false;
+  let containsUpper = false;
+  let containsDigit = false;
+  let containsChar = false;
 
-  for(let i = 0; i < pass.length; i++) {
-
-    if(lowerCase.includes(pass[i])) {
+  for (let i = 0; i < pass.length; i++) {
+    if (lowerCase.includes(pass[i])) {
       containsLower = true;
-
-    } else if (upper.includes(pass[i])) {
+    } else if (upperCase.includes(pass[i])) {
       containsUpper = true;
-    } else if(number.includes(pass[i])) {
-      containsNumber = true;
-    } else if (char.includes(pass[i])){
+    } else if (digits.includes(pass[i])) {
+      containsDigit = true;
+    } else if (chars.includes(pass[i])) {
       containsChar = true;
     }
-
   }
 
-  if(!(containsChar && containsLower && containsNumber && containsUpper)) {
-    return false;
+  if (!containsLower) {
+    return "Password needs a lowercase letter";
   }
 
-  return true;
+  if (!containsUpper) {
+    return "Password needs an uppercase letter";
+  }
 
+  if (!containsDigit) {
+    return "Password needs a number";
+  }
+
+  if (!containsChar) {
+    return "Password needs a special character [!@#$%^&*()_+]";
+  }
+
+  return null;
 }
