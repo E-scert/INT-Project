@@ -13,24 +13,36 @@
     <head>
         <link rel="stylesheet" href="style/style.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new" />
+        <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new,search" />
         <link rel="stylesheet" href="style/style.css">
         <title>Explore Varsity Outcome</title>
     </head>
     <body>
+        <div class="head section">
         <h2>List of Course Offered by this University</h2>
+        </div>
 
+        <ul>
+            <li><a href="explore_varsity_outcome.jsp">
+                <span class="material-symbols-outlined">
+arrow_back_ios_new
+</span>
+            </a></li>
+        </ul>
+        <div class="card" style="margin: 15px;">
         <%
             University uni = (University) session.getAttribute("university");
             List<String> faculties = (List<String>) session.getAttribute("faculties");
             List<UniversityCourses> courses = (List<UniversityCourses>) session.getAttribute("courses");
 
         %>
+        
 
         <h3>University: <%= uni.getUniversityName()%> , <%=uni.getUniversityAbbreviation()%></h3>
         <p>Province: <%= uni.getUniversityProvince()%></p>
-
-        <hr ><!---break to occur--->
+        </div>
+        
         <%
             for (int x = 0; x < faculties.size(); x++) {
 
@@ -38,8 +50,9 @@
 
         %>
 
-        <h4><%= faculty%></h4>
+        <h4 class="course_faculty"><%= faculty%></h4>
 
+        <div class="course_card_container">
         <%
             for (int z = 0; z < courses.size(); z++) {
                 UniversityCourses uc = courses.get(z);
@@ -47,8 +60,8 @@
                 if (uc.getFacultyName().equalsIgnoreCase(faculty)) {
 
         %>
-
-        <p>
+        
+        <p class="card ">
             <b>Course:</b> <%=uc.getCourse().getCourseName()%><br/>
             <b>Field</b> <%=uc.getCourse().getCourseField()%><br/>
             <b>APS:</b> <%=uc.getCourse().getCourseMinAps()%><br/>
@@ -56,18 +69,19 @@
             <b>Required Subjects:</b> <%=uc.getCourse().getCourseRequiredSubjects()%><br/>
 
         </p>
-        <hr>
+        
+        
 
         <%
                     }
                 }
-            }
+                %>
+        </div>
+        <%    }
         %>
 
-
-         <ul>
-        <li><a href="explore_varsity_outcome.jsp">Back</a></li>
-    </ul>
+            
+         
     
 
 
