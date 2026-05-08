@@ -24,7 +24,7 @@
 
                 <div id="button_holder"class="nav">
 
-                <a class="button_primary" href="#">
+                <a class="button_primary" href="#update_data.jsp">
                     <span id="dashboard_nav" class="material-symbols-outlined">edit_note</span>
                 </a>
                 <a class="button_primary" href="explore_page.jsp">
@@ -56,8 +56,6 @@
 <h3 class="section text_center">Courses you qualify for:</h3>
 <!--       holds the links to -->
 
-
-        
 <!--dashboard data display--> 
 <div id="dashboard_analysis">
     <div id="data_description" >

@@ -36,6 +36,10 @@
         <servlet-name>VarsitySuggestionServlet</servlet-name>
         <servlet-class>com.apexcoders.web.VarsitySuggestionServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateDataServlet</servlet-name>
+        <servlet-class>com.apexcoders.web.UpdateDataServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet.do</url-pattern>
@@ -75,6 +79,10 @@
     <servlet-mapping>
         <servlet-name>VarsitySuggestionServlet</servlet-name>
         <url-pattern>/VarsitySuggestionServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateDataServlet</servlet-name>
+        <url-pattern>/UpdateDataServlet.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
