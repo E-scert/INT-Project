@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new,search" />
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
     <link rel="stylesheet" href="style/style.css">
     <title>Chat with Javis</title>
@@ -13,12 +15,20 @@
         
            
     %>
+    <div class="head section">
+        <ul>
+        <li><a href="explore_page.jsp"><span class="material-symbols-outlined">
+arrow_back_ios_new
+</span></a></li>
+    </ul>
+        <h2>Chat with Javis</h2>
+    </div>
     <div id="chat_screen" class="chat_screen">
 
         <div class="chat_container">
         
            <div class="gemini_reponse_contaier">
-               <p>
+               <p class="message ai_response">
                 <%
                   if (aiResponse != null) {
                     for(String s : aiResponse) {
@@ -28,7 +38,7 @@
                     }
                 } else {
                 %>
-                    <span>No response yet. Ask something!</span>
+                    <span>Hi, I am you AI assistance. I am here to assist with any questions you might have</span>
                 <%
                 }
                 %>
@@ -45,6 +55,10 @@
         </form>
     </div>
 
-    <script src="scripts/app.js"></script>
+    <script src="scripts/app.js">
+    </script>
+    
+
+    
 </body>
 </html>

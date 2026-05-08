@@ -46,7 +46,6 @@ window.addEventListener("load", () => {
   });
 });
 
-// login info
 const loginInfo = {
   servlet: "LoginServlet.do",
   welcomeText: "Welcome back",
@@ -54,7 +53,6 @@ const loginInfo = {
     "https://th.bing.com/th/id/R.fbf39144bff5c02898fdc8fd583f84b6?rik=qLhp7D3LhK%2fQgA&pid=ImgRaw&r=0",
 };
 function makeLogin() {
-  // create screen elements
   const loginForm = document.createElement("form");
   const divTop = document.createElement("div");
   const divBottom = document.createElement("div");
@@ -68,10 +66,9 @@ function makeLogin() {
   const imgCont = document.createElement("div");
   const passwordLabel = document.createElement("Label");
 
-  // insert class, id, etc
   loginForm.classList.add("card");
   loginForm.setAttribute("method", "post");
-  // loginForm.classList.add("hidden");
+
   loginForm.action = loginInfo.servlet;
   divTop.classList.add("card");
   divTop.classList.add("card_spacing");
@@ -93,7 +90,6 @@ function makeLogin() {
   elPassword.placeholder = "password";
   elPassword.name = "password";
 
-  // combine
   imgCont.append(elImg);
   divTop.append(imgCont);
   divTop.append(elWelcomeText);
@@ -123,7 +119,6 @@ function makeLogin() {
 }
 
 function makeSignUpPage() {
-  // MAIN ELEMENTS
   const signUpForm = document.createElement("form");
   const divTop = document.createElement("div");
   const divBottom = document.createElement("div");
@@ -154,15 +149,10 @@ function makeSignUpPage() {
   password.required = true;
   passwordConfirm.required = true;
 
-  //confirm is passwords match
-
-  // CLASSES / ATTRIBUTES
   signUpForm.classList.add("card");
 
-  // signUpForm.classList.add("info");
   signUpForm.action = "SignUpServlet.do";
   signUpForm.setAttribute("method", "post");
-  //signUpForm.classList.add("hidden");
 
   divTop.classList.add("card");
   divTop.classList.add("card_spacing");
@@ -181,9 +171,6 @@ function makeSignUpPage() {
   elLogin.innerHTML =
     "Have an account? <span class='highlight' id='toggleLogin' >Login</span>";
 
-  // -------------------
-  // USER INFO TABLE
-  // -------------------
   const row1 = document.createElement("tr");
   const row2 = document.createElement("tr");
   const row3 = document.createElement("tr");
@@ -237,17 +224,12 @@ function makeSignUpPage() {
   td2.append(gradeInput);
   row4.append(td1, td2);
 
-  // Error message element (shows inline, no alerts)
   const errorMsg = document.createElement("p");
   errorMsg.classList.add("text_center");
   errorMsg.style.color = "red";
   errorMsg.style.fontSize = "0.875rem";
   errorMsg.style.marginTop = "4px";
   tableUser.append(row1, row2, row3, row4);
-
-  // -------------------
-  // SUBJECT TABLE
-  // -------------------
 
   const thead = document.createElement("thead");
   const headRow = document.createElement("tr");
@@ -263,7 +245,6 @@ function makeSignUpPage() {
 
   const tbody = document.createElement("tbody");
 
-  // helper to create subject rows
   function createRow(num) {
     const tr = document.createElement("tr");
 
@@ -315,16 +296,11 @@ function makeSignUpPage() {
     return tr;
   }
 
-  // create 6 rows
   for (let i = 1; i <= 6; i++) {
     tbody.append(createRow(i));
   }
 
   tableSubjects.append(thead, tbody);
-
-  // -------------------
-  // FIELD TABLE
-  // -------------------
 
   const fieldRow = document.createElement("tr");
 
@@ -347,26 +323,19 @@ function makeSignUpPage() {
   fieldRow.append(tdF1, tdF2);
   tableField.append(fieldRow);
 
-  // -------------------
-  // COMBINE EVERYTHING
-  // -------------------
-
   divTop.append(elTitle);
 
   signUpForm.addEventListener("submit", (e) => {
     const error = checkPassword(password, passwordConfirm);
 
     if (error) {
-      e.preventDefault(); // block submission
+      e.preventDefault();
 
-      // highlight the fields
       password.style.borderColor = "red";
       passwordConfirm.style.borderColor = "red";
 
-      // show the message
       errorMsg.textContent = error;
     } else {
-      // clear any previous error state
       password.style.borderColor = "";
       passwordConfirm.style.borderColor = "";
       errorMsg.textContent = "";
@@ -448,3 +417,16 @@ function checkPassword(password, passwordConfirm) {
 
   return null;
 }
+
+document.getElementById("chat").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const messageEL = document.createElement("p");
+  const userInput = document.getElementById("prompt");
+
+  messageEL.innerText = userInput.value.trim();
+  messageEL.classList.add("user_message", "message");
+
+  container.appendChild(messageEL);
+  userInput.value = "";
+});
