@@ -52,7 +52,7 @@
 <!--dashboard data display--> 
 <div id="dashboard_analysis">
     <div id="data_description" >
-        <table class="dashboard_table center">
+        <table class="dashboard_table center ${courseNotFound}">
             
             <tr>
                 

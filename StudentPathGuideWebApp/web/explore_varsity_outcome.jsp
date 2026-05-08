@@ -24,7 +24,7 @@
         </div>
 
         <ul>
-            <li><a href="explore_varsity_outcome.jsp">
+            <li><a href="explore_page.jsp">
                 <span class="material-symbols-outlined">
 arrow_back_ios_new
 </span>
