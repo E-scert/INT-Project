@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,6 +22,20 @@ import javax.persistence.Table;
  * @author JREscert
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(
+        name = "suggestionCourse",
+        query = "SELECT c.courseName FROM Course c " +
+                "WHERE LOWER(c.courseName) LIKE CONCAT('%', :term, '%')"
+    ),
+       
+    @NamedQuery(    
+        name = "Course.findByName",
+        query = "SELECT c FROM Course c WHERE LOWER(c.courseName) = :term "
+    )
+ 
+})
+
 @Table(name="Course")
 public class Course implements Serializable {
 

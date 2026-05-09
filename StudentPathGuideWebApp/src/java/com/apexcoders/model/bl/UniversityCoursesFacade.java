@@ -41,5 +41,25 @@ public class UniversityCoursesFacade extends AbstractFacade<UniversityCourses> i
         
         return qu.getResultList();
     }
+
+    @Override
+    public List<UniversityCourses> filterByFieldAndAps(String field, int aps) {
+            
+        Query q = em.createNamedQuery("filtereByField");
+        q.setParameter("field", field.toLowerCase());
+        q.setParameter("aps",aps);
+        List<UniversityCourses> c = q.getResultList();
+        return c;
+    }
+    
+    @Override
+    public List<UniversityCourses> findUniversityByCourseName(String courseName) {
+    Query q =  em.createNamedQuery("getVarsityProvidingCourse");
+             q.setParameter("courseName", courseName.toLowerCase());
+             List<UniversityCourses> uc = q.getResultList();
+             return uc;
+     }
+
+    
     
 }

@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -21,7 +23,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "University_courses")
-
+@NamedQueries({
+  @NamedQuery(name="filtereByField",query="Select a from UniversityCourses a where (lower(a.course.courseName) like concat('%',:field,'%') OR LOWER(a.course.courseName) like concat('%',:field,'%') OR LOWER(a.course.courseField) like concat('%',:field,'%')) and a.course.courseMinAps <= :aps"),
+  @NamedQuery(name="getVarsityProvidingCourse", query = "Select a from UniversityCourses a where lower(a.course.courseName)= :courseName" ),
+})
 public class UniversityCourses implements Serializable {
 
     private static final long serialVersionUID = 1L;

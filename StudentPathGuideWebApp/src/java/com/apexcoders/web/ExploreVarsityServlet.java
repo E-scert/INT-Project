@@ -18,6 +18,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,39 +33,26 @@ public class ExploreVarsityServlet extends HttpServlet {
     private UniversityFacadeLocal universityFacade;
 
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ExploreVarsityServlet</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ExploreVarsityServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String input = request.getParameter("varsityName").trim();
+        HttpSession session = request.getSession();
+        String input = request.getParameter("varsityName").trim().toLowerCase();
         
         //Find the university
         University university = universityFacade.findByNameOrAbbreviation(input);
         
-        if(university == null){
+        if(university == null ){
         
-            request.setAttribute("error", "University Not found, try again.");
+            session.setAttribute("error", "University Not found, try again.");
             RequestDispatcher rsdisp = request.getRequestDispatcher("uni_error.jsp");
             rsdisp.forward(request, response);
             return;
         }
+        
+         session.setAttribute("varsityName", input);
         
         //GET COURSES AND FALCULATIES
         
@@ -83,20 +71,18 @@ public class ExploreVarsityServlet extends HttpServlet {
                 faculties.add(faculty);
             }
         }
-        //SEND TO JSP
-        request.setAttribute("university", university);
-        request.setAttribute("faculties", faculties);
-        request.setAttribute("courses", unicourses);
         
-        RequestDispatcher rsdisp = request.getRequestDispatcher("explore_varsity_outcome.jsp");
-        rsdisp.forward(request, response);
+        //SEND TO JSP
+        session.setAttribute("university", university);
+        session.setAttribute("faculties", faculties);
+        session.setAttribute("courses", unicourses);
+        
+        System.out.println(faculties.size());
+        System.out.println(input);
+        
+        request.getRequestDispatcher("explore_varsity_outcome.jsp").forward(request, response);
         
         
     }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }
