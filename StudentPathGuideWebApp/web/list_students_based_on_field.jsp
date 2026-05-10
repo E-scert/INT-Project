@@ -12,10 +12,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>List Students based Field Of Interest Page</title>
+
+        <title>Field Of Interest Page</title>
     </head>
     <body>
-                <h1>List Students Based On Field Of Interest</h1>
+        <h1>List Students Based On Field Of Interest</h1>
+
 
         <form action="ListStudentsBasedOnFieldServlet.do"  method="GET">
             <table>
@@ -25,6 +27,7 @@
                     <td>Enter Field Of Interest</td>
 
                     <td><input type="text" name="field" required=""></td>
+
 
                 </tr>
 
@@ -38,85 +41,85 @@
                 </tr>
 
             </table>
-            
-            
-            
-            
-        <h1>Students Based On Field Of Interest</h1>
 
-        <%
-            List<Student> students =  (List<Student>) session.getAttribute("students");
-        %>
 
-        <%
-            if (students != null && students.size() > 0) {
-        %>
 
-        <table border="1">
 
-            <tr>
-
-                <th>ID</th>
-                <th>Username</th>
-                <th>Grade</th>
-                <th>Field</th>
-                <th>APS</th>
-                <th>Subject Marks</th>
-
-            </tr>
+            <h1>Students Based On Field Of Interest</h1>
 
             <%
-                for (int i = 0; i < students.size(); i++) {
-
-                    Student stud = students.get(i);
+                List<Student> students = (List<Student>) session.getAttribute("students");
             %>
 
-            <tr>
+            <%
+                if (students != null && students.size() > 0) {
+            %>
 
-                <td><%=stud.getId()%></td>
+            <table border="1">
 
-                <td><%=stud.getUsername()%></td>
+                <tr>
 
-                <td><%=stud.getGrade()%></td>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Grade</th>
+                    <th>Field</th>
+                    <th>APS</th>
+                    <th>Subject Marks</th>
 
-                <td><%=stud.getFieldOfInterest()%></td>
+                </tr>
 
-                <td><%=stud.getAps()%></td>
+                <%
+                    for (int i = 0; i < students.size(); i++) {
+
+                        Student stud = students.get(i);
+                %>
+
+                <tr>
+
+                    <td><%=stud.getId()%></td>
+
+                    <td><%=stud.getUsername()%></td>
+
+                    <td><%=stud.getGrade()%></td>
+
+                    <td><%=stud.getFieldOfInterest()%></td>
+
+                    <td><%=stud.getAps()%></td>
 
 
-                <td>
+                    <td>
 
-                    <%
-                        Map<String, Integer> marks = stud.getSubjectMarks();
+                        <%
+                            Map<String, Integer> marks = stud.getSubjectMarks();
 
-                        for (String subject : marks.keySet()) {
-                    %>
+                            for (String subject : marks.keySet()) {
+                        %>
 
-                    <%=subject%> :
-                    <%=marks.get(subject)%> ,
+                        <%=subject%> :
+                        <%=marks.get(subject)%> ,
 
-                    <%
-                        }
-                    %>
+                        <%
+                            }
+                        %>
 
-                </td>
+                    </td>
 
-            </tr>
+                </tr>
+
+                <%
+                    }
+                %>
+
+            </table>
+
+            <%
+            } else {
+            %>
+
+            <p>No students found.</p>
 
             <%
                 }
             %>
-
-        </table>
-
-        <%
-            } else {
-        %>
-
-        <p>No students found.</p>
-
-        <%
-            }
-        %>
     </body>
 </html>

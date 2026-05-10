@@ -30,20 +30,7 @@ window.addEventListener("load", () => {
     }
   });
 
-  document.getElementById("chat").addEventListener("submit", (e) => {
-    e.preventDefault();
-    const prompt = document.getElementById("prompt");
-
-    const promptContainer = document.createElement("div");
-    promptContainer.classList.add("user_text_container");
-    const text = document.createElement("p");
-
-    text.innerText = prompt.value;
-    console.log(text.innerText);
-    promptContainer.appendChild(text);
-
-    document.querySelector("chat_container").appendChild(promptContainer);
-  });
+  
 });
 
 const loginInfo = {
