@@ -16,7 +16,7 @@
         <h3>Welcome admin</h3>
         <p>Please select an option below</p>
         <ol>
-            <li><a href="">List All students in the database</a></li>
+            <li><a href="list_all.jsp">List All students in the database</a></li>
             <li><a href="">List All based on APS scores</a></li>
             <li><a href="">List All students based on min APS and max APS</a></li>
             <li><a href="">List All students based on a specific grade</a></li>
