@@ -37,7 +37,7 @@
         <h1>Students Based On APS</h1>
 
         <%
-            List<Student> students = (List<Student>) session.getAttribute("students");
+            List<Student> students = (List<Student>) request.getAttribute("students");
         %>
 
         <%
@@ -104,5 +104,9 @@
         <%
             }
         %>
+
+        <ul>
+            <li><a href="admin_page.jsp">Back</a></li>
+        </ul>
     </body>
 </html>
