@@ -50,6 +50,7 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("grade", student.getGrade());
                     session.setAttribute("aps", student.getAps());
                     session.setAttribute("field", student.getFieldOfInterest());
+                    session.setAttribute("subjects", student.getSubjectMarks());
 
                     // Get filtered courses
                     List<UniversityCourses> filteredCourses = 

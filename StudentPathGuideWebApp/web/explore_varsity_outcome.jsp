@@ -25,7 +25,7 @@
 
         <ul>
             <li><a href="explore_page.jsp">
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined back">
 arrow_back_ios_new
 </span>
             </a></li>

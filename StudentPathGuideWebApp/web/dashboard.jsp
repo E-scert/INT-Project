@@ -24,13 +24,15 @@
 
                 <div id="button_holder"class="nav">
 
+
                 <a class="button_primary" href="UpdateDataServlet.do">
+
                     <span id="dashboard_nav" class="material-symbols-outlined">edit_note</span>
                 </a>
-                <a class="button_primary" href="explore_page.jsp">
+                <a class="button_primary icon" href="explore_page.jsp">
                     <span id="dashboard_nav" class="material-symbols-outlined">explore</span>
                 </a>
-                <a class="button_primary" href="chat.jsp"> 
+                <a class="button_primary icon" href="chat.jsp"> 
                     <span id="dashboard_nav" class="material-symbols-outlined">android</span>
                 </a>
     
@@ -39,7 +41,7 @@
                     ${stud.username} 
                  (Grade ${stud.grade}) 
                  <span>
-                    <a style="color:rgb(133, 133, 133);font-size:1.125rem" href="LogoutServlet.do">Logout</a>
+                    <a class="logout" href="LogoutServlet.do">Logout</a>
                  </span>
                  </div>
             </div>
@@ -59,7 +61,7 @@
 <!--dashboard data display--> 
 <div id="dashboard_analysis">
     <div id="data_description" >
-        <table class="dashboard_table center ${courseNotFound}">
+        <table class="dashboard_table center">
             
             <tr>
                 

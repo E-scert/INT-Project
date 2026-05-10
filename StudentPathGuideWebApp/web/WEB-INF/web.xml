@@ -80,10 +80,6 @@
         <servlet-name>DashboardDataRetrievalServlet</servlet-name>
         <url-pattern>/DashboardDataRetrievalServlet.do</url-pattern>
     </servlet-mapping>
-    <context-param>
-        <param-name>api</param-name>
-        <param-value>AIzaSyAKc7jcgEyHpQkpq49RwsBSDezbGwLbg1w</param-value>
-    </context-param>
     <servlet-mapping>
         <servlet-name>CourseSuggestionServlet</servlet-name>
         <url-pattern>/CourseSuggestionServlet.do</url-pattern>
@@ -129,6 +125,7 @@
             30
         </session-timeout>
     </session-config>
+    
     <security-constraint>
         <display-name>ApexCoderConstraint</display-name>
         <web-resource-collection>
@@ -153,4 +150,9 @@
         <description/>
         <role-name>apexcoder</role-name>
     </security-role>
+    
+    <resource-env-ref>
+  <resource-env-ref-name>gemini/apiKey</resource-env-ref-name>
+  <resource-env-ref-type>java.lang.String</resource-env-ref-type>
+</resource-env-ref>
 </web-app>

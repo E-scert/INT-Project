@@ -19,7 +19,7 @@
         </div>
         <ul>
 
-        <li><a href="dashboard.jsp"><span class="material-symbols-outlined">
+        <li><a href="dashboard.jsp"><span class="material-symbols-outlined back">
 arrow_back_ios_new
         </span></a></li>
             </ul>
