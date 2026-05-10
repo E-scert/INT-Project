@@ -47,7 +47,7 @@ arrow_back_ios_new
         </div>
 
 
-        <form action="AIServlet.do" method="post" class="chat" id="chat">
+        <form action="a.do" method="post" class="chat" id="chat">
             <input type="text" placeholder="Type a message" name="prompt" id="prompt">
             <button type="submit">
                <i class="fa-solid fa-paper-plane" ></i>
