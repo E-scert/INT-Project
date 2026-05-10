@@ -45,11 +45,12 @@ public class LoginServlet extends HttpServlet {
                 // Compare with stored hash
                 if (hashedInput.equals(student.getPassword())) {
                     // ✅Password matches
-                    session.setAttribute("student", student);
+                    session.setAttribute("stud", student);
                     session.setAttribute("name", student.getUsername());
                     session.setAttribute("grade", student.getGrade());
                     session.setAttribute("aps", student.getAps());
                     session.setAttribute("field", student.getFieldOfInterest());
+                    session.setAttribute("subjects", student.getSubjectMarks());
 
                     // Get filtered courses
                     List<UniversityCourses> filteredCourses = 

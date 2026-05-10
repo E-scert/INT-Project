@@ -1,3 +1,4 @@
+<%@page import="java.util.Map"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="javax.naming.InitialContext"%>
 <!DOCTYPE html>
@@ -14,6 +15,17 @@
 <%
     // Fetch API key server-side from GlassFish JNDI
     String apiKey = "";
+    String username = (String) session.getAttribute("name");
+    Map<String, Integer> subjectsMarksMap = (Map) session.getAttribute("subjects");
+    String subMarks = "";
+    if(subjectsMarksMap.size() == 6){
+     subMarks = subjectsMarksMap.toString();
+    System.out.println("========================================");
+    System.out.println(subMarks);
+    }
+    Integer grade = (Integer) session.getAttribute("grade");
+    String fieldOfInterest = (String) session.getAttribute("field");
+    
     try {
         InitialContext ctx = new InitialContext();
         apiKey = (String) ctx.lookup("java:comp/env/gemini/apiKey");
@@ -36,7 +48,7 @@ arrow_back_ios_new
         <div class="chat_container" id="chat_container">
             <div class="message ai_response">
                 Hi, I am Javis, your AI career assistant. How can I help you today?
-                <%= apiKey%>
+                
             </div>
         </div>
 
@@ -52,6 +64,12 @@ arrow_back_ios_new
 <script>
     // API key injected server-side, never visible in source as a variable name
     const CONFIG = { k: "<%= apiKey %>" };
+    const student = {
+        username: "<%= username%>",
+        grade: "<%= grade%>",
+        subjects: "<%= subMarks%>",
+        fieldOfInterest: "<%= fieldOfInterest%>"
+    };
 
     const chatContainer = document.getElementById("chat_container");
     const form = document.getElementById("chat");
@@ -81,7 +99,8 @@ arrow_back_ios_new
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
-
+        console.log("We are live!");
+        console.log(student.subjects);
         const userText = promptInput.value.trim();
         if (!userText) return;
 
@@ -103,6 +122,10 @@ arrow_back_ios_new
                             parts: [{
                                 text: "You are an experienced career guidance counselor helping high school students. "
                                     + "Give clear, concise, and practical advice. Avoid jargon.\n\n"
+                                    + "Student name: " + student.username
+                                    + "Student grade: " + student.grade
+                                    + "Student field of interest: " + student.fieldOfInterest 
+                                    + "Student subjects and percentages: " + student.subjects
                                     + "Student question: " + userText
                             }]
                         }]
