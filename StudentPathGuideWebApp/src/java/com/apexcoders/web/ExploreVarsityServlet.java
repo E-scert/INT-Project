@@ -76,9 +76,7 @@ public class ExploreVarsityServlet extends HttpServlet {
         session.setAttribute("university", university);
         session.setAttribute("faculties", faculties);
         session.setAttribute("courses", unicourses);
-        
-        System.out.println(faculties.size());
-        System.out.println(input);
+
         
         request.getRequestDispatcher("explore_varsity_outcome.jsp").forward(request, response);
         
