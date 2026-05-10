@@ -29,8 +29,9 @@ public class CourseSuggestionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         HttpSession session=request.getSession();
-        
+
         String term = request.getParameter("term");
         List<String> suggestions = cF.suggestionCourse(term);
       
