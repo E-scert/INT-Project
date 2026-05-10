@@ -6,6 +6,7 @@
 package com.apexcoders.model.bl;
 
 import com.apexcoders.entities.Student;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -53,6 +54,38 @@ public class StudentFacade extends AbstractFacade<Student> implements StudentFac
         
         return student;
 
+    }
+
+    @Override
+    public List<Student> listAllStudentsBasedOnAPS(int aps) {
+       Query q = em.createNamedQuery("Student.listAllBasedOnAPS");
+       List<Student> s = q.getResultList();
+       
+       return s;
+    }
+
+    @Override
+    public List<Student> listAllBasedOnMinAndMaxAPS(int minAps, int maxAps) {
+       Query q = em.createNamedQuery("Student.listAllBasedOnMinAndMaxAPS");
+       List<Student> s = q.getResultList();
+       
+       return s;
+    }
+
+    @Override
+    public List<Student> listStudentsBasedOnGrade(int grade) {
+       Query q = em.createNamedQuery("Student.getStudentsBasedOnGrade");
+       List<Student> s = q.getResultList();
+       
+       return s;
+    }
+
+    @Override
+    public List<Student> listStudentsBasedOnField(String field) {
+         Query q = em.createNamedQuery("Student.getStudentsBasedOnField");
+       List<Student> s = q.getResultList();
+       
+       return s;
     }
     
 }

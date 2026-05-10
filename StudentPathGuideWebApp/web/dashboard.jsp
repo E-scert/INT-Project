@@ -24,7 +24,7 @@
 
                 <div id="button_holder"class="nav">
 
-                <a class="button_primary" href="#update_data.jsp">
+                <a class="button_primary" href="update_data.jsp">
                     <span id="dashboard_nav" class="material-symbols-outlined">edit_note</span>
                 </a>
                 <a class="button_primary" href="explore_page.jsp">
