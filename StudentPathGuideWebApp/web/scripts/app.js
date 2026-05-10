@@ -112,6 +112,15 @@ function makeLogin() {
   divBottom.append(btnSubmit);
   divBottom.append(elSignUp);
 
+  // admin login
+  const elAdminLink = document.createElement("a");
+  elAdminLink.href = "admin_page.jsp";
+  elAdminLink.textContent = "Login as Admin";
+  elAdminLink.style.color = "orange";
+  elAdminLink.style.textAlign = "center";
+
+  divBottom.append(elAdminLink);
+
   loginForm.append(divTop);
   loginForm.append(divBottom);
 
@@ -162,8 +171,14 @@ function makeSignUpPage() {
 
   tableSubjects.classList.add("subjects-table");
 
+  const duplicateWarning = document.createElement("p");
+  duplicateWarning.id = "duplicate_warning";
+  duplicateWarning.style.color = "red";
+  duplicateWarning.style.fontSize = "0.875rem";
+
   btnSubmit.textContent = "Sign Up";
   btnSubmit.type = "submit";
+  btnSubmit.id = "submit_btn";
   btnSubmit.classList.add("button_primary");
   btnSubmit.classList.add("max-wid");
 
@@ -279,6 +294,7 @@ function makeSignUpPage() {
       option.textContent = sub;
       select.append(option);
     });
+    select.addEventListener("change", validateSubjects);
 
     const input = document.createElement("input");
     input.classList.add("input_field");
@@ -346,6 +362,7 @@ function makeSignUpPage() {
   divBottom.append(errorMsg);
   divBottom.append(tableSubjects);
   divBottom.append(tableField);
+  divBottom.append(duplicateWarning);
   divBottom.append(btnSubmit);
   divBottom.append(elLogin);
 
@@ -430,3 +447,28 @@ document.getElementById("chat").addEventListener("submit", (e) => {
   container.appendChild(messageEL);
   userInput.value = "";
 });
+
+function validateSubjects() {
+  const selects = document.querySelectorAll("select.input_field");
+  const seen = new Set();
+  let hasDuplicate = false;
+
+  selects.forEach(select => {
+    const val = select.value;
+    if (seen.has(val)) {
+      hasDuplicate = true;
+    }
+    seen.add(val);
+  });
+
+  const submitBtn = document.getElementById("submit_btn");
+  const warning = document.getElementById("duplicate_warning");
+
+  if (hasDuplicate) {
+    submitBtn.disabled = true;
+    warning.textContent = "You have selected the same subject more than once. Please choose 6 unique subjects.";
+  } else {
+    submitBtn.disabled = false;
+    warning.textContent = "";
+  }
+}
