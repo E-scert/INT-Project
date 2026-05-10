@@ -17,6 +17,14 @@
 -->
 <glassfish-web-app error-url="">
   <context-root>/</context-root>
+  <security-role-mapping>
+    <role-name>admin</role-name>
+    <group-name>admin</group-name>
+  </security-role-mapping>
+  <security-role-mapping>
+    <role-name>apexcoder</role-name>
+    <group-name>apexcoder</group-name>
+  </security-role-mapping>
   <class-loader delegate="true"/>
   <jsp-config>
     <property name="keepgenerated" value="true">

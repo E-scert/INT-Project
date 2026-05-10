@@ -40,6 +40,26 @@
         <servlet-name>UpdateDataServlet</servlet-name>
         <servlet-class>com.apexcoders.web.UpdateDataServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListAllStudentsServlet</servlet-name>
+        <servlet-class>com.apexcoders.web.ListAllStudentsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListStudentsBasedOnAPS</servlet-name>
+        <servlet-class>com.apexcoders.web.ListStudentsBasedOnAPS</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListStudentsBetweenMinAndMaxApsServlet</servlet-name>
+        <servlet-class>com.apexcoders.web.ListStudentsBetweenMinAndMaxApsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListStudentsBasedOnGradeServlet</servlet-name>
+        <servlet-class>com.apexcoders.web.ListStudentsBasedOnGradeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListStudentsBasedOnFieldServlet</servlet-name>
+        <servlet-class>com.apexcoders.web.ListStudentsBasedOnFieldServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignUpServlet</servlet-name>
         <url-pattern>/SignUpServlet.do</url-pattern>
@@ -84,9 +104,53 @@
         <servlet-name>UpdateDataServlet</servlet-name>
         <url-pattern>/UpdateDataServlet.do</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListAllStudentsServlet</servlet-name>
+        <url-pattern>/ListAllStudentsServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListStudentsBasedOnAPS</servlet-name>
+        <url-pattern>/ListStudentsBasedOnAPS.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListStudentsBetweenMinAndMaxApsServlet</servlet-name>
+        <url-pattern>/ListStudentsBetweenMinAndMaxApsServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListStudentsBasedOnGradeServlet</servlet-name>
+        <url-pattern>/ListStudentsBasedOnGradeServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListStudentsBasedOnFieldServlet</servlet-name>
+        <url-pattern>/ListStudentsBasedOnFieldServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <security-constraint>
+        <display-name>ApexCoderConstraint</display-name>
+        <web-resource-collection>
+            <web-resource-name>ApexCoderResource</web-resource-name>
+            <description>resource</description>
+            <url-pattern>/admin_page.jsp</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>Authenticate apexcoder</description>
+            <role-name>apexcoder</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>file</realm-name>
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/error_page.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <description/>
+        <role-name>apexcoder</role-name>
+    </security-role>
 </web-app>
