@@ -38,7 +38,7 @@ public class UniversityFacade extends AbstractFacade<University> implements Univ
                 + "WHERE LOWER(u.universityName) = :input "
                 + "OR LOWER(u.universityAbbreviation) = :input");
 
-        qu.setParameter("input", input);
+        qu.setParameter("input", input.toLowerCase().trim());
 
         University university = null;
 
@@ -57,7 +57,7 @@ public class UniversityFacade extends AbstractFacade<University> implements Univ
         Query q = em.createQuery("SELECT u.universityName FROM University u "
                 + "WHERE LOWER(u.universityName) "
                 + "LIKE CONCAT('%', :term, '%')");
-        q.setParameter("term", term.toLowerCase());
+        q.setParameter("term", term.toLowerCase().trim());
         q.setMaxResults(10);
         return q.getResultList();
     }
