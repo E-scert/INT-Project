@@ -30,160 +30,48 @@
                     <td><input type="text" name="grade" required="" value="${grade}"/></td>
                 </tr>
                  
-                <br>
-                <!--update marks-->
-                 <tr>
-                    <th>Subject</th>
-                    <th>Percentage (%)</th>
-                 </tr>
-                <table border="1" cellpadding="15">
-
-                 <!-- SUBJECT 1 -->
-                 <tr>
-                    <td>
-                     <select name="subject1" required>
-                        <option>IsiZulu Home Language</option>
-                        <option>English FAL</option>
-                        <option>Mathematical Literacy</option>
-                        <option>Mathematics</option>
-                        <option>Life Sciences</option>
-                        <option>Physical Sciences</option>
-                        <option>Accounting</option>
-                        <option>Tourism</option>
-                        <option>Business Studies</option>
-                        <option>Economics</option>
-                        <option>Geography</option>
-                        <option>Computer Applications Technology CAT</option>
-                        <option>Engineering Graphics And Design EGD</option>
-                        <option>Agricultural Sciences</option>
-                        <option>Consumer Studies</option>
-                    </select>
-                    </td>
-                    
-                    <td><input type="number" name="percentage1" min="0" max="100" required/></td>
+                <!-- UPDATE MARKS SECTION -->
+                <tr>
+                  <th>Subject</th>
+                 <th>Percentage (%)</th>
                 </tr>
 
-                  <!-- SUBJECT 2 -->
+                <!-- SUBJECT 1 -->
                 <tr>
-                    <td>
-                    <select name="subject2" required>                    
-                        <option>IsiZulu Home Language</option>
-                        <option>English FAL</option>
-                        <option>Mathematical Literacy</option>
-                        <option>Mathematics</option>
-                        <option>Life Sciences</option>
-                        <option>Physical Sciences</option>
-                        <option>Accounting</option>
-                        <option>Tourism</option>
-                        <option>Business Studies</option>
-                        <option>Economics</option>
-                        <option>Geography</option>
-                        <option>Computer Applications Technology CAT</option>
-                        <option>Engineering Graphics And Design EGD</option>
-                        <option>Agricultural Sciences</option>
-                        <option>Consumer Studies</option>
-                    </select>
-                    </td>
-                    <td><input type="number" name="percentage2" min="0" max="100" required/></td>
+                   <td><input type="text" name="subject1" required /></td>
+                   <td><input type="number" name="percentage1" min="0" max="100" required /></td>
                 </tr>
-                    <!-- SUBJECT 3 -->
+
+                <!-- SUBJECT 2 -->
                 <tr>
-                    <td>
-                    <select name="subject3" required>    
-                        <option>IsiZulu Home Language</option>
-                        <option>English FAL</option>
-                        <option>Mathematical Literacy</option>
-                        <option>Mathematics</option>
-                        <option>Life Sciences</option>
-                        <option>Physical Sciences</option>
-                        <option>Accounting</option>
-                        <option>Tourism</option>
-                        <option>Business Studies</option>
-                        <option>Economics</option>
-                        <option>Geography</option>
-                        <option>Computer Applications Technology CAT</option>
-                        <option>Engineering Graphics And Design EGD</option>
-                        <option>Agricultural Sciences</option>
-                        <option>Consumer Studies</option>
-                    </select>
-                    </td>
-                    <td><input type="number" name="percentage3" min="0" max="100" required/></td>
+                   <td><input type="text" name="subject2" required /></td>
+                    <td><input type="number" name="percentage2" min="0" max="100" required /></td>
                 </tr>
+
+                <!-- SUBJECT 3 -->
+                <tr>
+                   <td><input type="text" name="subject3" required /></td>
+                   <td><input type="number" name="percentage3" min="0" max="100" required /></td>
+                </tr>
+
                 <!-- SUBJECT 4 -->
-                 <tr>
-                    <td>
-                    <select name="subject4" required>               
-                        <option>IsiZulu Home Language</option>
-                        <option>English FAL</option>
-                        <option>Mathematical Literacy</option>
-                        <option>Mathematics</option>
-                        <option>Life Sciences</option>
-                        <option>Physical Sciences</option>
-                        <option>Accounting</option>
-                        <option>Tourism</option>
-                        <option>Business Studies</option>
-                        <option>Economics</option>
-                        <option>Geography</option>
-                        <option>Computer Applications Technology CAT</option>
-                        <option>Engineering Graphics And Design EGD</option>
-                        <option>Agricultural Sciences</option>
-                        <option>Consumer Studies</option>
-                    </select>
-                    </td>
-                    <td><input type="number" name="percentage4" min="0" max="100" required/></td>
+                <tr>
+                   <td><input type="text" name="subject4" required /></td>
+                   <td><input type="number" name="percentage4" min="0" max="100" required /></td>
                 </tr>
 
                 <!-- SUBJECT 5 -->
-                 <tr>
-                    <td>
-                    <select name="subject5" required>
-                        <option>IsiZulu Home Language</option>
-                        <option>English FAL</option>
-                        <option>Mathematical Literacy</option>
-                        <option>Mathematics</option>
-                        <option>Life Sciences</option>
-                        <option>Physical Sciences</option>
-                        <option>Accounting</option>
-                        <option>Tourism</option>
-                        <option>Business Studies</option>
-                        <option>Economics</option>
-                        <option>Geography</option>
-                        <option>Computer Applications Technology CAT</option>
-                        <option>Engineering Graphics And Design EGD</option>
-                        <option>Agricultural Sciences</option>
-                        <option>Consumer Studies</option>
-                    </select>
-                    </td>
-                    <td><input type="number" name="percentage5" min="0" max="100" required/></td>
+                <tr>
+                     <td><input type="text" name="subject5" required /></td>
+                   <td><input type="number" name="percentage5" min="0" max="100" required /></td>
                 </tr>
+
                 <!-- SUBJECT 6 -->
                 <tr>
-                    <td>
-                    <select name="subject6" required>
-                        <option>IsiZulu Home Language</option>
-                        <option>English FAL</option>
-                        <option>Mathematical Literacy</option>
-                        <option>Mathematics</option>
-                        <option>Life Sciences</option>
-                        <option>Physical Sciences</option>
-                        <option>Accounting</option>
-                        <option>Tourism</option>
-                        <option>Business Studies</option>
-                        <option>Economics</option>
-                        <option>Geography</option>
-                        <option>Computer Applications Technology CAT</option>
-                        <option>Engineering Graphics And Design EGD</option>
-                        <option>Agricultural Sciences</option>
-                        <option>Consumer Studies</option>
-                    </select>
-                    </td>
-                    <td><input type="number" name="percentage6" min="0" max="100" required/></td>
-                </tr>
-                </table>
-                
-                <br>
-                
-                 <tr>
+                   <td><input type="text" name="subject6" required /></td>
+                   <td><input type="number" name="percentage6" min="0" max="100" required /></td>
+                </tr>                
+                <tr>
                      <td>Field of Interest</td>
                      <td><input type="text" name="fieldOfInterest" value="${field}"/></td>
                 </tr>
