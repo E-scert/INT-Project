@@ -11,7 +11,7 @@
 <body>
     
     <%
-        String[] aiResponse = (String[]) request.getAttribute("aiResponse");
+        String[] aiResponse = (String[]) session.getAttribute("aiResponse");
         
            
     %>
@@ -23,28 +23,34 @@ arrow_back_ios_new
     </ul>
         <h2>Chat with Javis</h2>
     </div>
+    <div class="app">
     <div id="chat_screen" class="chat_screen">
 
-        <div class="chat_container">
-        
-           <div class="gemini_reponse_contaier">
-               <p class="message ai_response">
-                <%
-                  if (aiResponse != null) {
-                    for(String s : aiResponse) {
-                %>
-                        <span><%= s %></span><br/>
-                <%
-                    }
-                } else {
-                %>
-                    <span>Hi, I am you AI assistance. I am here to assist with any questions you might have</span>
-                <%
-                }
-                %>
-               </p>
-           </div>
+        <div class="chat_container" id="chat_container">
+
+    <%
+      if (aiResponse != null) {
+          for(String s : aiResponse) {
+    %>
+
+        <div class="message ai_response">
+            ${sessionScope.aiResponse}
         </div>
+
+    <%
+          }
+      } else {
+    %>
+
+        <div class="message ai_response">
+            Hi, I am your AI assistant.
+        </div>
+
+    <%
+      }
+    %>
+
+</div>
 
 
         <form action="AIServlet.do" method="post" class="chat" id="chat">
@@ -54,8 +60,47 @@ arrow_back_ios_new
             </button>
         </form>
     </div>
+</div>
+    <script>
+       document.getElementById("chat").addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-    <script src="scripts/app.js">
+    const prompt = document.getElementById("prompt");
+    const userText = prompt.value.trim();
+    if (!userText) return;
+
+    // Show user message
+    const chatContainer = document.getElementById("chat_container");
+    const userMsg = document.createElement("p");
+    userMsg.innerText = userText;
+    userMsg.classList.add("message", "user_message");
+    chatContainer.appendChild(userMsg);
+    prompt.value = "";
+
+    // Send to servlet
+    const formData = new FormData();
+    formData.append("prompt", userText);
+
+    const res = await fetch("AIServlet.do", {
+        method: "POST",
+        body: formData
+    });
+
+    const html = await res.text();
+
+    // Parse the AI response out of the returned HTML
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const aiText = doc.getElementById("ai_response")?.innerText;
+
+    if (aiText) {
+        const aiMsg = document.createElement("p");
+        aiMsg.innerText = aiText;
+        aiMsg.classList.add("message", "ai_message");
+        chatContainer.appendChild(aiMsg);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+});
     </script>
     
 
