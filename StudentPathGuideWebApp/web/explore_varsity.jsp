@@ -33,7 +33,8 @@
 
                 <div class="input_container">
                     <label for="varsityName">Enter Varsity Name</label>
-                    <input type="text" name="varsityName" required="" class="input" placeholder="Tshwane University of Technology">
+                    <input id="varsityName" type="text" name="varsityName" required="" class="input" placeholder="Tshwane University of Technology">
+                    <div id="suggestions"></div>
                 </div>
 
                 <button type="submit"><span class="material-symbols-outlined button_primary">search</span></button>

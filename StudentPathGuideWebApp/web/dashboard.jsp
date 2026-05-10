@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Dashboard Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body class="dashboard_container">
@@ -18,13 +19,27 @@
 <div id="name_container" class="student_details_container">
   
             <div class="dashboard_nav section">
+
                 <div class="logo">Student Path Guide</div>
 
+                <div id="button_holder"class="nav">
+
+                <a class="button_primary" href="update_data.jsp">
+                    <span id="dashboard_nav" class="material-symbols-outlined">edit_note</span>
+                </a>
+                <a class="button_primary" href="explore_page.jsp">
+                    <span id="dashboard_nav" class="material-symbols-outlined">explore</span>
+                </a>
+                <a class="button_primary" href="chat.jsp"> 
+                    <span id="dashboard_nav" class="material-symbols-outlined">android</span>
+                </a>
+    
+</div>
                  <div class="student_name">
                     ${name} 
                  (Grade ${grade}) 
                  <span>
-                    <a style="color:rgb(133, 133, 133);font-size:1.125rem" href="LogoutServlet.do">Login out</a>
+                    <a style="color:rgb(133, 133, 133);font-size:1.125rem" href="LogoutServlet.do">Logout</a>
                  </span>
                  </div>
             </div>
@@ -38,21 +53,13 @@
 </div>
         
 
-<h3 class="section">Courses you qualify for:</h3>
+<h3 class="section text_center">Courses you qualify for:</h3>
 <!--       holds the links to -->
-<div id="button_holder"class="nav button">
 
-            <a class="button_primary" href="#">UPDATE DATA</a>
-            <a class="button_primary" href="explore_page.jsp">EXPLORE</a>
-            <a class="button_primary" href="chat.jsp">Chat With JARVIS(AI bot)</a>
-    
-</div>
-
-        
 <!--dashboard data display--> 
 <div id="dashboard_analysis">
     <div id="data_description" >
-        <table class="dashboard_table center">
+        <table class="dashboard_table center ${courseNotFound}">
             
             <tr>
                 
@@ -67,7 +74,9 @@
             </tr>
 
 
-           <!-- if statement when list empty return a proper message -->
+           <c:if test="${empty course}">
+            <div>You do not qualify for any course. try upgrading your APS</div>
+           </c:if>
 
            
             <c:if test="${not empty course}">

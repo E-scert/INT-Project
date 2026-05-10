@@ -17,6 +17,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapKeyColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotBlank;
@@ -27,6 +29,13 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 @Entity
 @Table(name ="Student")
+@NamedQueries({
+    @NamedQuery(name="Student.listAllBasedOnAPS",query="Select a from Student a where a.aps = :aps"),
+    @NamedQuery(name="Student.listAllBasedOnMinAndMaxAPS",query="Select a from Student a where a.aps >= :min and a.aps <= :max"),
+    @NamedQuery(name="Student.getStudentsBasedOnGrade", query="Select a from Student a where a.grade = :grade"),
+    @NamedQuery(name="Student.getStudentsBasedOnField", query="Select a from Student a where a.fieldOfInterest = :field"),
+   
+})
 public class Student implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -47,8 +56,7 @@ public class Student implements Serializable {
     private Integer aps;
     
     @NotBlank(message ="Password is required")
-    @Size(min = 8, max = 14,message = "Password must be between 8 and 14 characters")
-    @Column(name ="password", nullable= false , length=14)
+    @Column(name ="password", nullable= false )
     private String password;
     
     // JPA will create a join table for this map

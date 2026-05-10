@@ -72,8 +72,9 @@ public class SignUpServlet extends HttpServlet {
         stud.setGrade(grade);
         stud.setFieldOfInterest(field);
        
+        
         //hash the password
-        String hashed = PasswordUtil.hashPassword(stud.getPassword());
+        String hashed = PasswordUtil.hashPassword(password);
         stud.setPassword(hashed);
 
         // Add subjects to Map

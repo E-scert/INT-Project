@@ -10,7 +10,7 @@
 <html>
 <head>
     <link rel="stylesheet"
-href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new,search" />
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new,search" />
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/style.css">
        <title>Explore Course Page</title>
@@ -54,16 +54,18 @@ search
     <!--output-->
     
 <c:if test ="${not empty courses}">
-    <h3>Search results:</h3>
+    <div class="card">
+        <h3>Search results:</h3>
     <p>Name: ${courses.courseName}</p>
     <p>Field: ${courses.courseField}</p>
     <p>APS: ${courses.courseMinAps}</p>
     <p>Description: ${courses.courseDescription}</p>
     <p>Required Subjects: ${courses.courseRequiredSubjects}</p>
-    <h3>Universities offering this course</h3>
+</div>
+    <h3 style="text-align: center; font-size: 1.35rem;">Universities offering this course</h3>
     <c:if test="${not empty unies}">
         
-        <ul>
+        <ul class="course_list">
             <c:forEach var="u" items="${unies}">
                 
                 <li>

@@ -208,6 +208,7 @@ body {
   font-size: var(--f_lg);
   padding: 2.5rem;
   display: flex;
+  align-items: center;
   flex-direction: column;
   width: max-content;
   border-radius: 8px;
@@ -217,18 +218,75 @@ body {
 
 .nav {
   margin: 20px 0;
+  display: flex;
+
+  a {
+    background-color: transparent;
+    color: var(--clr-primary-light);
+
+    span {
+      background-color: transparent;
+      color: white;
+      font-size: 2rem;
+    }
+  }
+
+  a:hover {
+    background-color: transparent;
+  }
 }
 
 .chat_screen {
   position: relative;
   height: 100vh;
+  padding: 20px;
 
   .chat {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 75%;
     height: 65px;
-    border: 1px solid lime;
+    z-index: 2;
+    left: 250px;
+  }
+  input {
+    width: 800px;
+    height: 52px;
+    font-size: var(--f_xl);
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.281);
+  }
+
+  button {
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    background-color: var(--clr-primary);
+    color: white;
+    font-size: var(--f_lg);
+    margin-left: 10px;
+    transition: 0.2s ease-in-out;
+  }
+  button:hover {
+    background-color: var(--clr-primary-light);
+    transform: scale(1.125);
+  }
+
+  .message {
+    background-color: var(--clr-primary);
+    color: white;
+    min-width: max-content;
+    padding: 8px;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .user_message {
+    text-align: end;
   }
 }
 
@@ -242,13 +300,12 @@ body {
 
 /* Icons styling */
 
-
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24;
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
 
   background-color: var(--clr-primary);
   margin: 10px 20px;
@@ -276,15 +333,14 @@ body {
   p {
     font-size: 1.5rem;
   }
-  
-  ol{ 
+
+  ol {
     display: flex;
     gap: 2em;
     margin-top: 2.5em;
   }
 }
-.explore_container{
-
+.explore_container {
   .input_container {
     display: flex;
     flex-direction: column;
@@ -293,13 +349,12 @@ body {
   label {
     font-size: 1.35rem;
   }
-  
+
   .input {
     height: 52px;
     width: 600px;
     font-size: 1.8rem;
     padding: 10px;
-
   }
   button {
     color: white;
@@ -312,14 +367,11 @@ body {
     align-items: center;
     margin-top: 2em;
   }
-
-
 }
 .material-symbols-outlined:hover {
   transform: scale(1.125);
-   background-color: var(--clr-primary-light);
+  background-color: var(--clr-primary-light);
 }
-
 
 #bg {
   background-image: url(https://www.freepik.com/premium-vector/abstract-technology-circuit-board-texture-background-white_41434394.htm);
@@ -334,12 +386,40 @@ body {
   form {
     display: flex;
     align-items: center;
-    
+
     input {
       height: 55px;
       width: 500px;
       font-size: 1.5rem;
       padding: 10px;
     }
+  }
+}
+
+.course_card_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.125em;
+  margin: 30px;
+
+  p {
+    transition: 0.2s ease-in-out;
+  }
+  p:hover {
+    background-color: rgba(57, 60, 70, 0.15);
+  }
+}
+
+.course_faculty {
+  font-size: var(--f_xl);
+  text-align: center;
+}
+
+.course_list {
+  padding-left: 30px;
+  margin-top: 30px;
+
+  li {
+    font-size: var(--f_lg);
   }
 }

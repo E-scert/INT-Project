@@ -32,4 +32,9 @@ public interface StudentFacadeLocal {
 
     int count();
     
+    List<Student> listAllStudentsBasedOnAPS(int aps);
+    List<Student> listAllBasedOnMinAndMaxAPS(int minAps , int maxAps);
+    List<Student> listStudentsBasedOnGrade(int grade);
+    List<Student> listStudentsBasedOnField(String field);
+    
 }
