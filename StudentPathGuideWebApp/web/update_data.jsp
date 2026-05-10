@@ -16,24 +16,26 @@
     <body>
         <h1>UPDATE DATA</h1>
 
-        <form action="UpdateDataServlet.do" method="POST">
+        <form action="UpdateDataServlet.do" method="GET">
             <table>
                 <!--update username-->
                 <tr>
                     <td>Username:</td>
-                    <td><input type="text" name="username" required=""/></td>
-               
+                    <td><input type="text" name="username" required="" value="${name}"/></td>
+                </tr>
+                
                  <!--update grade-->
                 <tr>
                     <td>Grade:</td>
-                    <td><input type="text" name="grade" required=""/></td>
+                    <td><input type="text" name="grade" required="" value="${grade}"/></td>
                 </tr>
+                 
                 <br>
                 <!--update marks-->
                  <tr>
                     <th>Subject</th>
                     <th>Percentage (%)</th>
-                </tr
+                 </tr>
                 <table border="1" cellpadding="15">
 
                  <!-- SUBJECT 1 -->
@@ -183,7 +185,7 @@
                 
                  <tr>
                      <td>Field of Interest</td>
-                     <td><input type="text" name="fieldOfInterest"/></td>
+                     <td><input type="text" name="fieldOfInterest" value="${field}"/></td>
                 </tr>
                 
                  <tr>
@@ -194,7 +196,7 @@
             </table>
         </form>
         <ul>
-            <li><a href="explore_page.jsp">Back</a></li>
+            <li><a href="dashboard.jsp">Back</a></li>
         </ul>
 
         

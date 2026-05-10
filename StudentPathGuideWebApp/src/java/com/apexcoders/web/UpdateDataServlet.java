@@ -1,6 +1,7 @@
 package com.apexcoders.web;
 
 import com.apexcoders.entities.Student;
+import com.apexcoders.exception.InvalidMarksException;
 import com.apexcoders.model.bl.StudentFacadeLocal;
 import java.io.IOException;
 import java.util.Map;
@@ -9,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class UpdateDataServlet extends HttpServlet {
 
@@ -16,29 +18,38 @@ public class UpdateDataServlet extends HttpServlet {
     StudentFacadeLocal sfl;
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession();
+         
+           Student stud = (Student)session.getAttribute("stud");
+           
+           String field = stud.getFieldOfInterest();
+           String username = stud.getUsername();
+           
+           Map<String,Integer> subj = stud.getSubjectMarks();
+           int grade = stud.getGrade();
+           int aps = stud.getAps();
+           //set attributes 
+           session.setAttribute("field", field);
+           session.setAttribute("name",username);
+           System.out.println(username+""+field);
+           session.setAttribute("subj",subj);
+           session.setAttribute("grade",grade);
+           session.setAttribute("aps",aps);
+           
+           request.getRequestDispatcher("update_data.jsp").forward(request, response);
+           
+           
+        
+
+       
+    }
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String username = request.getParameter("username");
-        Integer grade = Integer.valueOf(request.getParameter("grade"));
-        Integer marks = Integer.valueOf(request.getParameter("marks"));
-        String subject = request.getParameter("subject");
-        String fieldOfInterest = request.getParameter("fieldOfInterest");
-
-        Student stud = sfl.findByUsername(username);
-
-        if (stud != null) {
-
-            Student student = UpdateData(stud,grade,marks,subject,fieldOfInterest );
-
-            sfl.edit(student);
-
-            response.getWriter().println("Student updated successfully.");
-
-        } else {
-
-            response.getWriter().println("Student not found.");
-        }
+       
     }
 
     private Student UpdateData(Student student,Integer grade,Integer marks,String subject, String fieldOfInterest) {
@@ -54,4 +65,31 @@ public class UpdateDataServlet extends HttpServlet {
 
         return student;
     }
+    
+    private int calculateAPS(int... marks) {
+    int total = 0;
+
+        for (int m : marks) {
+            if (m >= 80) total += 7;
+            else if (m >= 70) total += 6;
+            else if (m >= 60) total += 5;
+            else if (m >= 50) total += 4;
+            else if (m >= 40) total += 3;
+            else if (m >= 30) total += 2;
+            else total += 1;
+        }
+
+        return total;
+    }
+    
+    
+    
+    private void validateMarks(int... marks) {
+    for (int m : marks) {
+        if (m < 0 || m > 100) {
+            throw new InvalidMarksException("Marks must be between 0 and 100. Invalid value: " + m);
+        }
+    }
+    
+ }
 }
