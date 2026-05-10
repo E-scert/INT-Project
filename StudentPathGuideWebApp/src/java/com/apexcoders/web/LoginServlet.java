@@ -60,20 +60,20 @@ public class LoginServlet extends HttpServlet {
                     rsdisp.forward(request, response);
                 } else {
                     //  Wrong password
-                    request.setAttribute("error", "Invalid password, try again.");
+                    session.setAttribute("error", "Invalid password, try again.");
                     RequestDispatcher rsdisp = request.getRequestDispatcher("login.jsp");
                     rsdisp.forward(request, response);
                 }
             } else {
                 //  User not found
-                request.setAttribute("error", "Invalid username, try again or create an account.");
+                session.setAttribute("error", "Invalid username, try again or create an account.");
                 RequestDispatcher rsdisp = request.getRequestDispatcher("login.jsp");
                 rsdisp.forward(request, response);
             }
             
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-            request.setAttribute("error", "Internal error during login.");
+            session.setAttribute("error", "Internal error during login.");
             RequestDispatcher rsdisp = request.getRequestDispatcher("login.jsp");
             rsdisp.forward(request, response);
         }
