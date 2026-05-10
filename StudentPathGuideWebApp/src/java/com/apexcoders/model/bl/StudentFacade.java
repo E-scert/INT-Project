@@ -33,59 +33,62 @@ public class StudentFacade extends AbstractFacade<Student> implements StudentFac
 
     @Override
     public Student findByUsername(String username) {
-        
+
         Query query = em.createQuery("SELECT s FROM Student s WHERE s.username = :uname");
-        
+
         query.setParameter("uname", username);
-        
-      
+
         //using a try block to check that the studemt really does exist.
         //Student student = (Student)query.getSingleResult();
-        
-        
         Student student = null;
-                
+
         try {
             student = (Student) query.getSingleResult();
-            
+
         } catch (Exception e) {
             student = null;
         }
-        
+
         return student;
 
     }
 
     @Override
     public List<Student> listAllStudentsBasedOnAPS(int aps) {
-       Query q = em.createNamedQuery("Student.listAllBasedOnAPS");
-       List<Student> s = q.getResultList();
-       
-       return s;
+        Query q = em.createNamedQuery("Student.listAllBasedOnAPS");
+        q.setParameter("aps", aps);
+        List<Student> s = q.getResultList();
+
+        return s;
     }
 
     @Override
     public List<Student> listAllBasedOnMinAndMaxAPS(int minAps, int maxAps) {
-       Query q = em.createNamedQuery("Student.listAllBasedOnMinAndMaxAPS");
-       List<Student> s = q.getResultList();
-       
-       return s;
+        Query q = em.createNamedQuery("Student.listAllBasedOnMinAndMaxAPS");
+        q.setParameter("min", minAps);
+        q.setParameter("max", maxAps);
+        List<Student> s = q.getResultList();
+
+        return s;
     }
 
     @Override
     public List<Student> listStudentsBasedOnGrade(int grade) {
-       Query q = em.createNamedQuery("Student.getStudentsBasedOnGrade");
-       List<Student> s = q.getResultList();
-       
-       return s;
+        Query q = em.createNamedQuery("Student.getStudentsBasedOnGrade");
+        q.setParameter("grade", grade);
+
+        List<Student> s = q.getResultList();
+
+        return s;
     }
 
     @Override
     public List<Student> listStudentsBasedOnField(String field) {
-         Query q = em.createNamedQuery("Student.getStudentsBasedOnField");
-       List<Student> s = q.getResultList();
-       
-       return s;
+        Query q = em.createNamedQuery("Student.getStudentsBasedOnField");
+        q.setParameter("field", field);
+        List<Student> s = q.getResultList();
+
+        return s;
     }
-    
+
 }
