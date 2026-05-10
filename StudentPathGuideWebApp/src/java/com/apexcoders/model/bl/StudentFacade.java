@@ -65,8 +65,8 @@ public class StudentFacade extends AbstractFacade<Student> implements StudentFac
     @Override
     public List<Student> listAllBasedOnMinAndMaxAPS(int minAps, int maxAps) {
         Query q = em.createNamedQuery("Student.listAllBasedOnMinAndMaxAPS");
-        q.setParameter("minAps", minAps);
-        q.setParameter("maxAps", maxAps);
+        q.setParameter("min", minAps);
+        q.setParameter("max", maxAps);
         List<Student> s = q.getResultList();
 
         return s;
