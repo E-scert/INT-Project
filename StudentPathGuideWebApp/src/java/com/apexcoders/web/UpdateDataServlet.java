@@ -24,6 +24,22 @@ public class UpdateDataServlet extends HttpServlet {
          
            Student stud = (Student)session.getAttribute("stud");
            
+           String field = stud.getFieldOfInterest();
+           String username = stud.getUsername();
+           
+           Map<String,Integer> subj = stud.getSubjectMarks();
+           int grade = stud.getGrade();
+           int aps = stud.getAps();
+           //set attributes 
+           session.setAttribute("field", field);
+           session.setAttribute("name",username);
+           System.out.println(username+""+field);
+           session.setAttribute("subj",subj);
+           session.setAttribute("grade",grade);
+           session.setAttribute("aps",aps);
+           
+           request.getRequestDispatcher("update_data.jsp").forward(request, response);
+           
            
         
 
