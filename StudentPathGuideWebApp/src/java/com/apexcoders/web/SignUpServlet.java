@@ -100,6 +100,7 @@ public class SignUpServlet extends HttpServlet {
         session.setAttribute("aps",aps);
         session.setAttribute("field",field);
         session.setAttribute("password",password);
+        session.setAttribute("subjects", marks);
         
         
        //get university course

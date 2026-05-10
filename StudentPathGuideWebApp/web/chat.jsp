@@ -36,7 +36,7 @@ arrow_back_ios_new
         <div class="chat_container" id="chat_container">
             <div class="message ai_response">
                 Hi, I am Javis, your AI career assistant. How can I help you today?
-                <%= apiKey%>
+                
             </div>
         </div>
 
