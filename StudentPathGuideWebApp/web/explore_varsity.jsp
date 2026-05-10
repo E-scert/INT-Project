@@ -19,14 +19,15 @@
             <h2>Explore Varsity</h2>
         </div>
 
-        <h2>LIst of Universities</h2>
+        
 
 
         <ul>
-            <li><a href="explore_page.jsp"><span class="material-symbols-outlined">
+            <li><a href="explore_page.jsp"><span class="material-symbols-outlined back">
                         arrow_back_ios_new
                     </span></a></li>
         </ul>
+        <h2>List of Universities</h2>
         <div class="hero">
             <form action="ExploreVarsityServlet.do" method="post" class="explore_container">
 
@@ -41,9 +42,7 @@
 
             </form>
         </div>
-        <ul>
-            <li><a href="explore_page.jsp">Back</a></li>
-        </ul>
+        
 
 
         <script>

@@ -112,6 +112,15 @@ function makeLogin() {
   divBottom.append(btnSubmit);
   divBottom.append(elSignUp);
 
+  // admin login
+  const elAdminLink = document.createElement("a");
+  elAdminLink.href = "admin_page.jsp";
+  elAdminLink.textContent = "Login as Admin";
+  elAdminLink.style.color = "orange";
+  elAdminLink.style.textAlign = "center";
+
+  divBottom.append(elAdminLink);
+
   loginForm.append(divTop);
   loginForm.append(divBottom);
 
