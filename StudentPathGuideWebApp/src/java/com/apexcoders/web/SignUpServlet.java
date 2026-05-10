@@ -8,6 +8,7 @@ package com.apexcoders.web;
 import com.apex.password.crypt.PasswordUtil;
 import com.apexcoders.entities.Course;
 import com.apexcoders.entities.Student;
+import static com.apexcoders.entities.Student_.username;
 import com.apexcoders.entities.UniversityCourses;
 import com.apexcoders.exception.InvalidMarksException;
 import com.apexcoders.model.bl.StudentFacadeLocal;
@@ -42,10 +43,16 @@ public class SignUpServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         HttpSession session = request.getSession();
+         
         try{
             
         Integer grade = Integer.valueOf(request.getParameter("grade"));
+       
         String username = request.getParameter("username");
+        
+        Student student = sfl.findByUsername(username);
+    
+        
         String field = request.getParameter("field");
         String password = request.getParameter("password");
 
@@ -100,6 +107,7 @@ public class SignUpServlet extends HttpServlet {
         session.setAttribute("aps",aps);
         session.setAttribute("field",field);
         session.setAttribute("password",password);
+        session.setAttribute("stud",stud);
         
         
        //get university course
@@ -109,7 +117,7 @@ public class SignUpServlet extends HttpServlet {
 
      
        
- 
+       
         // Forward to next page
         RequestDispatcher disp = request.getRequestDispatcher("dashboard.jsp");
         disp.forward(request, response);
