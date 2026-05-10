@@ -105,13 +105,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
+import javax.servlet.http.HttpSession;
 
 public class AIServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        HttpSession session=request.getSession();
         response.setContentType("text/html;charset=UTF-8");
 
         // 1. Get user input safely
@@ -210,7 +211,7 @@ public class AIServlet extends HttpServlet {
         // (optional) clean stray "n"
         aiResponseText = aiResponseText.replace("\\n", "\n");
 
-        request.setAttribute("aiResponse", (aiResponseText.split("nn")));
+        session.setAttribute("aiResponse", (aiResponseText.split("nn")));
         
         
         
