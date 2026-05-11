@@ -48,7 +48,7 @@
             if (students != null && students.size() > 0) {
         %>
 
-        <table >
+        <table class="dashboard_table">
 
             <tr>
                 <th>ID</th>

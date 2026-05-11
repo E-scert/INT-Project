@@ -30,19 +30,19 @@
         </div>
 
         <form action="ListStudentsBasedOnGradeServlet.do" method="GET">
-            <table>
+            <table class="card" style="margin: 20px 0;">
 
                 <tr>
                     <td>Enter Grade</td>
                     <td>
-                        <input type="text" name="grade" required="">
+                        <input class="input_field" type="text" name="grade" required="">
                     </td>
                 </tr>
                 <tr>
                     <td></td>
 
                     <td>
-                        <input type="submit" value="List Students">
+                        <input class="button_primary" type="submit" value="List Students">
                     </td>
                 </tr>
             </table>
@@ -57,7 +57,7 @@
                 if (students != null && students.size() > 0) {
             %>
 
-            <table>
+            <table class="dashboard_table">
 
                 <tr>
                     <th>ID</th>

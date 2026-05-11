@@ -20,6 +20,7 @@
             <h1 class="section head">Admin</h1>
             <a class="logout" hred="index.html">Logout</a>
         </div>
+        <div class="admin_nav_container">
         <div style="text-align: center;font-size: 1.75rem;">
             <h3>Welcome admin</h3>
         <p>Please select an option below</p>
@@ -34,5 +35,6 @@
             <li><a href="list_students_based_on_field.jsp">List All students based on field of interest</a></li>
             
         </ol>
+        </div>
     </body>
 </html>

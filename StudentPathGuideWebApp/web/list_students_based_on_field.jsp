@@ -30,13 +30,13 @@
 
 
         <form action="ListStudentsBasedOnFieldServlet.do"  method="GET">
-            <table>
+            <table class="card" style="margin: 20px 0;">
 
                 <tr>
 
                     <td>Enter Field Of Interest</td>
 
-                    <td><input type="text" name="field" required=""></td>
+                    <td><input class="input_field" type="text" name="field" required=""></td>
 
                 </tr>
 
@@ -44,7 +44,7 @@
                     <td></td>
 
                     <td>
-                        <input type="submit" value="List Students">
+                        <input class="button_primary" type="submit" value="List Students">
                     </td>
 
                 </tr>
@@ -65,7 +65,7 @@
                 if (students != null && students.size() > 0) {
             %>
 
-            <table >
+            <table class="dashboard_table">
 
                 <tr>
 
