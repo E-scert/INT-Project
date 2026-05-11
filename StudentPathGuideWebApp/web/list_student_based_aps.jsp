@@ -12,24 +12,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new,search" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
+    <link rel="stylesheet" href="style/style.css">
         <title>List All Students Based on APS Page</title>
     </head>
     <body>
-        <h1>List All Students Based on APS</h1>
+        <h1 class="head section">List All Students Based on APS</h1>
 
-        <form action="ListStudentsBasedOnAPS.do" method="GET">
+        <form class ="course_search" action="ListStudentsBasedOnAPS.do" method="GET">
 
-            <table>
-                <tr>
-                    <td>Enter APS Score to see Students</td>
-                    <td><input type="text" name="aps" required=""></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="List Students"></td>
-                </tr>
-            </table>
-
+            <label for="">Enter APS Score to see Students</label>
+                    <input  type="text" name="aps" required="">
+                
+                    <input type="submit" value="List Students">
 
         </form>
 
@@ -44,7 +41,7 @@
             if (students != null && students.size() > 0) {
         %>
 
-        <table border="1">
+        <table >
 
             <tr>
                 <th>ID</th>

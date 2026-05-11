@@ -231,18 +231,22 @@ body {
   justify-content: space-between;
 
   .icon {
-    background-color: transparent;
     color: var(--clr-primary-light);
 
     span {
-      background-color: transparent;
       color: white;
       font-size: 2rem;
     }
   }
+<<<<<<< HEAD
   .icon:nth-child(2) {
     margin-right: 180px;
   }
+=======
+  
+  
+
+>>>>>>> 987c5cc7cf8b48a4e8e2484087e581ca6a318983
   .icon::after {
     content: "";
     opacity: 0;
@@ -259,21 +263,28 @@ body {
     transform: translateX(0);
   }
 
-  .icon:first-child::after {
-    content: "Update Information";
+  .icon:nth-child(1 )::after {
+    content: "Update ";
   }
   .icon:nth-child(2)::after {
     content: "Explore";
   }
+<<<<<<< HEAD
   .icon:last-child::after {
+=======
+  .icon:last-child::after{
+>>>>>>> 987c5cc7cf8b48a4e8e2484087e581ca6a318983
     content: "Chat with Javis AI bot";
   }
 
+  a {
+    background-color: transparent;
+  }
   a:hover {
     background-color: transparent;
   }
-}
 
+}
 .chat_screen {
   height: 100vh;
   display: flex;
@@ -423,17 +434,7 @@ body {
     font-size: 1.8rem;
     padding: 10px;
   }
-  button {
-    color: white;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    justify-self: end;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2em;
-  }
+  
 }
 .material-symbols-outlined:hover {
   transform: scale(1.125);
@@ -507,6 +508,7 @@ body {
   opacity: 1;
 }
 
+
 .list_btn_container {
   display: flex;
   justify-content: center;
@@ -525,5 +527,49 @@ body {
     font-size: 1.24rem;
    
 }
+.admin_body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.admin_login_container {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.25em;
+}
+.admin_options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.125em;
+  padding: 20px;
 
+  li {
+    background-color: var(--clr-primary-light);
+    padding: 10px;
+    transition: scale 0.5s ease-in-out;
+
+    a {
+      color: white;
+    }
+  }
+
+  li:hover {
+    transform: scale(1.1);
+  }
+}
+.button {
+    color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    justify-self: end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+  }
 
