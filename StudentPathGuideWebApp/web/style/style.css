@@ -522,8 +522,21 @@ body {
 }
 .admin_options {
   display: flex;
-  border: 1px solid lime;
+  flex-wrap: wrap;
+  gap: 1.125em;
+  padding: 20px;
+
   li {
-    border: 1px solid lime;
+    background-color: var(--clr-primary-light);
+    padding: 10px;
+    transition: scale 0.5s ease-in-out;
+
+    a {
+      color: white;
+    }
+  }
+
+  li:hover {
+    transform: scale(1.1);
   }
 }
