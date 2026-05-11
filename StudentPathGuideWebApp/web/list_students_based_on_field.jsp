@@ -12,18 +12,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<<<<<<< HEAD
         <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new,search" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
     <link rel="stylesheet" href="style/style.css">
-=======
-
->>>>>>> 44828eed958009597c0d8b3e09ce350590ab1292
         <title>Field Of Interest Page</title>
     </head>
     <body>
-        <h1>List Students Based On Field Of Interest</h1>
+        <div class="section head">
+            <ul>
+                <li><a href="admin_page.jsp"><span class="material-symbols-outlined back">
+                arrow_back_ios_new
+                </span></a></li>
+            </ul>
+            <h1>List Students Based On Field Of Interest</h1>
+        </div>
 
 
         <form action="ListStudentsBasedOnFieldServlet.do"  method="GET">
@@ -129,8 +132,6 @@
                 }
             %>
 
-            <ul>
-                <li><a href="admin_page.jsp">Back</a></li>
-            </ul>
+           
     </body>
 </html>

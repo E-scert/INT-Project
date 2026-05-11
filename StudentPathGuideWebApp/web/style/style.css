@@ -238,15 +238,9 @@ body {
       font-size: 2rem;
     }
   }
-<<<<<<< HEAD
-  .icon:nth-child(2) {
-    margin-right: 180px;
-  }
-=======
   
   
 
->>>>>>> 987c5cc7cf8b48a4e8e2484087e581ca6a318983
   .icon::after {
     content: "";
     opacity: 0;
@@ -269,11 +263,7 @@ body {
   .icon:nth-child(2)::after {
     content: "Explore";
   }
-<<<<<<< HEAD
-  .icon:last-child::after {
-=======
   .icon:last-child::after{
->>>>>>> 987c5cc7cf8b48a4e8e2484087e581ca6a318983
     content: "Chat with Javis AI bot";
   }
 
@@ -520,9 +510,9 @@ body {
 }
 .btn_view{
     
-    padding: 0.125em;
-    border-radius: 6%;
-    background-color: #6666ff;
+    padding: 0.725em;
+    border-radius: 16px;
+    background-color: var(--clr-primary-light);
     font-weight: bold;
     font-size: 1.24rem;
    

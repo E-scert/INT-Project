@@ -20,8 +20,14 @@
     </head>
     <body>
 
-
-        <h1>List Students Based On Grade</h1>
+        <div class="head section">
+            <ul>
+            <li><a href="admin_page.jsp"><span class="material-symbols-outlined back">
+            arrow_back_ios_new
+            </span></a></li>
+            </ul>
+            <h1>List Students Based On Grade</h1>
+        </div>
 
         <form action="ListStudentsBasedOnGradeServlet.do" method="GET">
             <table>
@@ -115,9 +121,7 @@
                 }
             %>
 
-            <ul>
-                <li><a href="admin_page.jsp">Back</a></li>
-            </ul>
+            
 
     </body>
 </html>

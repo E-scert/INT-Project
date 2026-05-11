@@ -16,7 +16,10 @@
         <title>Admin Page</title>
     </head>
     <body>
-        <h1 class="section head">Admin</h1>
+        <div class="section head">
+            <h1 class="section head">Admin</h1>
+            <a class="logout" hred="index.html">Logout</a>
+        </div>
         <div style="text-align: center;font-size: 1.75rem;">
             <h3>Welcome admin</h3>
         <p>Please select an option below</p>

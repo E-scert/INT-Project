@@ -20,8 +20,14 @@
     </head>
     <body>
 
-
-        <h1>List Students Based On Min And Max APS</h1>
+        <div class="section head">
+            <ul>
+            <li><a href="admin_page.jsp"><span class="material-symbols-outlined back">
+            arrow_back_ios_new
+            </span></a></li>
+            </ul>
+            <h1>List Students Based On Min And Max APS</h1>
+        </div>
 
         <form action="ListStudentsBetweenMinAndMaxApsServlet.do" method="GET">
 
@@ -133,9 +139,7 @@
             }
         %>
 
-        <ul>
-            <li><a href="admin_page.jsp">Back</a></li>
-        </ul>
+       
 
     </body>
 </html>
