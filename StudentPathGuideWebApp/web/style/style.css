@@ -422,17 +422,7 @@ body {
     font-size: 1.8rem;
     padding: 10px;
   }
-  button {
-    color: white;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    justify-self: end;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2em;
-  }
+  
 }
 .material-symbols-outlined:hover {
   transform: scale(1.125);
@@ -540,3 +530,14 @@ body {
     transform: scale(1.1);
   }
 }
+.button {
+    color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    justify-self: end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+  }

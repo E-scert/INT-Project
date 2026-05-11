@@ -19,21 +19,14 @@
         <title>List All Students Based on APS Page</title>
     </head>
     <body>
-        <h1>List All Students Based on APS</h1>
+        <h1 class="head section">List All Students Based on APS</h1>
 
-        <form action="ListStudentsBasedOnAPS.do" method="GET">
+        <form class ="course_search" action="ListStudentsBasedOnAPS.do" method="GET">
 
-            <table>
-                <tr>
-                    <td>Enter APS Score to see Students</td>
-                    <td><input type="text" name="aps" required=""></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="List Students"></td>
-                </tr>
-            </table>
-
+            <label for="">Enter APS Score to see Students</label>
+                    <input  type="text" name="aps" required="">
+                
+                    <input type="submit" value="List Students">
 
         </form>
 
