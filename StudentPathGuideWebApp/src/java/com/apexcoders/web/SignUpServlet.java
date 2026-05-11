@@ -102,6 +102,7 @@ public class SignUpServlet extends HttpServlet {
         session.setAttribute("password",password);
         
         
+        
        //get university course
 
          List<UniversityCourses> filteredCourses = ucf.filterByFieldAndAps(field,aps);
