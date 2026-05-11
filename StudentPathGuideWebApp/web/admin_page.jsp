@@ -18,7 +18,7 @@
     <body>
         <div class="section head">
             <h1 class="section head">Admin</h1>
-            <a class="logout" hred="index.html">Logout</a>
+            <a class="logout" href="LogoutServlet.do">Logout</a>
         </div>
         <div class="admin_nav_container">
         <div style="text-align: center;font-size: 1.75rem;">

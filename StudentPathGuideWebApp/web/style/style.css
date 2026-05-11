@@ -84,8 +84,10 @@ body {
   background-color: var(--clr-primary-light);
   color: var(--clr-card-bg);
   border-radius: var(--s_sm);
-  padding: var(--s_sm) var(--s_md);
+  padding: var(--s_md) var(--s_lg);
   transition: 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
 }
 
 .button_primary:hover {
@@ -569,4 +571,10 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.update_user_details{
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
