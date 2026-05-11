@@ -54,21 +54,21 @@
             </table>
 
         </form>
-        
-        
-       
+
+
+
 
         <h1>Students Between Min And Max APS</h1>
 
         <%
-            List<Student> students = (List<Student>) session.getAttribute("students");
+            List<Student> students = (List<Student>) request.getAttribute("students");
         %>
 
         <%
             if (students != null && students.size() > 0) {
         %>
 
-        <table border="1">
+        <table >
 
             <tr>
                 <th>ID</th>
@@ -124,7 +124,7 @@
         </table>
 
         <%
-            } else {
+        } else {
         %>
 
         <p>No students found.</p>
@@ -132,6 +132,10 @@
         <%
             }
         %>
+
+        <ul>
+            <li><a href="admin_page.jsp">Back</a></li>
+        </ul>
 
     </body>
 </html>

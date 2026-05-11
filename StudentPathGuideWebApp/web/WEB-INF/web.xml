@@ -118,7 +118,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ListStudentsBasedOnFieldServlet</servlet-name>
-        <url-pattern>/ListStudentsBasedOnFieldServlet</url-pattern>
+        <url-pattern>/ListStudentsBasedOnFieldServlet.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -12,14 +12,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<<<<<<< HEAD
         <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new,search" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
     <link rel="stylesheet" href="style/style.css">
+=======
+
+>>>>>>> 44828eed958009597c0d8b3e09ce350590ab1292
         <title>Field Of Interest Page</title>
     </head>
     <body>
-                        <h1>List Students Based On Field Of Interest</h1>
+        <h1>List Students Based On Field Of Interest</h1>
+
 
         <form action="ListStudentsBasedOnFieldServlet.do"  method="GET">
             <table>
@@ -28,9 +33,7 @@
 
                     <td>Enter Field Of Interest</td>
 
-                    <td>
-                        <input type="text" name="field" required="">
-                    </td>
+                    <td><input type="text" name="field" required=""></td>
 
                 </tr>
 
@@ -44,85 +47,90 @@
                 </tr>
 
             </table>
-            
-            
-            
-            
-        <h1>Students Based On Field Of Interest</h1>
+        </form>
 
-        <%
-            List<Student> students =  (List<Student>) session.getAttribute("students");
-        %>
 
-        <%
-            if (students != null && students.size() > 0) {
-        %>
 
-        <table border="1">
 
-            <tr>
-
-                <th>ID</th>
-                <th>Username</th>
-                <th>Grade</th>
-                <th>Field</th>
-                <th>APS</th>
-                <th>Subject Marks</th>
-
-            </tr>
+            <h1>Students Based On Field Of Interest</h1>
 
             <%
-                for (int i = 0; i < students.size(); i++) {
-
-                    Student stud = students.get(i);
+                List<Student> students = (List<Student>) request.getAttribute("students");
             %>
 
-            <tr>
+            <%
+                if (students != null && students.size() > 0) {
+            %>
 
-                <td><%=stud.getId()%></td>
+            <table >
 
-                <td><%=stud.getUsername()%></td>
+                <tr>
 
-                <td><%=stud.getGrade()%></td>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Grade</th>
+                    <th>Field</th>
+                    <th>APS</th>
+                    <th>Subject Marks</th>
 
-                <td><%=stud.getFieldOfInterest()%></td>
+                </tr>
 
-                <td><%=stud.getAps()%></td>
+                <%
+                    for (int i = 0; i < students.size(); i++) {
+
+                        Student stud = students.get(i);
+                %>
+
+                <tr>
+
+                    <td><%=stud.getId()%></td>
+
+                    <td><%=stud.getUsername()%></td>
+
+                    <td><%=stud.getGrade()%></td>
+
+                    <td><%=stud.getFieldOfInterest()%></td>
+
+                    <td><%=stud.getAps()%></td>
 
 
-                <td>
+                    <td>
 
-                    <%
-                        Map<String, Integer> marks = stud.getSubjectMarks();
+                        <%
+                            Map<String, Integer> marks = stud.getSubjectMarks();
 
-                        for (String subject : marks.keySet()) {
-                    %>
+                            for (String subject : marks.keySet()) {
+                        %>
 
-                    <%=subject%> :
-                    <%=marks.get(subject)%> ,
+                        <%=subject%> :
+                        <%=marks.get(subject)%> ,
 
-                    <%
-                        }
-                    %>
+                        <%
+                            }
+                        %>
 
-                </td>
+                    </td>
 
-            </tr>
+                </tr>
+
+                <%
+                    }
+                %>
+
+            </table>
+
+            <%
+            } else {
+            %>
+
+            <p>No students found.</p>
 
             <%
                 }
             %>
 
-        </table>
-
-        <%
-            } else {
-        %>
-
-        <p>No students found.</p>
-
-        <%
-            }
-        %>
+            <ul>
+                <li><a href="admin_page.jsp">Back</a></li>
+            </ul>
     </body>
 </html>
