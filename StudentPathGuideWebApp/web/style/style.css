@@ -168,8 +168,8 @@ body {
   align-self: center;
 }
 .logout {
-  color:rgb(133, 133, 133);
-  font-size:1.125rem;
+  color: rgb(133, 133, 133);
+  font-size: 1.125rem;
   transition: color 0.2s ease-in-out;
 }
 .logout:hover {
@@ -241,14 +241,15 @@ body {
     }
   }
   .icon:nth-child(2) {
-  margin-right: 180px;
-  
-}
+    margin-right: 180px;
+  }
   .icon::after {
     content: "";
     opacity: 0;
     transform: translateX(-20px);
-    transition: opacity 1s ease, transform 10s ease;
+    transition:
+      opacity 1s ease,
+      transform 10s ease;
     margin-left: 8px;
     color: white;
   }
@@ -262,10 +263,10 @@ body {
     content: "Update Information";
   }
   .icon:nth-child(2)::after {
-    content: "Explore"
+    content: "Explore";
   }
-  .icon:last-child::after{
-    content: "Chat with Javis AI bot"
+  .icon:last-child::after {
+    content: "Chat with Javis AI bot";
   }
 
   a:hover {
@@ -352,9 +353,9 @@ body {
   transform: scale(1.05);
 }
 .app {
-   height: 88vh;
-   display: flex;
-   flex-direction: column;
+  height: 88vh;
+  display: flex;
+  flex-direction: column;
 }
 .head {
   background-color: var(--clr-primary);
@@ -489,7 +490,7 @@ body {
     font-size: var(--f_lg);
   }
 }
-.back{
+.back {
   position: relative;
 }
 .back::before {
@@ -505,3 +506,24 @@ body {
 .back:hover::before {
   opacity: 1;
 }
+
+.list_btn_container {
+  display: flex;
+  justify-content: center;
+}
+.list_btn {
+  display: flex;
+  gap:1.125em;
+  margin-top: 20px;
+}
+.btn_view{
+    
+    padding: 0.125em;
+    border-radius: 6%;
+    background-color: #6666ff;
+    font-weight: bold;
+    font-size: 1.24rem;
+   
+}
+
+

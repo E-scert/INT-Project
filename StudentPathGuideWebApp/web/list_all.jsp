@@ -13,26 +13,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="style/style.css">
         <title>List All Students Page</title>
     </head>
     <body>
-        <h1>List All Students</h1>
+        <h1 class="head section">List All Students</h1>
+       <div class="list_btn_container">
 
         <form action="ListAllStudentsServlet.do" method="GET">
-
-            <table>
-                <tr>
-                    <td></td>
-                    <td>Click to View all Students</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="List Students"></td>
-                </tr>
-            </table>
-
+          <div class="list_btn"> 
+               
+            <input type="submit" value="VIEW ALL STUDENTS" class="btn_view"/>
+          </div>
+            
 
         </form>
+       </div>
+    
               
 
         <h1>List All Students</h1>

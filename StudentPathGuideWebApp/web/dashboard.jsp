@@ -10,10 +10,7 @@
     <link rel="stylesheet" href="style/style.css">
 </head>
 <body class="dashboard_container">
-    
-        
-        
-    
+   
    
     <!--displays name and grade and aps score-->
 <div id="name_container" class="student_details_container">
