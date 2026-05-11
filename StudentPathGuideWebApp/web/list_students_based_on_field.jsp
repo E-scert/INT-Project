@@ -28,7 +28,6 @@
 
                     <td><input type="text" name="field" required=""></td>
 
-
                 </tr>
 
                 <tr>
@@ -41,6 +40,7 @@
                 </tr>
 
             </table>
+        </form>
 
 
 

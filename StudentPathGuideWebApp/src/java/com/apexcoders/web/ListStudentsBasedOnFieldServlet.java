@@ -25,28 +25,20 @@ public class ListStudentsBasedOnFieldServlet extends HttpServlet {
     @EJB
     private StudentFacadeLocal studentFacade;
 
-
-
-
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        
         String field = request.getParameter("field");
 
         List<Student> students = studentFacade.listStudentsBasedOnField(field);
 
         request.setAttribute("students", students);
-        
-        RequestDispatcher rsdip = request.getRequestDispatcher("");
+
+        RequestDispatcher rsdip = request.getRequestDispatcher("list_students_based_on_field.jsp");
         rsdip.forward(request, response);
 
 
+    }
 
-
-
-}
-    
 }
