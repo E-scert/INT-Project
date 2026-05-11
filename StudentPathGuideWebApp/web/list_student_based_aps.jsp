@@ -44,7 +44,7 @@
             if (students != null && students.size() > 0) {
         %>
 
-        <table border="1">
+        <table >
 
             <tr>
                 <th>ID</th>
