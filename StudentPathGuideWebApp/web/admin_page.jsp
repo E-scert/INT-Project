@@ -16,9 +16,11 @@
         <title>Admin Page</title>
     </head>
     <body>
-        <h1>Admin</h1>
-        <h3>Welcome admin</h3>
+        <h1 class="section head">Admin</h1>
+        <div style="text-align: center;font-size: 1.75rem;">
+            <h3>Welcome admin</h3>
         <p>Please select an option below</p>
+        </div>
         <ol>
             <li><a href="list_all.jsp">List All students in the database</a></li>
             <li><a href="list_student_based_aps.jsp">List All based on APS scores</a></li>

@@ -24,7 +24,9 @@
 
                 <div id="button_holder"class="nav">
 
-                <a class="button_primary icon" href="update_data.jsp">
+
+                <a class="button_primary" href="UpdateDataServlet.do">
+
                     <span id="dashboard_nav" class="material-symbols-outlined">edit_note</span>
                 </a>
                 <a class="button_primary icon" href="explore_page.jsp">
@@ -36,8 +38,8 @@
     
 </div>
                  <div class="student_name">
-                    ${name} 
-                 (Grade ${grade}) 
+                    ${stud.username} 
+                 (Grade ${stud.grade}) 
                  <span>
                     <a class="logout" href="LogoutServlet.do">Logout</a>
                  </span>
@@ -46,8 +48,8 @@
 
             <div class="student_details">
                 
-                <span>APS SCORE: ${aps}</span> 
-                <span>Field Of Interest:  ${field} </span>
+                <span>APS SCORE: ${stud.aps}</span> 
+                <span>Field Of Interest:  ${stud.fieldOfInterest} </span>
             </div>
         
 </div>

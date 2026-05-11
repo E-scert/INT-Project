@@ -231,19 +231,16 @@ body {
   justify-content: space-between;
 
   .icon {
-    background-color: transparent;
     color: var(--clr-primary-light);
 
     span {
-      background-color: transparent;
       color: white;
       font-size: 2rem;
     }
   }
-  .icon:nth-child(2) {
-  margin-right: 180px;
   
-}
+  
+
   .icon::after {
     content: "";
     opacity: 0;
@@ -258,21 +255,24 @@ body {
     transform: translateX(0);
   }
 
-  .icon:first-child::after {
-    content: "Update Information";
+  .icon:nth-child(1 )::after {
+    content: "Update ";
   }
   .icon:nth-child(2)::after {
-    content: "Explore"
+    content: "Explore";
   }
   .icon:last-child::after{
-    content: "Chat with Javis AI bot"
+    content: "Chat with Javis AI bot";
   }
 
+  a {
+    background-color: transparent;
+  }
   a:hover {
     background-color: transparent;
   }
-}
 
+}
 .chat_screen {
   height: 100vh;
   display: flex;
@@ -504,4 +504,26 @@ body {
 }
 .back:hover::before {
   opacity: 1;
+}
+
+.admin_body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.admin_login_container {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.25em;
+}
+.admin_options {
+  display: flex;
+  border: 1px solid lime;
+  li {
+    border: 1px solid lime;
+  }
 }
