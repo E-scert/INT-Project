@@ -26,7 +26,7 @@
                 </tr>
                  <tr>
                     <td>Password:</td>
-                    <td><input class="input_field type="text" name="j_password"/></td>
+                    <td><input class="input_field" type="text" name="j_password"/></td>
                 </tr>
                 <tr>
                     <td></td>
