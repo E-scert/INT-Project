@@ -17,8 +17,10 @@
     </head>
     <body class="admin_body">
       <div class="admin_login_container card">
+        <div class="login_img_container"><img src="https://th.bing.com/th/id/R.fbf39144bff5c02898fdc8fd583f84b6?rik=qLhp7D3LhK%2fQgA&pid=ImgRaw&r=0" alt="login image" class="login_img"></div>
           <h1>Login</h1>
         <form class="admin_login_form" action="j_security_check" method="POST">
+            
             <table>
                 <tr>
                     <td>Username:</td>

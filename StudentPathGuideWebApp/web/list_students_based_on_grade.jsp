@@ -20,23 +20,29 @@
     </head>
     <body>
 
-
-        <h1>List Students Based On Grade</h1>
+        <div class="head section">
+            <ul>
+            <li><a href="admin_page.jsp"><span class="material-symbols-outlined back">
+            arrow_back_ios_new
+            </span></a></li>
+            </ul>
+            <h1>List Students Based On Grade</h1>
+        </div>
 
         <form action="ListStudentsBasedOnGradeServlet.do" method="GET">
-            <table>
+            <table class="card" style="margin: 20px 0;">
 
                 <tr>
                     <td>Enter Grade</td>
                     <td>
-                        <input type="text" name="grade" required="">
+                        <input class="input_field" type="text" name="grade" required="">
                     </td>
                 </tr>
                 <tr>
                     <td></td>
 
                     <td>
-                        <input type="submit" value="List Students">
+                        <input class="button_primary" type="submit" value="List Students">
                     </td>
                 </tr>
             </table>
@@ -51,7 +57,7 @@
                 if (students != null && students.size() > 0) {
             %>
 
-            <table>
+            <table class="dashboard_table">
 
                 <tr>
                     <th>ID</th>
@@ -115,9 +121,7 @@
                 }
             %>
 
-            <ul>
-                <li><a href="admin_page.jsp">Back</a></li>
-            </ul>
+            
 
     </body>
 </html>

@@ -20,18 +20,24 @@
     </head>
     <body>
 
-
-        <h1>List Students Based On Min And Max APS</h1>
+        <div class="section head">
+            <ul>
+            <li><a href="admin_page.jsp"><span class="material-symbols-outlined back">
+            arrow_back_ios_new
+            </span></a></li>
+            </ul>
+            <h1>List Students Based On Min And Max APS</h1>
+        </div>
 
         <form action="ListStudentsBetweenMinAndMaxApsServlet.do" method="GET">
 
-            <table>
+            <table class="card" style="margin: 20px 0;">
 
                 <tr>
                     <td>Enter Minimum APS</td>
 
                     <td>
-                        <input type="text" name="minAps" required="">
+                        <input class="input_field" type="text" name="minAps" required="">
                     </td>
                 </tr>
 
@@ -39,7 +45,7 @@
                     <td>Enter Maximum APS</td>
 
                     <td>
-                        <input type="text" name="maxAps" required="">
+                        <input class="input_field" type="text" name="maxAps" required="">
                     </td>
                 </tr>
 
@@ -47,7 +53,7 @@
                     <td></td>
 
                     <td>
-                        <input type="submit" value="List Students">
+                        <input class="button_primary" type="submit" value="List Students">
                     </td>
                 </tr>
 
@@ -68,7 +74,7 @@
             if (students != null && students.size() > 0) {
         %>
 
-        <table >
+        <table class="dashboard_table">
 
             <tr>
                 <th>ID</th>
@@ -133,9 +139,7 @@
             }
         %>
 
-        <ul>
-            <li><a href="admin_page.jsp">Back</a></li>
-        </ul>
+       
 
     </body>
 </html>

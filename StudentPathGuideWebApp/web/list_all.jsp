@@ -22,7 +22,14 @@
         <title>List All Students Page</title>
     </head>
     <body>
-        <h1 class="head section">List All Students</h1>
+        <div class="head section">
+            <ul>
+            <li><a href="admin_page.jsp"><span class="material-symbols-outlined back">
+            arrow_back_ios_new
+            </span></a></li>
+        </ul>
+            <h1 class="head section">List All Students</h1>
+        </div>
        <div class="list_btn_container">
 
         <form action="ListAllStudentsServlet.do" method="GET">
@@ -47,7 +54,7 @@
             if (students != null && students.size() > 0) {
         %>
 
-        <table>
+        <table class="dashboard_table">
             <tr>
                 <th>ID</th>
                 <th>Username</th>
@@ -108,9 +115,7 @@
             }
         %>
 
-        <ul>
-            <li><a href="admin_page.jsp">Back</a></li>
-        </ul>
+        
 
 
 

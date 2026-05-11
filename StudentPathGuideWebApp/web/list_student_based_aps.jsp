@@ -19,7 +19,14 @@
         <title>List All Students Based on APS Page</title>
     </head>
     <body>
-        <h1 class="head section">List All Students Based on APS</h1>
+        <div class="section head">
+            <ul>
+                <li><a href="admin_page.jsp"><span class="material-symbols-outlined back">
+                arrow_back_ios_new
+                </span></a></li>
+            </ul>
+            <h1 class="head section">List All Students Based on APS</h1>
+        </div>
 
         <form class ="course_search" action="ListStudentsBasedOnAPS.do" method="GET">
 
@@ -41,7 +48,7 @@
             if (students != null && students.size() > 0) {
         %>
 
-        <table >
+        <table class="dashboard_table">
 
             <tr>
                 <th>ID</th>
@@ -102,8 +109,6 @@
             }
         %>
 
-        <ul>
-            <li><a href="admin_page.jsp">Back</a></li>
-        </ul>
+        
     </body>
 </html>
