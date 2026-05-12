@@ -35,6 +35,16 @@ INSERT INTO University (id, university_name, university_abbreviation, university
 (3, 'University of the Witwatersrand', 'WITS', 'Gauteng', 'https://www.wits.ac.za'),
 (4, 'Stellenbosch University', 'SU', 'Western Cape', 'https://www.sun.ac.za'),
 (5, 'University of KwaZulu-Natal', 'UKZN', 'KwaZulu-Natal', 'https://www.ukzn.ac.za');
+(6, 'North-West University', 'NWU', 'North West', 'https://www.nwu.ac.za'),
+(7, 'University of Johannesburg', 'UJ', 'Gauteng', 'https://www.uj.ac.za'),
+(8, 'Rhodes University', 'RU', 'Eastern Cape', 'https://www.ru.ac.za'),
+(9, 'Nelson Mandela University', 'NMU', 'Eastern Cape', 'https://www.mandela.ac.za'),
+(10, 'University of the Free State', 'UFS', 'Free State', 'https://www.ufs.ac.za'),
+(11, 'University of Limpopo', 'UL', 'Limpopo', 'https://www.ul.ac.za'),
+(12, 'Tshwane University of Technology', 'TUT', 'Gauteng', 'https://www.tut.ac.za'),
+(13, 'Cape Peninsula University of Technology', 'CPUT', 'Western Cape', 'https://www.cput.ac.za'),
+(14, 'Durban University of Technology', 'DUT', 'KwaZulu-Natal', 'https://www.dut.ac.za'),
+(15, 'University of Venda', 'UNIVEN', 'Limpopo', 'https://www.univen.ac.za');
 
 INSERT INTO Course (id, course_name, course_field, course_min_aps, course_description, course_required_subjects) VALUES
 (1, 'BCom Accounting Sciences', 'Commerce', 34, 'Accounting, auditing, taxation and financial management.', 'Mathematics, English'),
@@ -71,7 +81,32 @@ INSERT INTO Course (id, course_name, course_field, course_min_aps, course_descri
 (32, 'BSc Environmental Science', 'Science', 28, 'Ecosystems, climate change and environmental management.', 'Mathematics, Life Sciences, Physical Science'),
 (33, 'BSc Biotechnology', 'Science', 30, 'Biological systems, genetics and biomedical research.', 'Mathematics, Physical Science, Life Sciences'),
 (34, 'BSc Dietetics', 'Health Sciences', 32, 'Nutrition, food science and dietary planning.', 'Mathematics, Life Sciences, Physical Science'),
-(35, 'LLB Law 4 Year', 'Law', 30, 'South African and international law.', 'English, Mathematics');
+(35, 'LLB Law 4 Year', 'Law', 30, 'South African and international law.', 'English, Mathematics')
+(36, 'BSc Information Technology', 'Engineering & IT', 26, 'Software development, networking and database systems.', 'Mathematics, English'),
+(37, 'Diploma in Information Technology', 'Engineering & IT', 22, 'Practical IT, programming and support systems.', 'Mathematics, English'),
+(38, 'Diploma in Civil Engineering', 'Engineering & IT', 24, 'Construction, structural systems and infrastructure.', 'Mathematics, Physical Science'),
+(39, 'Diploma in Electrical Engineering', 'Engineering & IT', 24, 'Electrical circuits, electronics and power systems.', 'Mathematics, Physical Science'),
+(40, 'Diploma in Mechanical Engineering', 'Engineering & IT', 24, 'Mechanical systems, manufacturing and design.', 'Mathematics, Physical Science'),
+(41, 'Diploma in Accounting', 'Commerce', 22, 'Financial accounting, taxation and auditing basics.', 'Mathematics, English'),
+(42, 'Diploma in Marketing', 'Commerce', 20, 'Advertising, branding and customer relations.', 'English, Mathematics'),
+(43, 'Diploma in Human Resource Management', 'Commerce', 20, 'Human resources, labour relations and recruitment.', 'English, Mathematics'),
+(44, 'Bachelor of Education Senior Phase', 'Education', 24, 'Teaching and curriculum development for senior phase.', 'English, Mathematics'),
+(45, 'Bachelor of Education Foundation Phase', 'Education', 22, 'Teaching young learners in primary schools.', 'English'),
+(46, 'BA English Studies', 'Humanities', 24, 'English literature, communication and writing.', 'English'),
+(47, 'BA History', 'Humanities', 24, 'Historical studies and research methods.', 'English, History'),
+(48, 'BA Philosophy', 'Humanities', 24, 'Logic, ethics and philosophical theories.', 'English'),
+(49, 'BSc Geology', 'Science', 28, 'Earth sciences, minerals and geological systems.', 'Mathematics, Physical Science'),
+(50, 'BSc Microbiology', 'Science', 28, 'Microorganisms, bacteria and laboratory science.', 'Mathematics, Life Sciences'),
+(51, 'BSc Zoology', 'Science', 26, 'Animal biology, ecosystems and biodiversity.', 'Mathematics, Life Sciences'),
+(52, 'BSc Botany', 'Science', 26, 'Plant science, ecology and genetics.', 'Mathematics, Life Sciences'),
+(53, 'Diploma in Nursing', 'Health Sciences', 22, 'General nursing and healthcare practice.', 'Life Sciences, English'),
+(54, 'Bachelor of Public Administration', 'Humanities', 24, 'Government administration and public sector management.', 'English, Mathematics'),
+(55, 'Bachelor of Social Science', 'Humanities', 24, 'Sociology, psychology and community studies.', 'English'),
+(56, 'Diploma in Hospitality Management', 'Commerce', 20, 'Hospitality operations and tourism services.', 'English'),
+(57, 'Diploma in Tourism Management', 'Commerce', 20, 'Tourism planning and travel management.', 'English'),
+(58, 'BSc Construction Management', 'Engineering & IT', 28, 'Construction projects and site management.', 'Mathematics, Physical Science'),
+(59, 'Diploma in Architecture', 'Engineering & IT', 24, 'Architectural drafting and building design.', 'Mathematics'),
+(60, 'BSc Computer Engineering', 'Engineering & IT', 32, 'Computer hardware, embedded systems and software.', 'Mathematics, Physical Science');
 
 
 INSERT INTO University_courses (id, university_id, course_id, faculty_name, min_aps_override) VALUES
@@ -235,4 +270,64 @@ INSERT INTO University_courses (id, university_id, course_id, faculty_name, min_
 (153, 5, 32, 'College of Agriculture, Engineering and Science', NULL),
 (154, 5, 33, 'College of Agriculture, Engineering and Science', NULL),
 (155, 5, 34, 'College of Health Sciences', NULL),
-(156, 5, 35, 'College of Law and Management Studies', NULL);
+(156, 5, 35, 'College of Law and Management Studies', NULL)
+
+-- NWU
+(157, 6, 1, 'Faculty of Economic and Management Sciences', NULL),
+(158, 6, 2, 'Faculty of Natural and Agricultural Sciences', NULL),
+(159, 6, 3, 'Faculty of Law', NULL),
+(160, 6, 4, 'Faculty of Health Sciences', NULL),
+(161, 6, 5, 'Faculty of Natural and Agricultural Sciences', NULL),
+(162, 6, 6, 'Faculty of Economic and Management Sciences', NULL),
+(163, 6, 7, 'Faculty of Economic and Management Sciences', NULL),
+(164, 6, 8, 'Faculty of Economic and Management Sciences', NULL),
+(165, 6, 9, 'Faculty of Natural and Agricultural Sciences', NULL),
+(166, 6, 12, 'Faculty of Engineering', NULL),
+(167, 6, 13, 'Faculty of Engineering', NULL),
+(168, 6, 14, 'Faculty of Engineering', NULL),
+(169, 6, 16, 'Faculty of Health Sciences', NULL),
+(170, 6, 20, 'Faculty of Humanities', NULL),
+(171, 6, 24, 'Faculty of Education', NULL),
+(172, 6, 27, 'Faculty of Economic and Management Sciences', NULL),
+(173, 6, 30, 'Faculty of Economic and Management Sciences', NULL),
+(174, 6, 31, 'Faculty of Natural and Agricultural Sciences', NULL),
+(175, 6, 32, 'Faculty of Natural and Agricultural Sciences', NULL),
+(176, 6, 35, 'Faculty of Law', NULL),
+(177, 6, 36, 'Faculty of Natural and Agricultural Sciences', NULL),
+(178, 6, 44, 'Faculty of Education', NULL),
+(179, 6, 46, 'Faculty of Humanities', NULL),
+(180, 6, 49, 'Faculty of Natural and Agricultural Sciences', NULL),
+(181, 6, 50, 'Faculty of Natural and Agricultural Sciences', NULL),
+(182, 6, 55, 'Faculty of Humanities', NULL),
+
+-- UJ
+(183, 7, 1, 'College of Business and Economics', NULL),
+(184, 7, 2, 'Faculty of Science', NULL),
+(185, 7, 3, 'Faculty of Law', NULL),
+(186, 7, 4, 'Faculty of Health Sciences', NULL),
+(187, 7, 6, 'College of Business and Economics', NULL),
+(188, 7, 7, 'College of Business and Economics', NULL),
+(189, 7, 8, 'College of Business and Economics', NULL),
+(190, 7, 9, 'Faculty of Science', NULL),
+(191, 7, 12, 'Faculty of Engineering and the Built Environment', NULL),
+(192, 7, 13, 'Faculty of Engineering and the Built Environment', NULL),
+(193, 7, 14, 'Faculty of Engineering and the Built Environment', NULL),
+(194, 7, 16, 'Faculty of Health Sciences', NULL),
+(195, 7, 20, 'Faculty of Humanities', NULL),
+(196, 7, 22, 'Faculty of Humanities', NULL),
+(197, 7, 24, 'Faculty of Education', NULL),
+(198, 7, 25, 'Faculty of Engineering and the Built Environment', NULL),
+(199, 7, 27, 'College of Business and Economics', NULL),
+(200, 7, 28, 'College of Business and Economics', NULL),
+(201, 7, 31, 'Faculty of Science', NULL),
+(202, 7, 35, 'Faculty of Law', NULL),
+(203, 7, 36, 'Faculty of Engineering and the Built Environment', NULL),
+(204, 7, 37, 'Faculty of Engineering and the Built Environment', NULL),
+(205, 7, 41, 'College of Business and Economics', NULL),
+(206, 7, 44, 'Faculty of Education', NULL),
+(207, 7, 49, 'Faculty of Science', NULL),
+(208, 7, 60, 'Faculty of Engineering and the Built Environment', NULL);
+
+/* CONTINUE WITH THE SAME PATTERN
+FOR RHODES, NMU, UFS, UL, TUT, CPUT, DUT, AND UNIVEN
+USING THE IDs I ALREADY PROVIDED EARLIER */

@@ -18,11 +18,10 @@
             <h2>Explore</h2>
         </div>
         <ul>
-
-        <li><a href="dashboard.jsp"><span class="material-symbols-outlined back">
-arrow_back_ios_new
-        </span></a></li>
-            </ul>
+            <li><a href="dashboard.jsp"><span class="material-symbols-outlined back">
+            arrow_back_ios_new
+            </span></a></li>
+        </ul>
         
            <div class="hero">
                 <p class="hero_text">Choose what you want to explore. </p>

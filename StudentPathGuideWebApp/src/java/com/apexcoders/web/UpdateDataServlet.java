@@ -4,6 +4,7 @@ import com.apexcoders.entities.Student;
 import com.apexcoders.exception.InvalidMarksException;
 import com.apexcoders.model.bl.StudentFacadeLocal;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -28,15 +29,33 @@ public class UpdateDataServlet extends HttpServlet {
            String username = stud.getUsername();
            
            Map<String,Integer> subj = stud.getSubjectMarks();
+           int counter = 1;
            int grade = stud.getGrade();
            int aps = stud.getAps();
+           
+           //set the subjects and marks mannually
+           
+           
+           for(Map.Entry<String,Integer> e: subj.entrySet()){
+           
+           String subjKey = "subj"+counter;
+           String percKey = "perc"+counter;
+           
+           request.setAttribute(subjKey,e.getKey());
+           request.setAttribute(percKey,e.getValue());
+           counter++;
+
+           }
+           
            //set attributes 
-           session.setAttribute("field", field);
-           session.setAttribute("name",username);
+           request.setAttribute("field", field);
+           request.setAttribute("name",username);
+           
            System.out.println(username+""+field);
-           session.setAttribute("subj",subj);
-           session.setAttribute("grade",grade);
-           session.setAttribute("aps",aps);
+            System.out.println("Subject "+stud.getSubjectMarks());
+           request.setAttribute("subj",subj);
+           request.setAttribute("grade",grade);
+           request.setAttribute("aps",aps);
            
            request.getRequestDispatcher("update_data.jsp").forward(request, response);
            
@@ -45,27 +64,40 @@ public class UpdateDataServlet extends HttpServlet {
 
        
     }
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+   @Override
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+    HttpSession session = request.getSession();
+    Student stud = (Student) session.getAttribute("stud");
 
-       
+    // Use new inputs from the form
+    stud.setUsername(request.getParameter("username"));
+    stud.setGrade(Integer.valueOf(request.getParameter("grade")));
+    stud.setFieldOfInterest(request.getParameter("fieldOfInterest"));
+
+    Map<String,Integer> updatedMarks = new HashMap<>();
+    for (int i = 1; i <= 6; i++) {
+        String subj = request.getParameter("subj" + i);   // subject name from form
+        String perc = request.getParameter("perc" + i);   // percentage from form
+        if (subj != null && !subj.isEmpty() && perc != null) {
+            int mark = Integer.parseInt(perc);
+            validateMarks(mark);
+            updatedMarks.put(subj, mark);
+        }
     }
+    stud.setSubjectMarks(updatedMarks);
 
-    private Student UpdateData(Student student,Integer grade,Integer marks,String subject, String fieldOfInterest) {
+    int aps = calculateAPS(updatedMarks.values().stream().mapToInt(Integer::intValue).toArray());
+    stud.setAps(aps);
 
-        student.setGrade(grade);
-        student.setFieldOfInterest(fieldOfInterest);
+    sfl.edit(stud);              // persist changes
+    session.setAttribute("stud", stud);
 
-        Map<String, Integer> subjectMark = student.getSubjectMarks();
+    // Redirect so doGet runs again and sets attributes
+    response.sendRedirect("dashboard.jsp");
+}
 
-        subjectMark.put(subject, marks);
-
-        student.setSubjectMarks(subjectMark);
-
-        return student;
-    }
-    
+   
     private int calculateAPS(int... marks) {
     int total = 0;
 

@@ -34,7 +34,7 @@ import org.hibernate.validator.constraints.NotBlank;
     @NamedQuery(name="Student.listAllBasedOnMinAndMaxAPS",query="Select a from Student a where a.aps >= :min and a.aps <= :max"),
     @NamedQuery(name="Student.getStudentsBasedOnGrade", query="Select a from Student a where a.grade = :grade"),
     @NamedQuery(name="Student.getStudentsBasedOnField", query="Select a from Student a where a.fieldOfInterest = :field"),
-   
+      
 })
 public class Student implements Serializable {
 
@@ -43,7 +43,7 @@ public class Student implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @Column(name = "username", nullable = false, length= 50)
+    @Column(name = "username", nullable = false, length= 50,unique = true)
     private String username;
     
     @Column(name = "grade",nullable = false)

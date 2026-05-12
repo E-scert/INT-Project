@@ -8,7 +8,6 @@ package com.apexcoders.web;
 import com.apexcoders.entities.Student;
 import com.apexcoders.model.bl.StudentFacadeLocal;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -16,7 +15,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -27,25 +25,20 @@ public class ListStudentsBasedOnFieldServlet extends HttpServlet {
     @EJB
     private StudentFacadeLocal studentFacade;
 
-
-  
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        HttpSession session = request.getSession();
-        
+
         String field = request.getParameter("field");
-        
+
         List<Student> students = studentFacade.listStudentsBasedOnField(field);
-        
-        session.setAttribute("students", students);
-        
+
+        request.setAttribute("students", students);
+
         RequestDispatcher rsdip = request.getRequestDispatcher("list_students_based_on_field.jsp");
         rsdip.forward(request, response);
-        
-        
-    }
 
+
+    }
 
 }

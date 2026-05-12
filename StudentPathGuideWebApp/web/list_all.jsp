@@ -13,39 +13,48 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios_new,search" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> 
+
+    <link rel="stylesheet" href="style/style.css">
         <title>List All Students Page</title>
     </head>
     <body>
-        <h1>List All Students</h1>
+        <div class="head section">
+            <ul>
+            <li><a href="admin_page.jsp"><span class="material-symbols-outlined back">
+            arrow_back_ios_new
+            </span></a></li>
+        </ul>
+            <h1 class="head section">List All Students</h1>
+        </div>
+       <div class="list_btn_container">
 
         <form action="ListAllStudentsServlet.do" method="GET">
-
-            <table>
-                <tr>
-                    <td></td>
-                    <td>Click to View all Students</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" value="List Students"></td>
-                </tr>
-            </table>
-
+          <div class="list_btn"> 
+               
+            <input type="submit" value="VIEW ALL STUDENTS" class="btn_view"/>
+          </div>
+            
 
         </form>
+       </div>
+    
               
 
         <h1>List All Students</h1>
 
         <%
-            List<Student> students = (List<Student>) session.getAttribute("students");
+            List<Student> students = (List<Student>) request.getAttribute("students");
         %>
 
         <%
             if (students != null && students.size() > 0) {
         %>
 
-        <table>
+        <table class="dashboard_table">
             <tr>
                 <th>ID</th>
                 <th>Username</th>
@@ -106,6 +115,7 @@
             }
         %>
 
+        
 
 
 
