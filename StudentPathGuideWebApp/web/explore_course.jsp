@@ -59,7 +59,7 @@ search
     <p>Name: ${courses.courseName}</p>
     <p>Field: ${courses.courseField}</p>
     <p>APS: ${courses.courseMinAps}</p>
-    <p>Description: ${courses.courseDescription}</p>
+    <p id="course_disc">Description: ${courses.courseDescription}</p>
     <p>Required Subjects: ${courses.courseRequiredSubjects}</p>
 </div>
     <h3 style="text-align: center; font-size: 1.35rem;">Universities offering this course</h3>
@@ -88,6 +88,7 @@ search
 
     
     <script>
+        const course = "${courses.courseDescription}";
 document.getElementById("courseName").addEventListener("keyup", function() {
     let query = this.value;
     if (query.length < 2) {
@@ -115,7 +116,55 @@ document.getElementById("courseName").addEventListener("keyup", function() {
                 suggestionsBox.style.display = "none";
             }
         });
+
+        
 });
+
+function appendToDisc(desc) {
+    const discEl = document.getElementById("course_disc");
+
+    discEl.innerText = "" + desc;
+}
+
+window.addEventListener("load", async ()=>{
+try {
+            const response = await fetch(
+                "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + CONFIG.k,
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{
+                                text: "You are an experienced career guidance counselor helping high school students. "
+                                    + "Give clear, concise, and practical advice. Avoid jargon.\n\n"
+                                    + "The student wants to know the practical information about "
+                                    + course
+                            }]
+                        }]
+                    })
+                }
+            );
+
+            const data = await response.json();
+            
+
+            if (response.ok) {
+                const aiText = data.candidates[0].content.parts[0].text;
+                // Clean up markdown bold markers
+                const cleaned = aiText.replace(/\*\*/g, "");
+                appendToDisc(cleaned);
+            } else {
+                appendToDisc("Error: " + data.error.message);
+            }
+
+        } catch (err) {
+            
+            appendToDisc("Could not reach Javis. Please check your connection.");
+            console.error(err);
+        }
+});
+
 </script>
     
     

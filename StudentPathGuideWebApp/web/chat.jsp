@@ -101,8 +101,7 @@ arrow_back_ios_new
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        console.log("We are live!");
-        console.log(student.subjects);
+       
         const userText = promptInput.value.trim();
         if (!userText) return;
 
